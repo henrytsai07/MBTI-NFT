@@ -1,7 +1,6 @@
 import React from "react";
 import solana_B from "../assets/Solana_B.png";
 import solana_W from "../assets/solana_W.png";
-import solana_Banner from "../assets/Solana_Banner.png";
 
 export default function Card({ image, series, title, price, tag, time }) {
   return (

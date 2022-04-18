@@ -1,5 +1,5 @@
 import React from "react";
-import home from "../assets/home.png";
+import home from "../assets/question_rabbit.png";
 export default function Home() {
   return (
     <div className="home">
