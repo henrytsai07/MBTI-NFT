@@ -3,6 +3,7 @@ import Card from "./Card";
 import icon from "../assets/icon.png";
 import super1 from "../assets/super1.png";
 import release2 from "../assets/release2.png";
+import ex from "../assets/question_rabbit.png";
 
 export default function Free() {
   return (
@@ -25,7 +26,7 @@ export default function Free() {
       <div className="cards">
         <div className="card1">
           <Card
-            image={super1}
+            image={ex}
             series="Gloop Series"
             title="Purple Man"
             price={2.99}
@@ -35,7 +36,7 @@ export default function Free() {
         </div>
         <div className="card2">
           <Card
-            image={release2}
+            image={ex}
             series="Gloop Series"
             title="Purple Man"
             price={3.95}

@@ -4,11 +4,12 @@ import super1 from "../assets/super1.png";
 import super2 from "../assets/super2.png";
 import super3 from "../assets/super3.png";
 import super4 from "../assets/super4.png";
+import ex from "../assets/question_rabbit.png";
 
 export default function SuperRare() {
   const data = [
     {
-      image: super1,
+      image: ex,
       series: "Gloop Series",
       title: "Purple Man",
       price: 2.99,
@@ -16,7 +17,7 @@ export default function SuperRare() {
       time: 1,
     },
     {
-      image: super2,
+      image: ex,
       series: "Gloop Series",
       title: "Beige",
       price: 2.99,
@@ -24,7 +25,7 @@ export default function SuperRare() {
       time: 1,
     },
     {
-      image: super3,
+      image: ex,
       series: "Gloop Series",
       title: "Red Man",
       price: 2.99,
@@ -32,7 +33,7 @@ export default function SuperRare() {
       time: 1,
     },
     {
-      image: super4,
+      image: ex,
       series: "Gloop Series",
       title: "Green",
       price: 2.99,

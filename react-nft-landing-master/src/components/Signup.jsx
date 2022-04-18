@@ -1,5 +1,7 @@
 import React from "react";
 import signup from "../assets/signup.png";
+import ex from "../assets/question_rabbit.png";
+
 export default function Signup() {
   return (
     <div className="signup">
@@ -15,7 +17,7 @@ export default function Signup() {
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={signup} alt="home image" />
+            <img src={ex} alt="home image" />
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>

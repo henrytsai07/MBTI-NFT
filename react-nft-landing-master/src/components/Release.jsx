@@ -3,6 +3,7 @@ import { BsArrowRight } from "react-icons/bs";
 import release1 from "../assets/release1.png";
 import release2 from "../assets/release2.png";
 import Card from "./Card";
+import ex from "../assets/question_rabbit.png";
 
 export default function Release() {
   return (
@@ -24,14 +25,14 @@ export default function Release() {
           </a>
         </div>
         <div className="image">
-          <img src={release1} alt="release" />
+          <img src={ex} alt="release" />
           <div className="ellipse pink"></div>
         </div>
       </div>
       <div className="release green">
         <div className="card-container">
           <Card
-            image={release2}
+            image={ex}
             series="Gloop Series"
             title="Purple Man"
             price={3.95}
