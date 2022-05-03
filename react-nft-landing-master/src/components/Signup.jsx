@@ -1,5 +1,4 @@
 import React from "react";
-import signup from "../assets/signup.png";
 import ex from "../assets/question_rabbit.png";
 
 export default function Signup() {
@@ -11,7 +10,7 @@ export default function Signup() {
           <h1 className="title">An NFT like no other</h1>
           <p className="description">
             Don't miss out on the release of our new NFT. Sign up below to
-            recieve updates when we go live.
+            recieve updates when we go live.ssss
           </p>
           <button>Sign Up</button>
         </div>

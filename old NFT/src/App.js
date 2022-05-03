@@ -7,7 +7,7 @@ function App() {
     <div className="App">
     <nav class="navbar">
         <div class="navbar__container">
-            <a href="/" id="navbar__logo">Boba NFT</a>
+            <a href="/" id="navbar__logo">Boba NFTwwwwww</a>
             <div class="navbar__toggle" id="mobile-menu">
                 <span class="bar"></span>
                 <span class="bar"></span>

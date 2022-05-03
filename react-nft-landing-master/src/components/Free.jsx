@@ -14,10 +14,7 @@ export default function Free() {
           <div className="ellipse green"></div>
         </div>
         <div className="content">
-          <div className="image">
-            <img src={icon} alt="icon" />
-          </div>
-          <h2 className="title">Free NFT for early birds</h2>
+          <h2 className="title">What is MBTI Bunny?</h2>
           <p className="description">
             The first 10 users who sign up today will get free NFT
           </p>

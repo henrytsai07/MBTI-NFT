@@ -6,7 +6,7 @@ export default function Home() {
       <div className="container">
         <div className="content">
           <p className="sub-title">Launching Soon</p>
-          <h1 className="title">An NFT like no other</h1>
+          <h1 className="title">Your ID in Web3</h1>
           <p className="description">
             Don't miss out on the release of our new NFT. Sign up below to
             recieve updates when we go live.
