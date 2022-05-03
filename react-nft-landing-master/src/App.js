@@ -57,9 +57,10 @@ function App() {
       <Free />
       <Like />
       <SuperRare />
-      <Footer />
       <Release />
       <Signup />
+      <Footer />
+
     </div>
   );
 }

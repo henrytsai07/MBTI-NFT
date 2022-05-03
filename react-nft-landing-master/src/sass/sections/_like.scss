@@ -12,7 +12,12 @@
       padding: 3rem;
       border-radius: 2rem;
       .image {
+        display: flex;
         img {
+        }
+        h2 {
+          margin:1rem;
+          color:var(--accent-color1);
         }
       }
       .title {

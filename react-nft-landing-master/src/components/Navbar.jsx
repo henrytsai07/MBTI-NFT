@@ -42,7 +42,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
             <a href="#Mint">Mint</a>
           </li>
           <li>
-            <a href="#signup">Discord</a>
+            <a href="https://discord.gg/Mrw6xGGT" target="_blank">Discord</a>
           </li>
           <li onClick={changeTheme}>
             {currentTheme === "dark" ? (

@@ -1,5 +1,7 @@
 import React from "react";
-import solana_Banner from "../assets/Solana_Banner.png";
+import eth1 from "../assets/eth1.png";
+import eth2 from "../assets/eth2.png";
+
 
 
 export default function Like() {
@@ -8,7 +10,9 @@ export default function Like() {
       <div className="container">
         <div className="content">
           <div className="image">
-            <img src={solana_Banner} alt="Solana Banner" width = "300" height = "130"/>
+            <img src={eth1} alt="eth1" width='30px' />
+              <h2>Ethereum Blockchain</h2>
+            <img src={eth2} alt="eth2" width = '30px' />
           </div>
           <h2 className="title">An NFT like no other</h2>
           <p className="description">

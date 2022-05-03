@@ -1,8 +1,10 @@
 import React from "react";
 import home from "../assets/question_rabbit.png";
+import videoBG from '../assets/cloud.mp4';
 export default function Home() {
   return (
     <div className="home">
+      <video src={videoBG} autoPlay muted loop/>
       <div className="container">
         <div className="content">
           <p className="sub-title">Launching Soon</p>
@@ -22,7 +24,9 @@ export default function Home() {
             <div className="ellipse orange"></div>
           </div>
         </div>
+        
       </div>
+      
     </div>
   );
 }
