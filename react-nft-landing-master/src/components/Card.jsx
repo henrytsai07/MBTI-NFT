@@ -1,5 +1,5 @@
 import React from "react";
-import solana_B from "../assets/Solana_B.png";
+import supereth from "../assets/supereth.png";
 import solana_W from "../assets/solana_W.png";
 
 export default function Card({ image, series, title, price, tag, time }) {
@@ -16,9 +16,8 @@ export default function Card({ image, series, title, price, tag, time }) {
         <div className="card-details">
           <h4 className="card-title">{title}</h4>
           <div className="card-price">
-            <img src={solana_W} alt="Solana" width="20" 
-     height="20" />
-            <h4>{price} SOL</h4>
+            <img src={supereth} alt="Solana" />
+            <h4>{price} ETH</h4>
           </div>
         </div>
         <div className="card-sub-details">

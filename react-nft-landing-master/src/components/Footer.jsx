@@ -2,6 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
+import island from "../assets/island.png"
 export default function Footer() {
   const links = [
     {
@@ -10,7 +11,7 @@ export default function Footer() {
     },
     {
       title: "NFT",
-      data: ["MagicEden", "Maker", "Learn"],
+      data: ["OpenSea", "Maker", "Learn"],
     },
     {
       title: "Contact",
@@ -18,7 +19,7 @@ export default function Footer() {
     },
     {
       title: "Social",
-      data: ["Twiiter", "Instagram"],
+      data: ["Twitter", "Discord"],
     },
   ];
   const socialLink = [
@@ -60,6 +61,8 @@ export default function Footer() {
         <span>&copy; Copyright 2022 NFT</span>
         <span>Launching August 2022</span>
       </div>
+      <img className="island" src={island} alt="island"/>
+
     </footer>
   );
 }

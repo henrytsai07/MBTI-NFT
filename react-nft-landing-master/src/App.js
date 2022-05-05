@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 //import Clients from "./components/Clients";
 import Footer from "./components/Footer";
 import Free from "./components/Free";
@@ -11,6 +12,8 @@ import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
+import videoBG from './assets/cloud.mp4';
+
 function App() {
   const [theme, setTheme] = useState("dark");
   const changeTheme = () => {
@@ -50,19 +53,44 @@ function App() {
     nav[0].style.transform = "none";
   }, 1500);
   return (
-    <div data-theme={theme} className="app-container">
-      <ScrollToTop />
+    // <Router>
+    <><video src={videoBG} autoPlay muted loop />
+      <div data-theme={theme} className="nav-container">
       <Navbar changeTheme={changeTheme} currentTheme={theme} />
-      <Home />
-      <Free />
-      <Like />
-      <SuperRare />
-      <Release />
-      <Signup />
-      <Footer />
+    </div><>
+        <div data-theme={theme} className="app-container">
+          <ScrollToTop />
+          <Home />
+          <Free />
+          <Like />
+          <SuperRare />
+          <Release />
+          <Signup />
+          <Footer />
 
-    </div>
+          </div></></>
+      
   );
 }
 
 export default App;
+
+
+{/* <Routes>
+        <Route path="/">
+        <ScrollToTop />
+          <Home />
+          <Free />
+          <Like />
+          <SuperRare />
+          <Release />
+          <Signup />
+          <Footer />
+        </Route>
+        <Route path="/about">
+          {/* <div data-theme={theme} className="nav-container"> */}
+    //       <Navbar changeTheme={changeTheme} currentTheme={theme} />
+    //       {/* </div> */}
+    //     </Route>
+    //   </Routes>
+    // </Router> */}

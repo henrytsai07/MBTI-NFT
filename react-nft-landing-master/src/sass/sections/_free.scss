@@ -38,8 +38,7 @@
       padding-left: 5rem;
       font-size: 1.3rem;
       .image {
-        img {
-        }
+       
       }
       .title {
         font-size: 2rem;
@@ -51,7 +50,7 @@
   .cards {
     display: flex;
     position: absolute;
-    top: -2rem;
+    top: -3rem;
     right: 40%;
     .card1 {
       top: 0;
@@ -62,7 +61,7 @@
       .card-image {
         img {
           height: 10rem;
-          width: 12rem;
+          width: 11rem;
         }
       }
     }
@@ -72,11 +71,11 @@
       position: absolute;
       left: 10rem;
       transform: rotate(5deg);
-      font-size: 0.7rem;
+      font-size: 0.6rem;
       .card-image {
         img {
           height: 10rem;
-          width: 12rem;
+          width: 10.5rem;
 
         }
       }

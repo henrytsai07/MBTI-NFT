@@ -3,6 +3,7 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 5rem;
+  //background-color: red;
   .upper {
     display: flex;
     justify-content: space-between;
@@ -13,6 +14,8 @@ footer {
       gap: 1.5rem;
       .brand {
         img {
+          width: 200px;
+
         }
       }
       p {
@@ -46,6 +49,7 @@ footer {
         }
       }
     }
+    
   }
   .lower {
     display: flex;
@@ -53,6 +57,11 @@ footer {
     span {
       color: var(--accent-color3);
     }
+  }
+  .island {
+    z-index: -1;
+    position: absolute;
+    width:100%;
   }
 }
 
