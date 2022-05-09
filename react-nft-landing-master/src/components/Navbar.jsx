@@ -4,7 +4,6 @@ import { MdClose } from "react-icons/md";
 import { ImSun } from "react-icons/im";
 import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../assets/logo.png";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
@@ -34,14 +33,14 @@ export default function Navbar({ changeTheme, currentTheme }) {
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
         <ul className="links">
           <li>
-            <a to="/about">About</a>
+            <a href="/">About</a>
 
           </li>
           <li>
-            <a to="/features">Features</a>
+            <a href="/features">Features</a>
           </li>
           <li>
-            <a to="/Mint">Mint</a>
+            <a href="/Mint">Mint</a>
           </li>
           <li>
             <a href="https://discord.gg/Mrw6xGGT" target="_blank">Discord</a>

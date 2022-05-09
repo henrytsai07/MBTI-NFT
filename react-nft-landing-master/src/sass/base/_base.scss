@@ -33,7 +33,7 @@ html {
 }
 
 .app-container {
-  background-color: var(--background);
+  //background-color: var(--background);
   font-family: var(--font-family);
   overflow-x: hidden;
   transition: 0.5s ease-in-out;
@@ -42,6 +42,7 @@ html {
     padding: 0;
   }
 }
+
 .nav-container {
   background-color: #00aeff;
   font-family: var(--font-family);
@@ -49,7 +50,16 @@ html {
   position: relative;
   transition: 0.5s ease-in-out;
   z-index:1
+}
 
+.filter-container {
+  transition: 0.5s ease-in-out;
+  font-family: var(--font-family);
+
+  padding: 2rem 4rem;
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 0;
+  }
 }
 
 @media only screen and (min-device-width: 280px) and (max-device-width: 1080px) {
@@ -73,4 +83,5 @@ video {
   object-fit: cover;
   padding-left:  0rem;
   position:fixed;
+  z-index: -1;
 }

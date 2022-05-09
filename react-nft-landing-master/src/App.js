@@ -12,7 +12,8 @@ import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
-import videoBG from './assets/cloud.mp4';
+import videoBG from "./assets/cloud.mp4";
+import Features from "./components/features";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -53,44 +54,48 @@ function App() {
     nav[0].style.transform = "none";
   }, 1500);
   return (
-    // <Router>
-    <><video src={videoBG} autoPlay muted loop />
-      <div data-theme={theme} className="nav-container">
-      <Navbar changeTheme={changeTheme} currentTheme={theme} />
-    </div><>
-        <div data-theme={theme} className="app-container">
-          <ScrollToTop />
-          <Home />
-          <Free />
-          <Like />
-          <SuperRare />
-          <Release />
-          <Signup />
-          <Footer />
-
-          </div></></>
-      
+    <Router>
+      <Routes>
+        <Route
+          exact
+          path="/"
+          element={
+            <>
+              <video src={videoBG} autoPlay muted loop />
+              <div data-theme={theme} className="nav-container">
+                <Navbar changeTheme={changeTheme} currentTheme={theme} />
+              </div>
+              <div data-theme={theme} className="app-container">
+                <ScrollToTop />
+                <Home />
+                <Free />
+                <Like />
+                <SuperRare />
+                <Release />
+                <Signup />
+                <Footer />
+              </div>
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/features"
+          element={
+            <>
+              <video src={videoBG} autoPlay muted loop />
+              <div data-theme={theme} className="nav-container">
+                <Navbar changeTheme={changeTheme} currentTheme={theme} />
+              </div>
+              <div data-theme={theme} className="filter-container">
+                <Features />
+              </div>
+            </>
+          }
+        />
+      </Routes>
+    </Router>
   );
 }
 
 export default App;
-
-
-{/* <Routes>
-        <Route path="/">
-        <ScrollToTop />
-          <Home />
-          <Free />
-          <Like />
-          <SuperRare />
-          <Release />
-          <Signup />
-          <Footer />
-        </Route>
-        <Route path="/about">
-          {/* <div data-theme={theme} className="nav-container"> */}
-    //       <Navbar changeTheme={changeTheme} currentTheme={theme} />
-    //       {/* </div> */}
-    //     </Route>
-    //   </Routes>
-    // </Router> */}
