@@ -44,7 +44,6 @@ html {
 }
 
 .nav-container {
-  background-color: #00aeff;
   font-family: var(--font-family);
   //padding: 2rem 4rem;
   position: relative;
@@ -56,7 +55,7 @@ html {
   transition: 0.5s ease-in-out;
   font-family: var(--font-family);
 
-  padding: 2rem 4rem;
+  padding: 4rem 4rem;
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     padding: 0;
   }

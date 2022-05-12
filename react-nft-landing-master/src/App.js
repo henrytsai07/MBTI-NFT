@@ -13,7 +13,7 @@ import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
 import videoBG from "./assets/cloud.mp4";
-import Features from "./components/features";
+import { Features } from "./components/features";
 
 function App() {
   const [theme, setTheme] = useState("dark");
