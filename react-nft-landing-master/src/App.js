@@ -73,6 +73,8 @@ function App() {
                 <SuperRare />
                 <Release />
                 <Signup />
+              </div>
+              <div data-theme={theme} className="footer-container">
                 <Footer />
               </div>
             </>

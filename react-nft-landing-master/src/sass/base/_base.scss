@@ -51,6 +51,17 @@ html {
   z-index:1
 }
 
+.footer-container{
+  font-family: var(--font-family);
+  //padding: 2rem 4rem;
+  position: relative;
+  transition: 0.5s ease-in-out;
+  z-index:1;
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 0;
+  }
+}
+
 .filter-container {
   transition: 0.5s ease-in-out;
   font-family: var(--font-family);

@@ -3,8 +3,10 @@ footer {
   display: flex;
   flex-direction: column;
   gap: 5rem;
-  //background-color: red;
+
   .upper {
+    padding: 2rem 4rem;
+
     display: flex;
     justify-content: space-between;
     color: var(--accent-color3);
@@ -52,6 +54,8 @@ footer {
     
   }
   .lower {
+    padding: 2rem 4rem;
+
     display: flex;
     justify-content: space-between;
     span {

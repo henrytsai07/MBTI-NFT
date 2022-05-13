@@ -2,7 +2,7 @@ import React from "react";
 import logo from "../assets/logo.png";
 import { BsFacebook, BsTwitter, BsInstagram } from "react-icons/bs";
 import { FaTiktok } from "react-icons/fa";
-import island from "../assets/island.png"
+import island from "../assets/ground.png"
 export default function Footer() {
   const links = [
     {
