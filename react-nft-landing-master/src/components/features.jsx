@@ -27,12 +27,13 @@ export class Features extends React.Component {
     this.state = {
       popular: [],
       filter: [],
-      activeGenre: [],
+      activeGenre: ['','','',''],
       value: "",
     };
   }
   handleChange = (options) => {
     this.changeFacial(options.value);
+    this.changeAccessories(options.value);
 
     this.setState({ value: options.value });
   };
@@ -62,7 +63,49 @@ export class Features extends React.Component {
     });
   }
   changeFacial(genre) {
-    this.state.activeGenre.push(genre);
+    this.state.activeGenre[0] = genre;
+    console.log(this.state.activeGenre);
+    const filtered = this.state.popular.filter(
+      (movie) => movie.data.Facial === this.state.activeGenre
+    );
+
+    console.log(filtered);
+    if (this.state.activeGenre === ['']) {
+      this.state.filter = this.state.popular;
+      return;
+    }
+    this.state.filter = filtered;
+  }
+  changeAccessories(genre) {
+    this.state.activeGenre[1] = genre;
+    console.log(this.state.activeGenre);
+    const filtered = this.state.popular.filter(
+      (movie) => movie.data.Facial === this.state.activeGenre
+    );
+
+    console.log(filtered);
+    if (this.state.activeGenre === ['']) {
+      this.state.filter = this.state.popular;
+      return;
+    }
+    this.state.filter = filtered;
+  }
+  changeItems(genre) {
+    this.state.activeGenre[2] = genre;
+    console.log(this.state.activeGenre);
+    const filtered = this.state.popular.filter(
+      (movie) => movie.data.Facial === this.state.activeGenre
+    );
+
+    console.log(filtered);
+    if (this.state.activeGenre === ['']) {
+      this.state.filter = this.state.popular;
+      return;
+    }
+    this.state.filter = filtered;
+  }
+  changeClothing(genre) {
+    this.state.activeGenre[3] = genre;
     console.log(this.state.activeGenre);
     const filtered = this.state.popular.filter(
       (movie) => movie.data.Facial === this.state.activeGenre
@@ -96,7 +139,7 @@ export class Features extends React.Component {
         onChange={this.handleChange}
         onClick={() => (
           this.setState({ activeGenre: this.state.value }),
-          this.changeFacial(this.state.value)
+          this.changeAccessories(this.state.value)
         )}
         
       />
@@ -105,10 +148,10 @@ export class Features extends React.Component {
       <Select
         options={options}
         value={this.state.value}
-        onChange={this.handleChange}
+        onChange={this.changeItems(this.state.value)}
         onClick={() => (
-          this.setState({ activeGenre: this.state.value }),
-          this.changeFacial(this.state.value)
+          this.setState({ activeGenre: this.state.value })
+          //this.changeItems(this.state.value)
         )}
         
       />
@@ -120,7 +163,7 @@ export class Features extends React.Component {
         onChange={this.handleChange}
         onClick={() => (
           this.setState({ activeGenre: this.state.value }),
-          this.changeFacial(this.state.value)
+          this.changeClothing(this.state.value)
         )}
         
       />
