@@ -27,12 +27,12 @@ export class Features extends React.Component {
     this.state = {
       popular: [],
       filter: [],
-      activeGenre: "",
+      activeGenre: [],
       value: "",
     };
   }
   handleChange = (options) => {
-    this.change(options.value);
+    this.changeFacial(options.value);
 
     this.setState({ value: options.value });
   };
@@ -49,24 +49,27 @@ export class Features extends React.Component {
       });
       this.state.popular = records;
       this.state.filter = records;
+      console.log(this.state.activeGenre);
 
-      if (this.state.activeGenre === "") {
+
+      if (this.state.activeGenre === []) {
         this.setState({ filter: this.state.popular });
+        alert();
 
         return;
       }
       // setFiltered(popular);
     });
   }
-  change(genre) {
-    this.state.activeGenre = genre;
+  changeFacial(genre) {
+    this.state.activeGenre.push(genre);
     console.log(this.state.activeGenre);
     const filtered = this.state.popular.filter(
       (movie) => movie.data.Facial === this.state.activeGenre
     );
 
     console.log(filtered);
-    if (this.state.activeGenre === "") {
+    if (this.state.activeGenre === ['']) {
       this.state.filter = this.state.popular;
       return;
     }
@@ -74,15 +77,52 @@ export class Features extends React.Component {
   }
 
   render() {
-    const MyComponent = () => (
+    const Facial_List = () => (
       <Select
         options={options}
         value={this.state.value}
         onChange={this.handleChange}
         onClick={() => (
           this.setState({ activeGenre: this.state.value }),
-          this.change(this.state.value)
+          this.changeFacial(this.state.value)
         )}
+        
+      />
+    );
+    const Accessories_List = () => (
+      <Select
+        options={options}
+        value={this.state.value}
+        onChange={this.handleChange}
+        onClick={() => (
+          this.setState({ activeGenre: this.state.value }),
+          this.changeFacial(this.state.value)
+        )}
+        
+      />
+    );
+    const Items_List = () => (
+      <Select
+        options={options}
+        value={this.state.value}
+        onChange={this.handleChange}
+        onClick={() => (
+          this.setState({ activeGenre: this.state.value }),
+          this.changeFacial(this.state.value)
+        )}
+        
+      />
+    );
+    const Clothings_List = () => (
+      <Select
+        options={options}
+        value={this.state.value}
+        onChange={this.handleChange}
+        onClick={() => (
+          this.setState({ activeGenre: this.state.value }),
+          this.changeFacial(this.state.value)
+        )}
+        
       />
     );
     return (
@@ -97,10 +137,10 @@ export class Features extends React.Component {
             </div>
 
             <div className="dropdown-container">
-              <MyComponent />
-              <MyComponent />
-              <MyComponent />
-              <MyComponent />
+              <Facial_List />
+              <Accessories_List />
+              <Items_List />
+              <Clothings_List />
             </div>
           </div>
 
