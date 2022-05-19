@@ -11,12 +11,26 @@ import { ref, onValue } from "firebase/database";
 import Select from "react-select";
 
 const db = StartFirebase();
-const options = [
+const facial_options = [
   { value: "", label: "All" },
   { value: "Questioning", label: "Questioning" },
   { value: "Angry", label: "Angry" },
 ];
-
+const accessories_options = [
+  { value: "", label: "All" },
+  { value: "Questioning", label: "Questioning" },
+  { value: "Angry", label: "Angry" },
+];
+const item_options = [
+  { value: "", label: "All" },
+  { value: "Questioning", label: "Questioning" },
+  { value: "Angry", label: "Angry" },
+];
+const clothing_options = [
+  { value: "", label: "All" },
+  { value: "Questioning", label: "Questioning" },
+  { value: "Angry", label: "Angry" },
+];
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
   //   const [filtered, setFiltered] = useState([]);
@@ -31,11 +45,46 @@ export class Features extends React.Component {
       value: "",
     };
   }
-  handleChange = (options) => {
-    this.changeFacial(options.value);
-    this.changeAccessories(options.value);
+  handleChange = () => {
+    console.log(this.state.activeGenre);
+    //initialization
+    var empty = true;
+    for(var x = 0; x < this.state.activeGenre.length; x++){
+      if (this.state.activeGenre[x] !== ""){
+        empty = false;
+      }
+    }
+    if (empty === true) {
+      this.setState({ filter: this.state.popular });
+      return;
+    }
+    if(this.state.activeGenre[0]!== ""){
+      const filtered = this.state.popular.filter(
+        (movie) => movie.data.Facial === this.state.activeGenre[0]
+      );
+      this.setState({ filter: filtered});
+    }
+    if(this.state.activeGenre[1]!== ""){
+      const filtered = this.state.filter.filter(
+        (movie) => movie.data.Accessories === this.state.activeGenre[1]
+      );
+      this.setState({ filter: filtered});
+    }
+    if(this.state.activeGenre[2]!== ""){
+      const filtered = this.state.filter.filter(
+        (movie) => movie.data.Items === this.state.activeGenre[2]
+      );
+      this.setState({ filter: filtered});
+    }
+    if(this.state.activeGenre[3]!== ""){
+      const filtered = this.state.filter.filter(
+        (movie) => movie.data.Clothings== this.state.activeGenre[3]
+      );
+      this.setState({ filter: filtered});
+    }
+    
 
-    this.setState({ value: options.value });
+    //this.setState({ value: options.value });
   };
 
   componentDidMount() {
@@ -50,13 +99,16 @@ export class Features extends React.Component {
       });
       this.state.popular = records;
       this.state.filter = records;
-      console.log(this.state.activeGenre);
-
-
-      if (this.state.activeGenre === []) {
+      //initialization
+      console.log(this.state.popular)
+      var empty = true;
+      for(var x = 0; x < this.state.activeGenre.length; x++){
+        if (this.state.activeGenre[x] !== ""){
+          empty = false;
+        }
+      }
+      if (empty === true) {
         this.setState({ filter: this.state.popular });
-        alert();
-
         return;
       }
       // setFiltered(popular);
@@ -122,49 +174,42 @@ export class Features extends React.Component {
   render() {
     const Facial_List = () => (
       <Select
-        options={options}
+        options={facial_options}
         value={this.state.value}
-        onChange={this.handleChange}
-        onClick={() => (
-          this.setState({ activeGenre: this.state.value }),
-          this.changeFacial(this.state.value)
-        )}
+        onChange={(facial_options) => (
+          this.state.activeGenre[0] = facial_options.value,
+          this.handleChange())
+          }
         
       />
     );
     const Accessories_List = () => (
       <Select
-        options={options}
+        options={accessories_options}
         value={this.state.value}
-        onChange={this.handleChange}
-        onClick={() => (
-          this.setState({ activeGenre: this.state.value }),
-          this.changeAccessories(this.state.value)
-        )}
+        onChange={(accessories_options) => (
+          this.state.activeGenre[1] = accessories_options.value,
+          this.handleChange())}
         
       />
     );
     const Items_List = () => (
       <Select
-        options={options}
+        options={item_options}
         value={this.state.value}
-        onChange={this.changeItems(this.state.value)}
-        onClick={() => (
-          this.setState({ activeGenre: this.state.value })
-          //this.changeItems(this.state.value)
-        )}
+        onChange={(item_options) => (
+          this.state.activeGenre[2] = item_options.value,
+          this.handleChange())}
         
       />
     );
     const Clothings_List = () => (
       <Select
-        options={options}
+        options={clothing_options}
         value={this.state.value}
-        onChange={this.handleChange}
-        onClick={() => (
-          this.setState({ activeGenre: this.state.value }),
-          this.changeClothing(this.state.value)
-        )}
+        onChange={(clothing_options) => (
+          this.state.activeGenre[3] = clothing_options.value,
+          this.handleChange())}
         
       />
     );
