@@ -4,6 +4,7 @@ import icon from "../assets/icon.png";
 import super1 from "../assets/super1.png";
 import release2 from "../assets/release2.png";
 import ex from "../assets/question_rabbit.png";
+import carrot from "../assets/carrot_B.png";
 
 export default function Free() {
   return (
@@ -12,6 +13,8 @@ export default function Free() {
         <div className="background">
           <div className="ellipse pink"></div>
           <div className="ellipse green"></div>
+          <img className="carrot"src={carrot} alt="carrot"/>
+          
         </div>
         <div className="content">
           <h2 className="title">What is MBTI Bunny?</h2>

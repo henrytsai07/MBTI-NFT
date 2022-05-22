@@ -3,9 +3,9 @@
   margin: 5rem 0;
   .container {
     display: flex;
-    background-color: var(--orange);
+    //background-color: var(--orange);
     position: relative;
-    height: 25rem;
+    height: 50rem;
     border-radius: 1rem;
     overflow: hidden;
     z-index: 1;
@@ -15,19 +15,28 @@
         position: absolute;
         height: 100%;
         width: 28rem;
-        border-radius: 100%;
+        border-radius: 80%;
         filter: blur(100px);
       }
       .pink {
         top: -10%;
-        left: -15%;
-        background-color: var(--pink);
+        //left: -15%;
+        background-color: #f6a44e;
       }
       .green {
         top: -10%;
         right: -15%;
-        background-color: var(--green);
+        background-color: #d0e581;
       }
+      .carrot {
+        height: 80%;
+        width: 90%;
+        position: absolute;
+        margin-left: 5%;
+
+
+      }
+      
     }
     .content {
       z-index: 1;
@@ -79,6 +88,10 @@
 
         }
       }
+    }
+    .carrot {
+      z-index: -1;
+      position: absolute;
     }
   }
   @media screen and (min-width: 280px) and (max-width: 1080px) {

@@ -13,23 +13,48 @@ import Select from "react-select";
 const db = StartFirebase();
 const facial_options = [
   { value: "", label: "All" },
-  { value: "Questioning", label: "Questioning" },
-  { value: "Angry", label: "Angry" },
+  { value: "Judging", label: "Judging" },
+  { value: "Shy", label: "Shy" },
+  { value: "Excited", label: "Excited" },
+  { value: "Please", label: "Please Emoji" },
+  { value: "Comic", label: "Comic Eyes" },
+  { value: "Motivated", label: "Motivated Face" },
+  { value: "Thinking", label: "Thinking Face" }, 
+  { value: "Apathetic ", label: "Apathetic" }
 ];
 const accessories_options = [
   { value: "", label: "All" },
-  { value: "Questioning", label: "Questioning" },
-  { value: "Angry", label: "Angry" },
+  { value: "Headphone", label: "Headphone" },
+  { value: "Reversed", label: "Reversed Cap" },
+  { value: "Regular", label: "Regular shape hairclip" },
+  { value: "Irregular", label: "Irregular shape hairclip" },
+  { value: "Glasses", label: "Glasses" },
+  { value: "Scarf", label: "Scarf" },
+  { value: "Watch", label: "Watch" },
+  { value: "Paintbrush", label: "Paintbrush" },
 ];
+
 const item_options = [
   { value: "", label: "All" },
-  { value: "Questioning", label: "Questioning" },
-  { value: "Angry", label: "Angry" },
+  { value: "Book", label: "Book" },
+  { value: "Beer_Cup", label: "Beer Cup" },
+  { value: "Magnifying", label: "Magnifying Glass" },
+  { value: "Binocular", label: "Binocular" },
+  { value: "Rubik", label: "Rubik's Cube" },
+  { value: "Teddy", label: "Teddy Bear" },
+  { value: "Check", label: "Checklist/Planning Items" },
+  { value: "Camera", label: "Camera" },
 ];
 const clothing_options = [
   { value: "", label: "All" },
-  { value: "Questioning", label: "Questioning" },
-  { value: "Angry", label: "Angry" },
+  { value: "Pajama", label: "Pajama" },
+  { value: "Tropical", label: "Tropical Shirt" },
+  { value: "Flannel", label: "Flannel Shirt" },
+  { value: "Astro", label: "Astronaut Suit" },
+  { value: "Lab", label: "White Labortory Cloth" },
+  { value: "Love", label: "I Love MBTI" },
+  { value: "Button", label: "White Button-down Shirt" },
+  { value: "Dot", label: "Dot Shirt" },
 ];
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
@@ -47,6 +72,9 @@ export class Features extends React.Component {
   }
   handleChange = () => {
     console.log(this.state.activeGenre);
+    this.state.filter = this.state.popular;
+
+
     //initialization
     var empty = true;
     for(var x = 0; x < this.state.activeGenre.length; x++){
@@ -72,13 +100,13 @@ export class Features extends React.Component {
     }
     if(this.state.activeGenre[2]!== ""){
       const filtered = this.state.filter.filter(
-        (movie) => movie.data.Items === this.state.activeGenre[2]
+        (movie) => movie.data.Item === this.state.activeGenre[2]
       );
       this.setState({ filter: filtered});
     }
     if(this.state.activeGenre[3]!== ""){
       const filtered = this.state.filter.filter(
-        (movie) => movie.data.Clothings== this.state.activeGenre[3]
+        (movie) => movie.data.Cloth== this.state.activeGenre[3]
       );
       this.setState({ filter: filtered});
     }
@@ -114,62 +142,6 @@ export class Features extends React.Component {
       // setFiltered(popular);
     });
   }
-  changeFacial(genre) {
-    this.state.activeGenre[0] = genre;
-    console.log(this.state.activeGenre);
-    const filtered = this.state.popular.filter(
-      (movie) => movie.data.Facial === this.state.activeGenre
-    );
-
-    console.log(filtered);
-    if (this.state.activeGenre === ['']) {
-      this.state.filter = this.state.popular;
-      return;
-    }
-    this.state.filter = filtered;
-  }
-  changeAccessories(genre) {
-    this.state.activeGenre[1] = genre;
-    console.log(this.state.activeGenre);
-    const filtered = this.state.popular.filter(
-      (movie) => movie.data.Facial === this.state.activeGenre
-    );
-
-    console.log(filtered);
-    if (this.state.activeGenre === ['']) {
-      this.state.filter = this.state.popular;
-      return;
-    }
-    this.state.filter = filtered;
-  }
-  changeItems(genre) {
-    this.state.activeGenre[2] = genre;
-    console.log(this.state.activeGenre);
-    const filtered = this.state.popular.filter(
-      (movie) => movie.data.Facial === this.state.activeGenre
-    );
-
-    console.log(filtered);
-    if (this.state.activeGenre === ['']) {
-      this.state.filter = this.state.popular;
-      return;
-    }
-    this.state.filter = filtered;
-  }
-  changeClothing(genre) {
-    this.state.activeGenre[3] = genre;
-    console.log(this.state.activeGenre);
-    const filtered = this.state.popular.filter(
-      (movie) => movie.data.Facial === this.state.activeGenre
-    );
-
-    console.log(filtered);
-    if (this.state.activeGenre === ['']) {
-      this.state.filter = this.state.popular;
-      return;
-    }
-    this.state.filter = filtered;
-  }
 
   render() {
     const Facial_List = () => (
@@ -200,7 +172,6 @@ export class Features extends React.Component {
         onChange={(item_options) => (
           this.state.activeGenre[2] = item_options.value,
           this.handleChange())}
-        
       />
     );
     const Clothings_List = () => (
