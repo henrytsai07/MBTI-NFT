@@ -56,7 +56,6 @@ const clothing_options = [
   { value: "Button", label: "White Button-down Shirt" },
   { value: "Dot", label: "Dot Shirt" },
 ];
-
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
   //   const [filtered, setFiltered] = useState([]);
@@ -69,7 +68,10 @@ export class Features extends React.Component {
       popular: [],
       filter: [],
       activeGenre: ["", "", "", ""],
-      value: "",
+      facial_value: "All",
+      access_value: "All",
+      item_value: "All",
+      clothing_value: "All",
     };
   }
 
@@ -77,6 +79,7 @@ export class Features extends React.Component {
     
     this.state.filter = this.state.popular;
     this.setState({ filter: this.state.popular });
+    
 
     console.log(this.state.filter)
 
@@ -90,6 +93,7 @@ export class Features extends React.Component {
     }
     if (empty === true) {
       this.setState({ filter: this.state.popular });
+      this.setState({facial_value:"ALL"})
       return;
     }
     //Facials
@@ -217,44 +221,47 @@ export class Features extends React.Component {
 
     // setFiltered(popular);
   }
+  
 
   render() {
+    
     const Facial_List = () => (
       <Select
         options={facial_options}
-        value={this.state.activeGenre[0]}
+        value={{ label: this.state.facial_value }}
         onChange={(facial_options) => (
           (this.state.activeGenre[0] = facial_options.value),
-          this.handleChange()
-    )}
+          this.handleChange(), this.setState({ facial_value: facial_options.label })
+        )}
       />
     );
     const Accessories_List = () => (
       <Select
         options={accessories_options}
-        value={this.state.value}
+        value={{label: this.state.access_value}}
         onChange={(accessories_options) => (
           (this.state.activeGenre[1] = accessories_options.value),
-          this.handleChange()
+          this.handleChange(),this.setState({ access_value: accessories_options.label })
         )}
       />
     );
     const Items_List = () => (
       <Select
         options={item_options}
-        value={this.state.value}
+        value={{ label: this.state.item_value }}
         onChange={(item_options) => (
-          (this.state.activeGenre[2] = item_options.value), this.handleChange()
+          (this.state.activeGenre[2] = item_options.value), this.handleChange(), this.setState({ item_value: item_options.label })
         )}
+
       />
     );
     const Clothings_List = () => (
       <Select
         options={clothing_options}
-        value={this.state.value}
+        value={{ label: this.state.clothing_value }}
         onChange={(clothing_options) => (
           (this.state.activeGenre[3] = clothing_options.value),
-          this.handleChange()
+          this.handleChange(),this.setState({ clothing_value: clothing_options.label })
         )}
       />
     );
