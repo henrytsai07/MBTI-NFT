@@ -40,7 +40,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
             <a href="/features">Features</a>
           </li>
           <li>
-            <a href="/Mint">Mint</a>
+            <a href="/mint">Mint</a>
           </li>
           <li>
             <a href="https://discord.gg/Mrw6xGGT" target="_blank">Discord</a>

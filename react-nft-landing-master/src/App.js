@@ -95,6 +95,19 @@ function App() {
             </>
           }
         />
+        <Route
+          exact
+          path="/mint"
+          element={
+            <>
+              <video src={videoBG} autoPlay muted loop />
+              <div data-theme={theme} className="nav-container">
+                <Navbar changeTheme={changeTheme} currentTheme={theme} />
+              </div>
+              <div data-theme={theme} className="filter-container"></div>
+            </>
+          }
+        />
       </Routes>
     </Router>
   );

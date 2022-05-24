@@ -13,25 +13,25 @@ import Select from "react-select";
 const db = StartFirebase();
 const facial_options = [
   { value: "", label: "All" },
-  { value: "Judging", label: "Judging" },
+  { value: 'JP&Judging', label: "Judging" },
   { value: "Shy", label: "Shy" },
   { value: "Excited", label: "Excited" },
   { value: "Please", label: "Please Emoji" },
   { value: "Comic", label: "Comic Eyes" },
   { value: "Motivated", label: "Motivated Face" },
-  { value: "Thinking", label: "Thinking Face" }, 
-  { value: "Apathetic ", label: "Apathetic" }
+  { value: 'TF&Thinking', label: "Thinking Face" },
+  { value: "SN&Sensing", label: "Apathetic" },
 ];
 const accessories_options = [
   { value: "", label: "All" },
   { value: "Headphone", label: "Headphone" },
   { value: "Reversed", label: "Reversed Cap" },
   { value: "Regular", label: "Regular shape hairclip" },
-  { value: "Irregular", label: "Irregular shape hairclip" },
+  { value: "SN&S Hairclip", label: "Irregular shape hairclip" },
   { value: "Glasses", label: "Glasses" },
-  { value: "Scarf", label: "Scarf" },
-  { value: "Watch", label: "Watch" },
-  { value: "Paintbrush", label: "Paintbrush" },
+  { value: "TF&F Scarf", label: "Scarf" },
+  { value: "JP&J Clock", label: "Watch" },
+  { value: "JP&P Pen", label: "Paintbrush" },
 ];
 
 const item_options = [
@@ -47,8 +47,8 @@ const item_options = [
 ];
 const clothing_options = [
   { value: "", label: "All" },
-  { value: "Pajama", label: "Pajama" },
-  { value: "Tropical", label: "Tropical Shirt" },
+  { value: "EI&I Pajama", label: "Pajama" },
+  { value: "EI&E Shirt", label: "Tropical Shirt" },
   { value: "Flannel", label: "Flannel Shirt" },
   { value: "Astro", label: "Astronaut Suit" },
   { value: "Lab", label: "White Labortory Cloth" },
@@ -56,6 +56,7 @@ const clothing_options = [
   { value: "Button", label: "White Button-down Shirt" },
   { value: "Dot", label: "Dot Shirt" },
 ];
+
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
   //   const [filtered, setFiltered] = useState([]);
@@ -64,21 +65,26 @@ export class Features extends React.Component {
   constructor() {
     super();
     this.state = {
+      extract: [],
       popular: [],
       filter: [],
-      activeGenre: ['','','',''],
+      activeGenre: ["", "", "", ""],
       value: "",
     };
   }
+
   handleChange = () => {
-    console.log(this.state.activeGenre);
+    
     this.state.filter = this.state.popular;
+    this.setState({ filter: this.state.popular });
+
+    console.log(this.state.filter)
 
 
     //initialization
     var empty = true;
-    for(var x = 0; x < this.state.activeGenre.length; x++){
-      if (this.state.activeGenre[x] !== ""){
+    for (var x = 0; x < this.state.activeGenre.length; x++) {
+      if (this.state.activeGenre[x] !== "") {
         empty = false;
       }
     }
@@ -86,73 +92,141 @@ export class Features extends React.Component {
       this.setState({ filter: this.state.popular });
       return;
     }
-    if(this.state.activeGenre[0]!== ""){
+    //Facials
+    if (this.state.activeGenre[0] !== "") {
       const filtered = this.state.popular.filter(
-        (movie) => movie.data.Facial === this.state.activeGenre[0]
+        (movie) => (movie.attributes[5].value === this.state.activeGenre[0])
       );
-      this.setState({ filter: filtered});
+      this.state.filter = filtered
+      this.setState({ filter: filtered });
+      console.log(filtered)
+      console.log(this.state.filter)
+
+
     }
-    if(this.state.activeGenre[1]!== ""){
+    //Accessories
+    if (this.state.activeGenre[1] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.data.Accessories === this.state.activeGenre[1]
+        (movie) => movie.attributes[6].value == this.state.activeGenre[1]
       );
-      this.setState({ filter: filtered});
+
+      this.state.filter = filtered
+      this.setState({ filter: filtered });
+      console.log(this.state.filter)
+
     }
-    if(this.state.activeGenre[2]!== ""){
+    //Items
+    if (this.state.activeGenre[2] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.data.Item === this.state.activeGenre[2]
+        (movie) => movie.attributes[4].value === this.state.activeGenre[2]
       );
-      this.setState({ filter: filtered});
+
+      this.state.filter = filtered
+      this.setState({ filter: filtered });
+      console.log(this.state.filter)
+
     }
-    if(this.state.activeGenre[3]!== ""){
+    //Clothings
+    if (this.state.activeGenre[3] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.data.Cloth== this.state.activeGenre[3]
+        (movie) => movie.attributes[2].value == this.state.activeGenre[3]
       );
-      this.setState({ filter: filtered});
+
+      this.state.filter = filtered
+      this.setState({ filter: filtered });
+
+
+
     }
+
+
+
     
+
 
     //this.setState({ value: options.value });
   };
 
   componentDidMount() {
     //fetchPopular();
-    const dbRef = ref(db, "Collection");
-    onValue(dbRef, (snapshot) => {
-      let records = [];
-      snapshot.forEach((childSnapshot) => {
-        let keyName = childSnapshot.key;
-        let data = childSnapshot.val();
-        records.push({ key: keyName, data: data });
-      });
-      this.state.popular = records;
-      this.state.filter = records;
-      //initialization
-      console.log(this.state.popular)
+    // const BunnyJson = getBunnyJson();
+    // const BunnyArray = []
+    // const Bunny_Extract = () => {
+    //   BunnyJson.then((a) => {
+    //     BunnyArray.push(a);
+    //   });
+    // }
+    // Bunny_Extract();
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+    console.log(this.state)
+    async function getBunnyJson() {
+      var responseJson = [];
+
+      for (var num = 1; num < 11; num++) {
+        try {
+          let response = await fetch(
+            "https://gateway.pinata.cloud/ipfs/QmVKCFQccxCHzHSZxYXo7LRh3aJMwCEUQxZZACkTGRy2Cd/" +
+              num +
+              ".json"
+          );
+          responseJson.push(await response.json());
+        } catch (error) {
+          console.error(error);
+        }
+      }
+      return responseJson;
+
+      //this.setState({ extract: responseJson });
+
+    }
+
+    var responseJson = getBunnyJson();
+    var Bunny = [];
+
+    Promise.all([responseJson]).then((res) => {
+      console.log(this.state.filter)
+
+      this.setState({ popular: res[0] });
+      this.setState({ filter: res[0] });
       var empty = true;
-      for(var x = 0; x < this.state.activeGenre.length; x++){
-        if (this.state.activeGenre[x] !== ""){
+      for (var x = 0; x < this.state.activeGenre.length; x++) {
+        if (this.state.activeGenre[x] !== "") {
           empty = false;
         }
       }
+
       if (empty === true) {
         this.setState({ filter: this.state.popular });
         return;
       }
-      // setFiltered(popular);
     });
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////
+
+    // const dbRef = ref(db, "Collection");
+    // onValue(dbRef, (snapshot) => {
+    //   let records = [];
+    //   snapshot.forEach((childSnapshot) => {
+    //     let keyName = childSnapshot.key;
+    //     let data = childSnapshot.val();
+    //     records.push({ key: keyName, data: data });
+    //   });
+
+    //initializations
+
+    // setFiltered(popular);
   }
 
   render() {
     const Facial_List = () => (
       <Select
         options={facial_options}
-        value={this.state.value}
+        value={this.state.activeGenre[0]}
         onChange={(facial_options) => (
-          this.state.activeGenre[0] = facial_options.value,
-          this.handleChange())
-          }
-        
+          (this.state.activeGenre[0] = facial_options.value),
+          this.handleChange()
+    )}
       />
     );
     const Accessories_List = () => (
@@ -160,9 +234,9 @@ export class Features extends React.Component {
         options={accessories_options}
         value={this.state.value}
         onChange={(accessories_options) => (
-          this.state.activeGenre[1] = accessories_options.value,
-          this.handleChange())}
-        
+          (this.state.activeGenre[1] = accessories_options.value),
+          this.handleChange()
+        )}
       />
     );
     const Items_List = () => (
@@ -170,8 +244,8 @@ export class Features extends React.Component {
         options={item_options}
         value={this.state.value}
         onChange={(item_options) => (
-          this.state.activeGenre[2] = item_options.value,
-          this.handleChange())}
+          (this.state.activeGenre[2] = item_options.value), this.handleChange()
+        )}
       />
     );
     const Clothings_List = () => (
@@ -179,9 +253,9 @@ export class Features extends React.Component {
         options={clothing_options}
         value={this.state.value}
         onChange={(clothing_options) => (
-          this.state.activeGenre[3] = clothing_options.value,
-          this.handleChange())}
-        
+          (this.state.activeGenre[3] = clothing_options.value),
+          this.handleChange()
+        )}
       />
     );
     return (
@@ -232,7 +306,7 @@ export class Features extends React.Component {
         <motion.div layout className="popular-movie">
           <AnimatePresence>
             {this.state.filter.map((bunny) => {
-              return <Movie key={bunny.data.Name} movie={bunny}></Movie>;
+              return <Movie key={bunny.name} movie={bunny}></Movie>;
             })}
           </AnimatePresence>
         </motion.div>
