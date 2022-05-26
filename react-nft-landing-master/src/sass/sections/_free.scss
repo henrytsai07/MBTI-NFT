@@ -5,22 +5,26 @@
     display: flex;
     //background-color: var(--orange);
     position: relative;
-    height: 50rem;
+    height: 30rem;
     border-radius: 1rem;
     overflow: hidden;
     z-index: 1;
+    background-color: rgba(255, 255, 255, .15);  
+ backdrop-filter: blur(10px);
     .background {
       z-index: -1;
+      
       .ellipse {
-        position: absolute;
+        position: fixed;
         height: 100%;
         width: 28rem;
         border-radius: 80%;
+        
         filter: blur(100px);
       }
       .pink {
         top: -10%;
-        //left: -15%;
+        left: -15%;
         background-color: #f6a44e;
       }
       .green {
@@ -31,7 +35,7 @@
       .carrot {
         height: 80%;
         width: 90%;
-        position: absolute;
+        position: fixed;
         margin-left: 5%;
 
 

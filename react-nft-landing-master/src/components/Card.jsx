@@ -1,6 +1,5 @@
 import React from "react";
 import supereth from "../assets/supereth.png";
-import solana_W from "../assets/solana_W.png";
 
 export default function Card({ image, series, title, price, tag, time }) {
   return (

@@ -1,7 +1,5 @@
 import React from "react";
 import { BsArrowRight } from "react-icons/bs";
-import release1 from "../assets/release1.png";
-import release2 from "../assets/release2.png";
 import Card from "./Card";
 import ex from "../assets/question_rabbit.png";
 
@@ -39,13 +37,12 @@ export default function Release() {
             tag="1094"
             time={2}
           />
-          <div className="ellipse orange"></div>
         </div>
         <div className="content">
           <h2 className="title">Initial Release 4/11</h2>
           <p className="description">
             We have released four limited edition NFTs early which can be bid on
-            via <a href="#">MagicEden</a>
+            via <a href="#">OpenSea</a>
           </p>
           <p className="description">
             There will be the only four of these NFTs we ever make, so be sure

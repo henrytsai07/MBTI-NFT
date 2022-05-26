@@ -1,9 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import super1 from "../assets/super1.png";
-import super2 from "../assets/super2.png";
-import super3 from "../assets/super3.png";
-import super4 from "../assets/super4.png";
 import ex from "../assets/question_rabbit.png";
 
 export default function SuperRare() {
@@ -47,7 +43,7 @@ export default function SuperRare() {
         <h2 className="title">LE Super Rare Auction</h2>
         <p className="description">
           We have released four limited edition NFT's early which which can be
-          bid on via <a target="_blank" rel="noopener noreferrer" href="https://magiceden.io/">MagicEden</a>.
+          bid on via <a target="_blank" rel="noopener noreferrer" href="https://magiceden.io/">Opensea</a>.
         </p>
       </div>
       <div className="cards">

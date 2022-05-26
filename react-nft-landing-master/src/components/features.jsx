@@ -99,7 +99,7 @@ export class Features extends React.Component {
     //Facials
     if (this.state.activeGenre[0] !== "") {
       const filtered = this.state.popular.filter(
-        (movie) => (movie.attributes[5].value === this.state.activeGenre[0])
+        (movie) => (movie[0].attributes[5].value === this.state.activeGenre[0])
       );
       this.state.filter = filtered
       this.setState({ filter: filtered });
@@ -111,7 +111,7 @@ export class Features extends React.Component {
     //Accessories
     if (this.state.activeGenre[1] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.attributes[6].value == this.state.activeGenre[1]
+        (movie) => movie[0].attributes[6].value == this.state.activeGenre[1]
       );
 
       this.state.filter = filtered
@@ -122,7 +122,7 @@ export class Features extends React.Component {
     //Items
     if (this.state.activeGenre[2] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.attributes[4].value === this.state.activeGenre[2]
+        (movie) => movie[0].attributes[4].value === this.state.activeGenre[2]
       );
 
       this.state.filter = filtered
@@ -133,7 +133,7 @@ export class Features extends React.Component {
     //Clothings
     if (this.state.activeGenre[3] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie.attributes[2].value == this.state.activeGenre[3]
+        (movie) => movie[0].attributes[2].value == this.state.activeGenre[3]
       );
 
       this.state.filter = filtered
@@ -163,36 +163,42 @@ export class Features extends React.Component {
     // Bunny_Extract();
 
     /////////////////////////////////////////////////////////////////////////////////////////////////
-    console.log(this.state)
     async function getBunnyJson() {
-      var responseJson = [];
+      const map1 = new Map();
 
       for (var num = 1; num < 11; num++) {
         try {
-          let response = await fetch(
+          let name = await fetch(
             "https://gateway.pinata.cloud/ipfs/QmVKCFQccxCHzHSZxYXo7LRh3aJMwCEUQxZZACkTGRy2Cd/" +
               num +
               ".json"
           );
-          responseJson.push(await response.json());
+          let image = await fetch(
+            "https://gateway.pinata.cloud/ipfs/Qmb5Mxyt6tyDocSsjAodoG6xKb6j2LWVkQREn4EgkUjQRM/" +
+              num +
+              ".png"
+          );
+          map1.set(await name.json(), URL.createObjectURL(await image.blob()))
+          
+          //responseJson.push(await response.json());
         } catch (error) {
           console.error(error);
         }
       }
-      return responseJson;
 
-      //this.setState({ extract: responseJson });
 
+      return map1;
     }
+    
 
     var responseJson = getBunnyJson();
-    var Bunny = [];
 
     Promise.all([responseJson]).then((res) => {
-      console.log(this.state.filter)
 
-      this.setState({ popular: res[0] });
-      this.setState({ filter: res[0] });
+      console.log([...res[0]][0])
+
+      this.setState({ popular: [...res[0]]});
+      this.setState({ filter: [...res[0]] });
       var empty = true;
       for (var x = 0; x < this.state.activeGenre.length; x++) {
         if (this.state.activeGenre[x] !== "") {
@@ -313,7 +319,8 @@ export class Features extends React.Component {
         <motion.div layout className="popular-movie">
           <AnimatePresence>
             {this.state.filter.map((bunny) => {
-              return <Movie key={bunny.name} movie={bunny}></Movie>;
+              console.log(bunny)
+              return <Movie key={bunny[0].name} movie={bunny}></Movie>;
             })}
           </AnimatePresence>
         </motion.div>

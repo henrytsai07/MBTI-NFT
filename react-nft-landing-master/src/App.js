@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import Clients from "./components/Clients";
 import Footer from "./components/Footer";
 import Free from "./components/Free";
@@ -12,7 +12,7 @@ import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
 import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
-import videoBG from "./assets/cloud.mp4";
+import videoBG from "./assets/new_b.mp4";
 import { Features } from "./components/features";
 
 function App() {
@@ -61,21 +61,25 @@ function App() {
           path="/"
           element={
             <>
-              <video src={videoBG} autoPlay muted loop />
-              <div data-theme={theme} className="nav-container">
-                <Navbar changeTheme={changeTheme} currentTheme={theme} />
-              </div>
-              <div data-theme={theme} className="app-container">
-                <ScrollToTop />
-                <Home />
-                <Free />
-                <Like />
-                <SuperRare />
-                <Release />
-                <Signup />
-              </div>
-              <div data-theme={theme} className="footer-container">
-                <Footer />
+              {/* <video src={videoBG} autoPlay muted loop /> */}
+              {/* <img className="background" src={test_background} alt="logo" /> */}
+              <div className="background_image">
+                <div data-theme={theme} className="nav-container">
+                  <Navbar changeTheme={changeTheme} currentTheme={theme} />
+                </div>
+                <div data-theme={theme} className="app-container">
+                  <ScrollToTop />
+                  <Home />
+                  <Free />
+                  <Like />
+                  <SuperRare />
+                  <Release />
+                  <Signup />
+                </div>
+
+                <div data-theme={theme} className="footer-container">
+                  <Footer />
+                </div>
               </div>
             </>
           }
