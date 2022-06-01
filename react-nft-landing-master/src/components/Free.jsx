@@ -6,15 +6,19 @@ export default function Free() {
   return (
     <div className="free">
       <div className="container">
-        <div className="background">
-          <div className="ellipse pink"></div>
-          <div className="ellipse green"></div>
-        </div>
         <div className="content">
           <h2 className="title">What is MBTI Bunny?</h2>
           <p className="description">
-            The first 10 users who sign up today will get free NFT
+            A unique collection of{" "}
+            <strong>300 rabbits with different personalities</strong> that live
+            on the Ethereum Blockchain. Every rabbit have its{" "}
+            <strong>unique combination of traits and items</strong> that
+            correspond to different personalities in <strong>Web3.0</strong>.
           </p>
+        </div>
+        <div className="background">
+          <div className="ellipse pink"></div>
+          <div className="ellipse green"></div>
         </div>
       </div>
       <div className="cards">

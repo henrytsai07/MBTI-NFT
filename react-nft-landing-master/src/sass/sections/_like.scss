@@ -17,11 +17,21 @@
 
       .image {
         display: flex;
+        size: 5rem;
+        left: 150px;
+  width: 500px;
+  
 
-        img {}
+        img {
+          width: 2rem;
+          height: 2.5rem;
+          margin:auto;
+
+        }
 
         h2 {
           margin: 1rem;
+          font-size: 2rem;
           color: var(--accent-color1);
         }
       }
