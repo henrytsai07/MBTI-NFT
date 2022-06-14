@@ -9,6 +9,8 @@
   width: 100%;
   height: 90%;
   .container {
+    
+
     position: relative;
     margin-top: 1rem;
     top: 0;
@@ -31,7 +33,7 @@
         -webkit-text-stroke: 2px rgb(0, 0, 0);
       }
       .description {
-        color: white
+        color: rgb(255, 255, 255)
       }
       button {
         color: var(--accent-color1);

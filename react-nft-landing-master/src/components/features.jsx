@@ -169,12 +169,12 @@ export class Features extends React.Component {
       for (var num = 1; num < 11; num++) {
         try {
           let name = await fetch(
-            "https://gateway.pinata.cloud/ipfs/QmVKCFQccxCHzHSZxYXo7LRh3aJMwCEUQxZZACkTGRy2Cd/" +
+            "https://ipfs.io/ipfs/QmVKCFQccxCHzHSZxYXo7LRh3aJMwCEUQxZZACkTGRy2Cd/" +
               num +
               ".json"
           );
           let image = await fetch(
-            "https://gateway.pinata.cloud/ipfs/Qmb5Mxyt6tyDocSsjAodoG6xKb6j2LWVkQREn4EgkUjQRM/" +
+            "https://ipfs.io/ipfs/Qmb5Mxyt6tyDocSsjAodoG6xKb6j2LWVkQREn4EgkUjQRM/" +
               num +
               ".png"
           );

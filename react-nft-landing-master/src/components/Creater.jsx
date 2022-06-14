@@ -6,32 +6,8 @@ export default function SuperRare() {
   const data = [
     {
       image: ex,
-      series: "GOLD LEVEL",
-      title: "Bunny #1",
-      price: 2.99,
-      tag: 12983,
-      time: 1,
-    },
-    {
-      image: ex,
-      series: "GOLD LEVEL",
-      title: "Bunny #2",
-      price: 2.99,
-      tag: 12983,
-      time: 1,
-    },
-    {
-      image: ex,
-      series: "GOLD LEVEL",
-      title: "Bunny #3",
-      price: 2.99,
-      tag: 12983,
-      time: 1,
-    },
-    {
-      image: ex,
-      series: "GOLD LEVEL",
-      title: "Bunny #4",
+      series: "Gloop Series",
+      title: "Purple Man",
       price: 2.99,
       tag: 12983,
       time: 1,
@@ -39,7 +15,31 @@ export default function SuperRare() {
     {
       image: ex,
       series: "Gloop Series",
-      title: "Bunny #5",
+      title: "Beige",
+      price: 2.99,
+      tag: 12983,
+      time: 1,
+    },
+    {
+      image: ex,
+      series: "Gloop Series",
+      title: "Red Man",
+      price: 2.99,
+      tag: 12983,
+      time: 1,
+    },
+    {
+      image: ex,
+      series: "Gloop Series",
+      title: "Green",
+      price: 2.99,
+      tag: 12983,
+      time: 1,
+    },
+    {
+      image: ex,
+      series: "Gloop Series",
+      title: "Green",
       price: 2.99,
       tag: 12983,
       time: 1,
@@ -48,9 +48,9 @@ export default function SuperRare() {
   return (
     <div className="super-rare">
       <div className="title-container">
-        <h2 className="title">Bunny Super Rare Auction</h2>
+        <h2 className="title">MBTI BUNNY CREATORS</h2>
         <p className="description">
-          We have released 20 limited edition NFT's early which which can be
+          We have released four limited edition NFT's early which which can be
           bid on via <a target="_blank" rel="noopener noreferrer" href="https://magiceden.io/">Opensea</a>.
         </p>
       </div>
@@ -58,12 +58,12 @@ export default function SuperRare() {
         {data.map(({ image, series, title, price, tag, time }, index) => (
           <Card
             image={image}
-            series={series}
+            // series={series}
             title={title}
-            price={price}
-            tag={tag}
-            time={time}
-            key={index}
+            // price={price}
+            // tag={tag}
+            // time={time}
+            // key={index}
           />
         ))}
       </div>

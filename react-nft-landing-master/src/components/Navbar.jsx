@@ -43,21 +43,22 @@ export default function Navbar({ changeTheme, currentTheme }) {
           <li>
             <a href="/features">Features</a>
           </li>
-          <li>
-            <a href="/mint">Mint</a>
-          </li>
+          
           <li>
             <a href="https://discord.gg/uMuaYzskaF" target="_blank">
             Discord
             </a>
           </li>
-          <li onClick={changeTheme}>
+          <li>
+            <a href="/mint" class="mint">Mint</a>
+          </li>
+          {/* <li onClick={changeTheme}>
             {currentTheme === "dark" ? (
               <ImSun className="light" />
             ) : (
               <BsFillMoonFill className="dark" />
             )}
-          </li>
+          </li> */}
         </ul>
       </div>
     </nav>

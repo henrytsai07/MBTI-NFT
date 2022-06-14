@@ -14,6 +14,8 @@ import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
 import videoBG from "./assets/new_b.mp4";
 import { Features } from "./components/features";
+import Creater from "./components/Creater";
+import roadmap from "./assets/Roadmap.png";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -37,6 +39,7 @@ function App() {
         .super-rare,
         .releases,
         .like,
+        .creater,
         .signup,
         footer
     `,
@@ -71,9 +74,11 @@ function App() {
                   <ScrollToTop />
                   <Home />
                   <Free />
-                  <Like />
+                  {/* <Like /> */}
                   <SuperRare />
                   <Release />
+                  <img className="road" src={roadmap} />
+                  <Creater />
                   <Signup />
                 </div>
 

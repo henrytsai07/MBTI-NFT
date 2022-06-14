@@ -8,18 +8,16 @@ export default function Release() {
     <div className="releases">
       <div className="release orange">
         <div className="content">
-          <h2 className="title">Initial Release 4/11</h2>
+          <h2 className="title">Initial Release 7/11</h2>
           <p className="description">
-            We have released four limited edition NFTs early which can be bid on
-            via <a href="#">OpenSea</a>
+            We will be starting our minting process which can be bid on via <a href="#">OpenSea</a>
           </p>
           <p className="description">
-            There will be the only four of these NFTs we ever make, so be sure
-            not to miss out!
+            The 284 MBTI bunnies that we are releasing will have 5 different tiers (GOLD, PURPLE, YELLOW, BLUE, GREEN) which will be mint randomly.
           </p>
-          <p className="description">50% of proceeds go to charity.</p>
+          <p className="description">If you want to get early access to exclusive content and potentially whitelist</p>
           <a href="#" className="link">
-            Check them out <BsArrowRight />
+            Join our Discord <BsArrowRight />
           </a>
         </div>
         <div className="image">
