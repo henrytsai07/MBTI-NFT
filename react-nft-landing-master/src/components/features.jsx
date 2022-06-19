@@ -93,7 +93,7 @@ export class Features extends React.Component {
     }
     if (empty === true) {
       this.setState({ filter: this.state.popular });
-      this.setState({facial_value:"ALL"})
+      this.setState({facial_value:"All"})
       return;
     }
     //Facials

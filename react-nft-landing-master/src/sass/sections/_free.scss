@@ -4,11 +4,11 @@
   
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0.9fr 1fr;
 
     //background-color: var(--orange);
     position: relative;
-    height: 30rem;
+    height: 40rem;
     border-radius: 1rem;
     overflow: hidden;
     z-index: 1;
@@ -42,18 +42,43 @@
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
-      padding-top: 3rem;
+      padding-top: 4rem;
       padding-left: 5rem;
       font-size: 1.3rem;
-      .image {
-       
+      .blackboard {
+        z-index: -2;
+        width: 50%;
+        height: 95%;
+        position: fixed;
+        margin-left: -40px;
+        margin-top: -30px;
+        padding-bottom: 20px
+
       }
       .title {
-        font-size: 2rem;
+        padding-top: 4rem;
+        padding-left: 4.7rem;
+
+        font-size: 1.5rem;
+        color: white;
       }
       .description {
         line-height: 2;
+        color: white;
+        padding-left: 4.7rem;
       }
+      
+      strong {
+        color: rgb(115, 255, 0)
+      }
+    }
+    .bunny_wiz {
+      width: 50%;
+      height:80%;
+      margin-left: 180px;
+      position: flex;
+      margin-top: 50px;
+
     }
   }
   .cards {
@@ -124,4 +149,5 @@
       }
     }
   }
+  
 }

@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "./Card";
 import ex from "../assets/question_rabbit.png";
+import blackboard from "../assets/Blackboard.png"
+import bunny_wiz from "../assets/Bunny_wiz_carrot.png"
 
 export default function Free() {
   return (
@@ -15,14 +17,20 @@ export default function Free() {
             <strong>unique combination of traits and items</strong> that
             correspond to different personalities in <strong>Web3.0</strong>.
           </p>
+          <img className="blackboard" src={blackboard}/>
+
         </div>
+        <img className="bunny_wiz" src={bunny_wiz}/>
+
         <div className="background">
           <div className="ellipse pink"></div>
           <div className="ellipse green"></div>
         </div>
+        
       </div>
+      
       <div className="cards">
-        <div className="card1">
+        {/* <div className="card1">
           <Card
             image={ex}
             series="Gloop Series"
@@ -41,7 +49,8 @@ export default function Free() {
             tag="1094"
             time={2}
           />
-        </div>
+        </div> */}
+        
       </div>
     </div>
   );

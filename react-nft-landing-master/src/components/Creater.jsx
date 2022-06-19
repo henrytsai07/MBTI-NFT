@@ -1,46 +1,41 @@
 import React from "react";
-import Card from "./Card";
+import Card from "./Creator_Card";
 import ex from "../assets/question_rabbit.png";
 
 export default function SuperRare() {
   const data = [
     {
       image: ex,
-      series: "Gloop Series",
-      title: "Purple Man",
-      price: 2.99,
+      series: "Marketing Director",
+      title: "Haopiaoliang",
+      tag: "ENFT",
+      time: 1,
+    },
+    {
+      image: ex,
+      series: "Programmer",
+      title: "UnicornHen",
+      tag: "ENTJ",
+      time: 1,
+    },
+    {
+      image: ex,
+      series: "Programmer",
+      title: "Best_Kai",
       tag: 12983,
       time: 1,
     },
     {
       image: ex,
-      series: "Gloop Series",
-      title: "Beige",
-      price: 2.99,
+      series: "Artist",
+      title: "Yipudaha",
       tag: 12983,
       time: 1,
     },
     {
       image: ex,
-      series: "Gloop Series",
-      title: "Red Man",
-      price: 2.99,
-      tag: 12983,
-      time: 1,
-    },
-    {
-      image: ex,
-      series: "Gloop Series",
-      title: "Green",
-      price: 2.99,
-      tag: 12983,
-      time: 1,
-    },
-    {
-      image: ex,
-      series: "Gloop Series",
-      title: "Green",
-      price: 2.99,
+      series: "Artist",
+      title: "Kaytea",
       tag: 12983,
       time: 1,
     },
@@ -58,12 +53,12 @@ export default function SuperRare() {
         {data.map(({ image, series, title, price, tag, time }, index) => (
           <Card
             image={image}
-            // series={series}
+            series={series}
             title={title}
-            // price={price}
-            // tag={tag}
-            // time={time}
-            // key={index}
+            price={price}
+            tag={tag}
+            time={time}
+            key={index}
           />
         ))}
       </div>
