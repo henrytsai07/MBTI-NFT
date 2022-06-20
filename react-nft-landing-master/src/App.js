@@ -16,6 +16,7 @@ import videoBG from "./assets/new_b.mp4";
 import { Features } from "./components/features";
 import Creater from "./components/Creater";
 import roadmap from "./assets/Roadmap.png";
+import {MintPage} from "./mint/Mint"
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -113,7 +114,9 @@ function App() {
               <div data-theme={theme} className="nav-container">
                 <Navbar changeTheme={changeTheme} currentTheme={theme} />
               </div>
-              <div data-theme={theme} className="filter-container"></div>
+              <div data-theme={theme} className="filter-container">
+                <MintPage/>
+              </div>
             </>
           }
         />
