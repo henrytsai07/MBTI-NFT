@@ -33,18 +33,23 @@ nav {
     .links {
       list-style-type: none;
       display: flex;
-      gap: 4rem;
+      gap: 3rem;
       li {
+        padding-top:5px;
         .dark {
+          padding-top: 30px;
+
           color: black;
         }
         .light {
           color: yellow;
         }
         a {
+        
           color: white;
           text-decoration: none;
         }
+      
         // &:last-of-type {
         //   a {
         //     color: var(--pink);
@@ -58,6 +63,11 @@ nav {
           padding-bottom: 10px;
           background-color: rgb(238, 255, 0);
           border-radius: 5px;
+        }
+      }
+      .social {
+        a {
+          padding: 5px
         }
       }
     }
