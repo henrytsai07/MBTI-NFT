@@ -19,8 +19,8 @@ export default function Card({ image, series, title, price, tag, time }) {
           </div>
         </div>
         <div className="card-sub-details">
-          <span>#{tag}</span>
-          <span>{time} day left</span>
+          <span>{tag}</span>
+          {/* <span>{time} day left</span> */}
         </div>
       </div>
     </div>

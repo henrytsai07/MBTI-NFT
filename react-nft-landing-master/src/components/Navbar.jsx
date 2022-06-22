@@ -4,9 +4,10 @@ import { MdClose } from "react-icons/md";
 import { ImSun } from "react-icons/im";
 import { BsFillMoonFill } from "react-icons/bs";
 import logo from "../assets/logo.png";
-import { ref } from "firebase/database";
-import {SocialMediaIconsReact} from 'social-media-icons-react';
-import { SocialIcon } from 'react-social-icons';
+import { FaDiscord, FaTwitter, FaInstagram } from 'react-icons/fa';
+import { TbAxe } from 'react-icons/tb';
+
+
 
 
 export default function Navbar({ changeTheme, currentTheme }) {
@@ -44,13 +45,20 @@ export default function Navbar({ changeTheme, currentTheme }) {
             <a href="/features">Features</a>
           </li>
           
-          <li>
+          <li className="social">
             <a href="https://discord.gg/uMuaYzskaF" target="_blank">
-            Discord
+              <FaDiscord size={28} />
+            </a>
+            <a href="https://twitter.com/MbtiBunny" target="_blank">
+              <FaTwitter size={28} />
+            </a>
+            <a href="https://www.instagram.com/mbtibunny/?hl=en" target="_blank">
+              <FaInstagram size={28} />
             </a>
           </li>
+          
           <li>
-            <a href="/mint" class="mint">Mint</a>
+            <a href="/mint" className="mint">Mint <TbAxe size={15}/></a>
           </li>
           {/* <li onClick={changeTheme}>
             {currentTheme === "dark" ? (
