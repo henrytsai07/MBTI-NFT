@@ -1,5 +1,6 @@
 import React from "react";
 import home from "../assets/question_rabbit.png";
+import animate from "../assets/bunny_gif.gif"
 export default function Home() {
   return (
     <div className="home">
@@ -15,7 +16,7 @@ export default function Home() {
         </div>
         <div className="image-container">
           <div className="image">
-            <img src={home} alt="home image" />
+            <img src={animate} alt="home image" />
           </div>
           <div className="ellipse-container">
             <div className="ellipse pink"></div>
