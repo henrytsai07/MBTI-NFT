@@ -1,6 +1,8 @@
 import React from "react";
 import Card from "./Creator_Card";
 import ex from "../assets/question_rabbit.png";
+import underground from "../assets/Underground.png";
+
 
 export default function SuperRare() {
   const data = [
@@ -30,7 +32,7 @@ export default function SuperRare() {
       series: "Artist",
       title: "Yipudaha",
       tag: "INFP",
-      // time: 1,
+      time: 1,
     },
     {
       image: ex,
@@ -42,6 +44,8 @@ export default function SuperRare() {
   ];
   return (
     <div className="super-rare">
+            <img className="underground" src={underground} />
+
       <div className="title-container">
         <h2 className="title">MBTI BUNNY CREATORS</h2>
         <p className="description">
@@ -62,6 +66,8 @@ export default function SuperRare() {
           />
         ))}
       </div>
+
+
     </div>
   );
 }
