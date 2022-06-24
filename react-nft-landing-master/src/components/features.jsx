@@ -1,13 +1,8 @@
 import React from "react";
-import { useEffect, useState } from "react";
 import Movie from "../components/movie";
-import Filter from "../functions/Filter";
 import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import StartFirebase, { firebase } from "../functions/initFirebase";
-import { ref, onValue } from "firebase/database";
 import Select from "react-select";
 
 const db = StartFirebase();

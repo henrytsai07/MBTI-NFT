@@ -77,7 +77,7 @@ function App() {
                   <Free />
                   {/* <Like /> */}
                   <SuperRare />
-                  <Release />
+                  {/* <Release /> */}
                   <img className="road" src={roadmap} />
                   <Creater />
                   <Signup />
