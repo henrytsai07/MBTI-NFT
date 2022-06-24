@@ -19,7 +19,6 @@ function StartFirebase() {
   
     // Initialize Firebase
     const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
     return getDatabase(app);
 }
 export default StartFirebase;

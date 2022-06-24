@@ -89,6 +89,16 @@ html {
   }
 }
 
+.mint-container {
+  transition: 0.5s ease-in-out;
+  font-family: var(--font-family);
+
+  padding: 4rem 4rem;
+  @media screen and (min-width: 280px) and (max-width: 1080px) {
+    padding: 0;
+  }
+}
+
 @media only screen and (min-device-width: 280px) and (max-device-width: 1080px) {
   .app-container::-webkit-scrollbar {
     display: none;

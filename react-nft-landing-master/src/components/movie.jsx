@@ -4,7 +4,7 @@ function Movie({ movie }) {
         <motion.div layout animate={{ opacity: 1, scale: 1 }} initial={{ opacity: 0, scale: 0 }} exit={{ opacity: 0, sacle: 0 }}>
             <div className="picture-card">
             <h2>{movie[0].name}</h2>
-                <img className="filter_image" src={movie[1]} alt= "image loading error" />
+                <img className="filter_image" src={movie[1]} alt= "loading error" />
                 </div>
         </motion.div>
     )
