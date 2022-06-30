@@ -435,7 +435,7 @@ const ABI = [
     type: "function",
   },
 ];
-const ADDRESS = "0xFA384952403e661F8C702c69C4Ec9C335da38a4a";
+const ADDRESS = "0x157764BCa018bf222891536894b50b14400620fb";
 
 export class MintPage extends React.Component {
   constructor(props) {
@@ -484,6 +484,7 @@ export class MintPage extends React.Component {
         });
         console.log("success response:", response);
       } catch (err) {
+        //pop up already  error
         console.log("mint err:", err);
       }
     }
@@ -504,6 +505,8 @@ export class MintPage extends React.Component {
 
         console.log("success response:", response);
       } catch (err) {
+        //pop up already  error
+
         console.log("mint err:", err);
       }
     }
@@ -530,6 +533,7 @@ export class MintPage extends React.Component {
         );
       } else {
         return (
+          //pop up
           <p>
             You address is not in the whitelist, please wait for public sale
           </p>
