@@ -1,41 +1,46 @@
 import React from "react";
 import Card from "./Creator_Card";
-import ex from "../assets/question_rabbit.png";
+import tia from "../assets/Tia.jpg";
+import kevin from "../assets/Kevin.jpg";
+import katie from "../assets/Katie.jpg";
+import henry from "../assets/question_rabbit.png";
+import michelle from "../assets/question_rabbit.png";
+
 import underground from "../assets/Underground.png";
 
 
 export default function SuperRare() {
   const data = [
     {
-      image: ex,
+      image: tia,
       series: "Marketing Director",
       title: "Haopiaoliang",
       tag: "INFP",
       time: 1,
     },
     {
-      image: ex,
+      image: henry,
       series: "Programmer",
       title: "UnicornHen",
       tag: "ENTJ",
       time: 1,
     },
     {
-      image: ex,
+      image: kevin,
       series: "Programmer",
       title: "Best_Kai",
       tag: "ENFJ",
       time: 1,
     },
     {
-      image: ex,
+      image: michelle,
       series: "Artist",
       title: "Yipudaha",
       tag: "INFP",
       time: 1,
     },
     {
-      image: ex,
+      image: katie,
       series: "Artist",
       title: "Kaytea",
       tag: "ENFJ",

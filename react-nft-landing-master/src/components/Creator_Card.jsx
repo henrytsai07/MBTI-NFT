@@ -4,7 +4,7 @@ import supereth from "../assets/supereth.png";
 export default function Card({ image, series, title, price, tag, time }) {
   return (
     <div className="card">
-      <div className="card-image">
+      <div className="card-profile">
         <img src={image} alt="super1" />
       </div>
       <div className="card-content">

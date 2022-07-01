@@ -2,11 +2,23 @@
   background-color: var(--card-color);
   width: max-content;
   border-radius: 1rem;
+  
   &-image {
     img {
       width: 300px;
+      
     }
   }
+  &-profile{
+    img {
+      width: 300px;
+      border-top-left-radius: 15px;
+      border-top-right-radius: 15px;
+
+      
+    }
+  }
+  
  
   &-content {
     display: flex;
@@ -50,6 +62,7 @@
         font-size: 0.9rem;
       }
     }
+    
     
   }
 }
