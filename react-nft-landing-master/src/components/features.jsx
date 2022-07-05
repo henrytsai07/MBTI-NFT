@@ -10,46 +10,46 @@ const facial_options = [
   { value: "", label: "All" },
   { value: 'JP&Judging', label: "Judging" },
   { value: "Shy", label: "Shy" },
-  { value: "Excited", label: "Excited" },
-  { value: "Please", label: "Please Emoji" },
-  { value: "Comic", label: "Comic Eyes" },
+  { value: "E*Laughing", label: "Laughing" },
+  { value: "F*Please", label: "Please Emoji" },
+  { value: "N*Anime", label: "Comic Eyes" },
   { value: "Motivated", label: "Motivated Face" },
-  { value: 'TF&Thinking', label: "Thinking Face" },
-  { value: "SN&Sensing", label: "Apathetic" },
+  { value: 'T*Thinking', label: "Thinking Face" },
+  { value: "S*Numb", label: "Hwaiting Face" },
 ];
 const accessories_options = [
   { value: "", label: "All" },
-  { value: "Headphone", label: "Headphone" },
-  { value: "Reversed", label: "Reversed Cap" },
-  { value: "Regular", label: "Regular shape hairclip" },
+  { value: "I*Headphone", label: "Headphone" },
+  { value: "E*Reversed Cap", label: "Reversed Cap" },
+  { value: "S*Ordinary Hairclip", label: "Regular shape hairclip" },
   { value: "SN&S Hairclip", label: "Irregular shape hairclip" },
-  { value: "Glasses", label: "Glasses" },
-  { value: "TF&F Scarf", label: "Scarf" },
-  { value: "JP&J Clock", label: "Watch" },
-  { value: "JP&P Pen", label: "Paintbrush" },
+  { value: "T*Glass", label: "Glasses" },
+  { value: "F*Scarf", label: "Scarf" },
+  { value: "J*Watch", label: "Watch" },
+  { value: "P*Paint Brush", label: "Paintbrush" },
 ];
 
 const item_options = [
   { value: "", label: "All" },
   { value: "Book", label: "Book" },
-  { value: "Beer_Cup", label: "Beer Cup" },
+  { value: "E*Beer Cup", label: "Beer Cup" },
   { value: "Magnifying", label: "Magnifying Glass" },
-  { value: "Binocular", label: "Binocular" },
-  { value: "Rubik", label: "Rubik's Cube" },
-  { value: "Teddy", label: "Teddy Bear" },
-  { value: "Check", label: "Checklist/Planning Items" },
-  { value: "Camera", label: "Camera" },
+  { value: "N*Binocular", label: "Binocular" },
+  { value: "T*Rubic Cube", label: "Rubik's Cube" },
+  { value: "F*Teddy Bear", label: "Teddy Bear" },
+  { value: "J*Checklist", label: "Checklist/Planning Items" },
+  { value: "P*Camera", label: "Camera" },
 ];
 const clothing_options = [
   { value: "", label: "All" },
-  { value: "EI&I Pajama", label: "Pajama" },
-  { value: "EI&E Shirt", label: "Tropical Shirt" },
+  { value: "I*Pajama", label: "Pajama" },
+  { value: "E*Tropical Shirt", label: "Tropical Shirt" },
   { value: "Flannel", label: "Flannel Shirt" },
   { value: "Astro", label: "Astronaut Suit" },
-  { value: "Lab", label: "White Labortory Cloth" },
-  { value: "Love", label: "I Love MBTI" },
-  { value: "Button", label: "White Button-down Shirt" },
-  { value: "Dot", label: "Dot Shirt" },
+  { value: "T*Lab Coat", label: "White Labortory Cloth" },
+  { value: "F*I Love NFT Shirt", label: "I Love MBTI" },
+  { value: "J*White Shirt", label: "White Button-down Shirt" },
+  { value: "P*Pattern Shirt", label: "Dot Shirt" },
 ];
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
@@ -94,7 +94,7 @@ export class Features extends React.Component {
     //Facials
     if (this.state.activeGenre[0] !== "") {
       const filtered = this.state.popular.filter(
-        (movie) => (movie[0].attributes[5].value === this.state.activeGenre[0])
+        (movie) => (movie[0].attributes[1].value === this.state.activeGenre[0])
       );
       this.state.filter = filtered
       this.setState({ filter: filtered });
@@ -106,7 +106,7 @@ export class Features extends React.Component {
     //Accessories
     if (this.state.activeGenre[1] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[6].value == this.state.activeGenre[1]
+        (movie) => movie[0].attributes[3].value == this.state.activeGenre[1]
       );
 
       this.state.filter = filtered
@@ -117,7 +117,7 @@ export class Features extends React.Component {
     //Items
     if (this.state.activeGenre[2] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[4].value === this.state.activeGenre[2]
+        (movie) => movie[0].attributes[2].value === this.state.activeGenre[2]
       );
 
       this.state.filter = filtered
@@ -128,7 +128,7 @@ export class Features extends React.Component {
     //Clothings
     if (this.state.activeGenre[3] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[2].value == this.state.activeGenre[3]
+        (movie) => movie[0].attributes[0].value == this.state.activeGenre[3]
       );
 
       this.state.filter = filtered
@@ -161,7 +161,7 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
 
-      for (var num = 1; num < 2; num++) {
+      for (var num = 1; num < 11; num++) {
         try {
           let name = await fetch(
             "https://ipfs.io/ipfs/QmVbSCfEu1VjksiZeu9p6jEuBDTnKSEuCkDC5wr2ZN3YwN/" +
@@ -189,8 +189,6 @@ export class Features extends React.Component {
     var responseJson = getBunnyJson();
 
     Promise.all([responseJson]).then((res) => {
-
-      console.log([...res[0]][0])
 
       this.setState({ popular: [...res[0]]});
       this.setState({ filter: [...res[0]] });

@@ -3,6 +3,9 @@ import { utils, ethers } from "ethers";
 import Whitelist from "./Whitelist";
 import React from "react";
 import animate from "../assets/bunny_gif.gif";
+import Modal_pop from "./Modal_pop";
+
+
 
 const ABI = [
   {
@@ -447,7 +450,7 @@ export class MintPage extends React.Component {
       isWhiteListSale: false,
       isOpenSale: false,
       nftCost: 0,
-      count: 0 
+      count: 0,
     };
   }
 
@@ -541,7 +544,11 @@ export class MintPage extends React.Component {
       }
     }
     if (this.state.isConnected && this.state.isOpenSale) {
-      return <Button onClick={this.mint}>Mint</Button>;
+      return (
+        <Button className="mint_btn" onClick={this.mint}>
+          Mint
+        </Button>
+      );
     }
   };
 
@@ -564,12 +571,17 @@ export class MintPage extends React.Component {
         <div className="container">
           <div className="content">
             <h4 className="title">Mint Portal</h4>
-            <h5>Please connect your wallet</h5>
-            <Button onClick={this.connectwallet}>Connect Wallet</Button>
-            <div id="wallet-address">
-              <label for="floatingInput">
-                Wallet Address: {this.state.user_address}
-              </label>
+            <div className="box"><div className="right-content">Total number of  NFT's</div><div className="left-content">384</div></div>
+            <div className = "box"><div className="right-content">Total minted NFT's</div><div className="left-content">0</div></div>
+            <div className = "box"><div className="right-content">Price per NFT</div><div className="left-content">{utils.formatEther(this.state.nftCost)} ETH</div></div>
+            <div className = "box"><div className="right-content">#</div><div className="left-content">{this.state.user_address}</div></div>
+
+            <h5>{this.collectionStatus()}</h5>
+            <div className="wallet">
+              <div id="wallet-address">
+                
+                <Button onClick={this.connectwallet}>Connect Wallet</Button>
+              </div>
             </div>
             <div>
               <input
@@ -580,17 +592,17 @@ export class MintPage extends React.Component {
                 max="5"
               />
               <label>Please select the amount of NFTs to mint.</label>
-              {this.mintButton()}
             </div>
+            <Modal_pop/>
+
             <div>
               <button onClick={this.decrement}>-</button>
               <span>{this.state.count}</span>
               <button onClick={this.increment}>+</button>
             </div>
-            <h5>Current status: {this.collectionStatus()}</h5>
-            <h5>
-              Price {utils.formatEther(this.state.nftCost)} ETH each mint.
-            </h5>
+            {this.mintButton()}
+
+            
           </div>
           <div className="image-container">
             <div className="image-container">

@@ -2,48 +2,64 @@
     margin-top: 5rem;
     margin-left: 0rem;
     width: 100%;
-    height: 90%;
+    height: 100%;
+    padding-left: 150px;
+    padding-right: 150px;
+
+
 
     .container {
         position: relative;
         margin-top: 1rem;
         top: 0;
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 2fr 1fr;
         width: 100%;
         height: 100%;
         background: white;
         border-radius: 25px;
+        align-items: center;
 
         .content {
-            padding: 5rem;
+            padding: 3rem;
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            align-items: flex-start;
+            gap: 1rem;
+            align-items: center;
+            //align-items: flex-start;
+
+            .wallet{
+                display: auto;
+            }
+
+
 
             .sub-title {
                 color: var(--pink);
                 text-transform: uppercase;
                 letter-spacing: 0.1rem;
+                align-self: center;
+
             }
 
             .title {
                 color: var(--accent-color1);
                 -webkit-text-stroke: 2px rgb(0, 0, 0);
                 font-size: 50px;
+                align-self: center;
             }
 
             .description {
-                color: rgb(255, 255, 255)
+                color: rgb(255, 255, 255);
+                align-self: center;
+
             }
 
             button {
-                color: var(--accent-color1);
+                color: white;
                 background-color: var(--background);
                 font-weight: bold;
-                padding: 1rem 3rem;
-                border-radius: 2rem;
+                padding: 1rem 1rem;
                 box-shadow: 0 0 6px 0 rgba(157, 96, 212, 0.5);
                 border: solid 3px transparent;
                 background-image: linear-gradient(rgba(255, 255, 255, 0),
@@ -58,7 +74,49 @@
                 &:hover {
                     box-shadow: none;
                 }
+                
+                
+                
+                
             }
+            .mint_btn{
+                border-radius: 1rem;
+                padding: 1rem 3rem;
+                align-items: center;
+                
+            }
+            span{
+                padding: 1rem 3rem;
+                font-size: 20px;
+            }
+            .box{
+                position: relative;
+                width: 450px;
+                height: 60px;
+                display: block;
+                text-align: left;
+                background-color: initial;
+                border:1px solid #373b44;
+            }
+            .right-content{
+                position: absolute;
+                top:50%;
+                transform: translateY(-50%);
+                left:25px;
+
+
+            }
+            .left-content{
+                position: absolute;
+                top:50%;
+                transform: translateY(-50%);
+                right:25px;
+                
+
+                
+            }
+        
+            
         }
 
         .image-container {
