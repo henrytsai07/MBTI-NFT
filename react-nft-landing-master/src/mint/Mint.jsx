@@ -3,7 +3,8 @@ import { utils, ethers } from "ethers";
 import Whitelist from "./Whitelist";
 import React from "react";
 import animate from "../assets/bunny_gif.gif";
-import Modal_pop from "./Modal_pop";
+import Error from "./Error";
+
 
 
 
@@ -451,6 +452,7 @@ export class MintPage extends React.Component {
       isOpenSale: false,
       nftCost: 0,
       count: 0,
+      modal_show: false,
     };
   }
 
@@ -487,7 +489,8 @@ export class MintPage extends React.Component {
         });
         console.log("success response:", response);
       } catch (err) {
-        //pop up already  error
+        <Error header="Mint Error" error={err} />
+
         console.log("mint err:", err);
       }
     }
@@ -509,6 +512,7 @@ export class MintPage extends React.Component {
         console.log("success response:", response);
       } catch (err) {
         //pop up already  error
+        <Error header="Whitelist Mint Error" error={err} />
 
         console.log("mint err:", err);
       }
@@ -536,18 +540,19 @@ export class MintPage extends React.Component {
         );
       } else {
         return (
-          //pop up
-          <p>
-            You address is not in the whitelist, please wait for public sale
-          </p>
+          <><Error header="Whitelist Only"error="You address is not in the whitelist, please wait for public sale" />
+          
+          </>
         );
       }
     }
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
-        <Button className="mint_btn" onClick={this.mint}>
+        <><Button className="mint_btn" onClick={this.mint}>
           Mint
-        </Button>
+        </Button><Error header="Testing (Error)" error="You address is not in the whitelist, please wait for public sale" /></>
+        
+
       );
     }
   };
@@ -593,7 +598,7 @@ export class MintPage extends React.Component {
               />
               <label>Please select the amount of NFTs to mint.</label>
             </div>
-            <Modal_pop/>
+            
 
             <div>
               <button onClick={this.decrement}>-</button>
