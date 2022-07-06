@@ -4,16 +4,17 @@ import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
 import StartFirebase, { firebase } from "../functions/initFirebase";
 import Select from "react-select";
+import { wait } from "@testing-library/user-event/dist/utils";
 
 const db = StartFirebase();
 const facial_options = [
   { value: "", label: "All" },
-  { value: 'JP&Judging', label: "Judging" },
-  { value: "Shy", label: "Shy" },
+  { value: 'J*Serious', label: "Judging" },
+  { value: "I*Shy", label: "Shy" },
   { value: "E*Laughing", label: "Laughing" },
   { value: "F*Please", label: "Please Emoji" },
   { value: "N*Anime", label: "Comic Eyes" },
-  { value: "Motivated", label: "Motivated Face" },
+  { value: "P*I Dont Care", label: "I Dont CARE!" },
   { value: 'T*Thinking', label: "Thinking Face" },
   { value: "S*Numb", label: "Hwaiting Face" },
 ];
@@ -22,7 +23,7 @@ const accessories_options = [
   { value: "I*Headphone", label: "Headphone" },
   { value: "E*Reversed Cap", label: "Reversed Cap" },
   { value: "S*Ordinary Hairclip", label: "Regular shape hairclip" },
-  { value: "SN&S Hairclip", label: "Irregular shape hairclip" },
+  { value: "N*Irregular Hairclip", label: "Irregular shape hairclip" },
   { value: "T*Glass", label: "Glasses" },
   { value: "F*Scarf", label: "Scarf" },
   { value: "J*Watch", label: "Watch" },
@@ -31,9 +32,9 @@ const accessories_options = [
 
 const item_options = [
   { value: "", label: "All" },
-  { value: "Book", label: "Book" },
+  { value: "I*Book", label: "Book" },
   { value: "E*Beer Cup", label: "Beer Cup" },
-  { value: "Magnifying", label: "Magnifying Glass" },
+  { value: "S*Magnifying Glass", label: "Magnifying Glass" },
   { value: "N*Binocular", label: "Binocular" },
   { value: "T*Rubic Cube", label: "Rubik's Cube" },
   { value: "F*Teddy Bear", label: "Teddy Bear" },
@@ -44,11 +45,11 @@ const clothing_options = [
   { value: "", label: "All" },
   { value: "I*Pajama", label: "Pajama" },
   { value: "E*Tropical Shirt", label: "Tropical Shirt" },
-  { value: "Flannel", label: "Flannel Shirt" },
+  { value: "S*Flannel Shirt", label: "Flannel Shirt" },
   { value: "Astro", label: "Astronaut Suit" },
   { value: "T*Lab Coat", label: "White Labortory Cloth" },
-  { value: "F*I Love NFT Shirt", label: "I Love MBTI" },
-  { value: "J*White Shirt", label: "White Button-down Shirt" },
+  { value: "F*I Love NFT Shirt", label: "I Love NFT" },
+  { value: "J*Shirt", label: "Grey Button-down Shirt" },
   { value: "P*Pattern Shirt", label: "Dot Shirt" },
 ];
 export class Features extends React.Component {
@@ -98,8 +99,7 @@ export class Features extends React.Component {
       );
       this.state.filter = filtered
       this.setState({ filter: filtered });
-      console.log(filtered)
-      console.log(this.state.filter)
+      
 
 
     }
@@ -161,7 +161,7 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
 
-      for (var num = 1; num < 301; num++) {
+      for (var num = 1; num < 1; num++) {
         try {
           let name = await fetch(
             "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +

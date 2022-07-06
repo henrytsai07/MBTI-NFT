@@ -4,6 +4,7 @@ import Whitelist from "./Whitelist";
 import React from "react";
 import animate from "../assets/bunny_gif.gif";
 import Error from "./Error";
+import {useRef} from 'react'
 
 
 
@@ -439,7 +440,7 @@ const ABI = [
     type: "function",
   },
 ];
-const ADDRESS = "0x157764BCa018bf222891536894b50b14400620fb";
+const ADDRESS = "0x627E0251ACE6Dc5949DEC49eD8e4c6fF56b7b9eD";
 
 export class MintPage extends React.Component {
   constructor(props) {
@@ -451,8 +452,9 @@ export class MintPage extends React.Component {
       isWhiteListSale: false,
       isOpenSale: false,
       nftCost: 0,
-      count: 0,
+      count: 1,
       modal_show: false,
+      error: false,
     };
   }
 
@@ -480,7 +482,7 @@ export class MintPage extends React.Component {
   mint = async () => {
     console.log(this.state);
     if (window.ethereum && this.state.isConnected) {
-      var _mintAmount = Number(document.querySelector("[name=amount]").value);
+      var _mintAmount = Number(this.state.count);
       try {
         // Will need to change this
         const cost = await this.state.contract.cost();
@@ -489,7 +491,9 @@ export class MintPage extends React.Component {
         });
         console.log("success response:", response);
       } catch (err) {
-        <Error header="Mint Error" error={err} />
+        this.setState({
+          count: 0
+        })
 
         console.log("mint err:", err);
       }
@@ -498,7 +502,8 @@ export class MintPage extends React.Component {
 
   whiteListMint = async () => {
     if (window.ethereum && this.state.isConnected) {
-      var _mintAmount = Number(document.querySelector("[name=amount]").value);
+      var _mintAmount = Number(this.state.count);
+      console.log(_mintAmount);
       try {
         // Will need to change this
         const cost = await this.state.contract.cost();
@@ -510,18 +515,23 @@ export class MintPage extends React.Component {
         );
 
         console.log("success response:", response);
+        
       } catch (err) {
+        alert(err.message)
+        
         //pop up already  error
-        <Error header="Whitelist Mint Error" error={err} />
 
-        console.log("mint err:", err);
+        // console.log("mint err:", err);
+
       }
     }
+    
   };
+  
 
   collectionStatus = () => {
     if (!this.state.isConnected) {
-      return "Please connect your wallet.";
+      return "Please connect your wallet";
     }
     if (this.state.isWhiteListSale) {
       return "Whitelist Sale";
@@ -550,7 +560,7 @@ export class MintPage extends React.Component {
       return (
         <><Button className="mint_btn" onClick={this.mint}>
           Mint
-        </Button><Error header="Testing (Error)" error="You address is not in the whitelist, please wait for public sale" /></>
+        </Button></>
         
 
       );
@@ -558,19 +568,23 @@ export class MintPage extends React.Component {
   };
 
   increment = () => {
+    // set less than our total avaliable NFT
     this.setState({
       count: this.state.count + 1,
     });
   };
 
   decrement = () => {
-    this.setState({
-      count: this.state.count - 1,
-    });
+    if (this.state.count != 1) {
+      this.setState({
+        count: this.state.count - 1,
+      });
+    }
   };
 
   // Please style this page here
   render() {
+    
     return (
       <div className="mint">
         <div className="container">
@@ -588,17 +602,7 @@ export class MintPage extends React.Component {
                 <Button onClick={this.connectwallet}>Connect Wallet</Button>
               </div>
             </div>
-            <div>
-            <Error header="Mint Error" error="error" />
-
-              <input
-                type="number"
-                name="amount"
-                defaultValue="1"
-                min="1"
-                max="5"
-              />
-              <label>Please select the amount of NFTs to mint.</label>
+            <div id="error">
             </div>
             
 
