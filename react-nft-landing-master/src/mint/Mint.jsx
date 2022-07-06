@@ -589,6 +589,8 @@ export class MintPage extends React.Component {
               </div>
             </div>
             <div>
+            <Error header="Mint Error" error="error" />
+
               <input
                 type="number"
                 name="amount"

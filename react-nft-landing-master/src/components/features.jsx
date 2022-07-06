@@ -161,15 +161,15 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
 
-      for (var num = 1; num < 11; num++) {
+      for (var num = 1; num < 301; num++) {
         try {
           let name = await fetch(
-            "https://ipfs.io/ipfs/QmVbSCfEu1VjksiZeu9p6jEuBDTnKSEuCkDC5wr2ZN3YwN/" +
+            "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
               num +
               ".json"
           );
           let image = await fetch(
-            "https://ipfs.io/ipfs/QmPoXmDJpxkgTLGekFTGzmwD6h7XYuEGtw53EWdt3euUNB/" +
+            "https://mbtibunny.mypinata.cloud/ipfs/QmZ2TdWZa9vhDLc8XV1TTo3sBUY8Y625ibnRozt1oiCW98/" +
               num +
               ".png"
           );
