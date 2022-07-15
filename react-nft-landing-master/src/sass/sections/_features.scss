@@ -84,14 +84,39 @@ button.active {
 
 
 } 
+.container{
+    width:auto;
+    height:auto;
+    perspective: 800px;
+}
+.cardd{
+    height: 100%;
+    width: 100%;
+    position:relative;
+    transition: transform 1500ms;
+    transform-style: preserve-3d;
+
+
+}
+.back-card, .picture-card{
+    height:100%;
+    width:100%;
+    position:absolute;
+    backface-visibility: hidden;
+
+}
 
 .picture-card{
+    width:100%;
+    height: 100%;
     display: block;
     width: auto;
     height: auto;
     background: white;
     border-radius: 25px;
     padding-bottom: 10px;
+    position:relative;
+
 
     
 }
@@ -103,4 +128,27 @@ button.active {
   margin-top: 10px;
 
   width: 90%;
+}
+
+.container:hover > .cardd{
+    cursor:pointer;
+    transform: rotateY(180deg);
+}
+
+.back-card{
+    position:block;
+    top:-0.5px;
+    background-color:gray;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+
+
+
+
 }

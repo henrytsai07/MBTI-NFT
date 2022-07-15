@@ -37,23 +37,22 @@ html {
   font-family: var(--font-family);
   overflow-x: hidden;
   transition: 0.5s ease-in-out;
-  padding: 2rem 4rem;
+  padding: 2rem 8rem;
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     padding: 0;
   }
   .road{
-    width:114%;
-    margin-left: -90px;
-    margin-right: -200px;
+    width:125%;
+    margin-left: -130px;
     margin-top: 40px;
     top: 5px
   }
   .underground{
-    height:220%;
-    width: 110%;
+    top:-5px;
+    height:300%;
+    width:125%;
     z-index: -1;
-    margin-left: -90px;
-    margin-right: -200px;
+    margin-left: -130px;
     position:fixed;
 
 
@@ -61,7 +60,9 @@ html {
 }
 
 .nav-container {
-  font-family: var(--font-family);
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
   //padding: 2rem 4rem;
   position: relative;
   transition: 0.5s ease-in-out;

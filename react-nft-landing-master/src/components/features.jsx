@@ -4,7 +4,6 @@ import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
 import StartFirebase, { firebase } from "../functions/initFirebase";
 import Select from "react-select";
-import { wait } from "@testing-library/user-event/dist/utils";
 
 const db = StartFirebase();
 const facial_options = [
@@ -106,7 +105,7 @@ export class Features extends React.Component {
     //Accessories
     if (this.state.activeGenre[1] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[3].value == this.state.activeGenre[1]
+        (movie) => movie[0].attributes[3].value === this.state.activeGenre[1]
       );
 
       this.state.filter = filtered
@@ -128,7 +127,7 @@ export class Features extends React.Component {
     //Clothings
     if (this.state.activeGenre[3] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[0].value == this.state.activeGenre[3]
+        (movie) => movie[0].attributes[0].value === this.state.activeGenre[3]
       );
 
       this.state.filter = filtered
@@ -161,7 +160,7 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
 
-      for (var num = 1; num < 1; num++) {
+      for (var num = 1; num < 301; num++) {
         try {
           let name = await fetch(
             "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
@@ -313,7 +312,7 @@ export class Features extends React.Component {
           <AnimatePresence>
             {this.state.filter.map((bunny) => {
               console.log(bunny)
-              return <Movie key={bunny[0].name} movie={bunny}></Movie>;
+              return <Movie key={bunny[0].name} movie={bunny} ></Movie>;
             })}
           </AnimatePresence>
         </motion.div>

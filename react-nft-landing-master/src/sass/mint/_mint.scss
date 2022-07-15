@@ -86,8 +86,10 @@
                 
             }
             span{
-                padding: 1rem 3rem;
+                margin: auto ;
+                padding:1rem 3rem;
                 font-size: 20px;
+                
             }
             .box{
                 position: relative;
@@ -114,6 +116,16 @@
                 
 
                 
+            }
+            .mint_counter{
+                position:block;
+                
+                background-color: #bbb;
+                border-radius: 50%;            }
+            .counter{
+                
+                align-self: center;
+
             }
         
             

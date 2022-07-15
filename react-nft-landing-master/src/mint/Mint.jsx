@@ -593,7 +593,7 @@ export class MintPage extends React.Component {
             <div className="box"><div className="right-content">Total number of  NFT's</div><div className="left-content">384</div></div>
             <div className = "box"><div className="right-content">Total minted NFT's</div><div className="left-content">0</div></div>
             <div className = "box"><div className="right-content">Price per NFT</div><div className="left-content">{utils.formatEther(this.state.nftCost)} ETH</div></div>
-            <div className = "box"><div className="right-content">#</div><div className="left-content">{this.state.user_address}</div></div>
+            <div className = "box"><div className="right-content"></div><div className="left-content">{this.state.user_address}</div></div>
 
             <h5>{this.collectionStatus()}</h5>
             <div className="wallet">
@@ -606,10 +606,10 @@ export class MintPage extends React.Component {
             </div>
             
 
-            <div>
-              <button onClick={this.decrement}>-</button>
+            <div className="counter">
+              <Button className="mint_counter" onClick={this.decrement}>-</Button>
               <span>{this.state.count}</span>
-              <button onClick={this.increment}>+</button>
+              <Button className="mint_counter" onClick={this.increment}>+</Button>
             </div>
             {this.mintButton()}
 

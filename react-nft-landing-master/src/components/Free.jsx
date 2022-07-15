@@ -2,12 +2,14 @@ import React from "react";
 import Card from "./Card";
 import ex from "../assets/question_rabbit.png";
 import blackboard from "../assets/Blackboard.png"
-import bunny_wiz from "../assets/Bunny_wiz_carrot.png"
+import bunny_wiz from "../assets/cloud wiz rabbit.png"
 
 export default function Free() {
   return (
     <div className="free">
-      <div className="container">
+      <img className="bunny_wiz" src={bunny_wiz}/>
+
+      {/* <div className="container">
         <div className="content">
           <h2 className="title">What is MBTI Bunny?</h2>
           <p className="description">
@@ -20,14 +22,13 @@ export default function Free() {
           <img className="blackboard" src={blackboard}/>
 
         </div>
-        <img className="bunny_wiz" src={bunny_wiz}/>
 
         <div className="background">
           <div className="ellipse pink"></div>
           <div className="ellipse green"></div>
         </div>
         
-      </div>
+      </div> */}
       
       <div className="cards">
         {/* <div className="card1">
