@@ -4,18 +4,19 @@ import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
 import StartFirebase, { firebase } from "../functions/initFirebase";
 import Select from "react-select";
+import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const db = StartFirebase();
 const facial_options = [
   { value: "", label: "All" },
-  { value: 'J*Serious', label: "Judging" },
   { value: "I*Shy", label: "Shy" },
   { value: "E*Laughing", label: "Laughing" },
-  { value: "F*Please", label: "Please Emoji" },
-  { value: "N*Anime", label: "Comic Eyes" },
-  { value: "P*I Dont Care", label: "I Dont CARE!" },
-  { value: 'T*Thinking', label: "Thinking Face" },
   { value: "S*Numb", label: "Hwaiting Face" },
+  { value: "N*Anime", label: "Comic Eyes" },
+  { value: 'T*Thinking', label: "Thinking Face" },
+  { value: "F*Please", label: "Please Emoji" },
+  { value: 'J*Serious', label: "Judging" },
+  { value: "P*I Dont Care", label: "I Dont CARE!" },
 ];
 const accessories_options = [
   { value: "", label: "All" },
@@ -51,11 +52,23 @@ const clothing_options = [
   { value: "J*Shirt", label: "Grey Button-down Shirt" },
   { value: "P*Pattern Shirt", label: "Dot Shirt" },
 ];
+const mbti_type = {
+  "I*": "E*",
+  "E*": "I*",
+  "S*": "N*",
+  "N*": "S*",
+  "T*": "F*",
+  "F*": "T*",
+  "J*": "P*",
+  "P*":"J*"
+  
+    
+}
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
   //   const [filtered, setFiltered] = useState([]);
   //   const [activeGenre, setActiveGenre] = useState(0);
-
+  
   constructor() {
     super();
     this.state = {
@@ -67,6 +80,7 @@ export class Features extends React.Component {
       access_value: "All",
       item_value: "All",
       clothing_value: "All",
+      selected_item: ["", "", "", "", "", "", "", ""],
     };
   }
 
@@ -146,17 +160,6 @@ export class Features extends React.Component {
   };
 
   componentDidMount() {
-    //fetchPopular();
-    // const BunnyJson = getBunnyJson();
-    // const BunnyArray = []
-    // const Bunny_Extract = () => {
-    //   BunnyJson.then((a) => {
-    //     BunnyArray.push(a);
-    //   });
-    // }
-    // Bunny_Extract();
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
     async function getBunnyJson() {
       const map1 = new Map();
 
@@ -203,21 +206,6 @@ export class Features extends React.Component {
         return;
       }
     });
-
-    /////////////////////////////////////////////////////////////////////////////////////////////////
-
-    // const dbRef = ref(db, "Collection");
-    // onValue(dbRef, (snapshot) => {
-    //   let records = [];
-    //   snapshot.forEach((childSnapshot) => {
-    //     let keyName = childSnapshot.key;
-    //     let data = childSnapshot.val();
-    //     records.push({ key: keyName, data: data });
-    //   });
-
-    //initializations
-
-    // setFiltered(popular);
   }
   
 
@@ -229,18 +217,26 @@ export class Features extends React.Component {
         value={{ label: this.state.facial_value }}
         onChange={(facial_options) => (
           (this.state.activeGenre[0] = facial_options.value),
-          this.handleChange(), this.setState({ facial_value: facial_options.label })
-        )}
+          this.handleChange(), this.setState({ facial_value: facial_options.label }),this.state.selected_item[0] = this.state.activeGenre[0].substring(0,2), this.state.selected_item[4] = mbti_type[this.state.activeGenre[0].substring(0,2)])
+          }
+        
+        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
+
+        
       />
     );
     const Accessories_List = () => (
       <Select
         options={accessories_options}
-        value={{label: this.state.access_value}}
+        value={{ label: this.state.access_value }}
         onChange={(accessories_options) => (
           (this.state.activeGenre[1] = accessories_options.value),
-          this.handleChange(),this.setState({ access_value: accessories_options.label })
-        )}
+          this.handleChange(), this.setState({ access_value: accessories_options.label }),this.state.selected_item[1] = this.state.activeGenre[1].substring(0,2),this.state.selected_item[5] = mbti_type[this.state.activeGenre[1].substring(0,2)])
+        }
+      
+      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
+
+
       />
     );
     const Items_List = () => (
@@ -248,8 +244,11 @@ export class Features extends React.Component {
         options={item_options}
         value={{ label: this.state.item_value }}
         onChange={(item_options) => (
-          (this.state.activeGenre[2] = item_options.value), this.handleChange(), this.setState({ item_value: item_options.label })
-        )}
+          (this.state.activeGenre[2] = item_options.value), this.handleChange(), this.setState({ item_value: item_options.label }),this.state.selected_item[2] = this.state.activeGenre[6].substring(0,2), this.state.selected_item[5] = mbti_type[this.state.activeGenre[2].substring(0,2)])
+        }
+      
+      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
+        
 
       />
     );
@@ -259,8 +258,10 @@ export class Features extends React.Component {
         value={{ label: this.state.clothing_value }}
         onChange={(clothing_options) => (
           (this.state.activeGenre[3] = clothing_options.value),
-          this.handleChange(),this.setState({ clothing_value: clothing_options.label })
-        )}
+          this.handleChange(),this.setState({ clothing_value: clothing_options.label }),this.state.selected_item[3] = this.state.activeGenre[3].substring(0,2), this.state.selected_item[7] = mbti_type[this.state.activeGenre[3].substring(0,2)])
+        }
+      
+      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
       />
     );
     return (
@@ -281,32 +282,6 @@ export class Features extends React.Component {
               <Clothings_List />
             </div>
           </div>
-
-          {/* <button
-        className={this.state.activeGenre === "" ? "active" : ""}
-        onClick={() => (
-            this.setState({ activeGenre: "" }), this.change("")
-        )}
-    >
-        All
-    </button>
-    <button
-        className={this.state.activeGenre === "Angry" ? "active" : ""}
-        onClick={() => (
-            this.setState({ activeGenre: "Angry" }), this.change("Angry")
-        )}
-    >
-        Angry
-    </button>
-    <button
-        className={this.state.activeGenre === "Questioning" ? "active" : ""}
-        onClick={() => (
-            this.setState({ activeGenre: "Questioning" }),
-            this.change("Questioning")
-        )}
-    >
-        Questioning
-    </button> */}
         </div>
         <motion.div layout className="popular-movie">
           <AnimatePresence>

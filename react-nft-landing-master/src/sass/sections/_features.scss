@@ -5,6 +5,7 @@
     -moz-osx-font-smoothing: grayscale;
     margin: 5% 5%;
     z-index: 5;
+    transform: none;
 
 }
 .popular-movie{
@@ -103,6 +104,7 @@ button.active {
     width:100%;
     position:absolute;
     backface-visibility: hidden;
+    box-shadow: 0 0 5px 2px rgba(50, 50, 50, 0.25);
 
 }
 
@@ -138,7 +140,7 @@ button.active {
 .back-card{
     position:block;
     top:-0.5px;
-    background-color:gray;
+    background-color:white;
     transform: rotateY(180deg);
     backface-visibility: hidden;
     border-radius: 25px;
@@ -147,8 +149,4 @@ button.active {
     justify-content: center;
     align-items: center;
     gap: 1rem;
-
-
-
-
 }

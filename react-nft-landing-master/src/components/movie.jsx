@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 function Movie({ movie }) {
   return (
     <motion.div
-      layout
       animate={{ opacity: 1, scale: 1 }}
       initial={{ opacity: 0, scale: 0 }}
       exit={{ opacity: 0, scale: 0 }}
@@ -14,11 +13,12 @@ function Movie({ movie }) {
             <img className="filter_image" src={movie[1]} alt="loading error" />
           </div>
           <div className="back-card">
+            <h3>{movie[0].type}</h3>
             <h3>{movie[0].attributes[0].value}</h3>
             <h3>{movie[0].attributes[1].value}</h3>
             <h3>{movie[0].attributes[2].value}</h3>
             <h3>{movie[0].attributes[3].value}</h3>
-            <button>click me</button>
+            <button>OpenSea</button>
           </div>
         </div>
       </div>
