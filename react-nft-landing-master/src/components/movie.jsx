@@ -14,10 +14,10 @@ function Movie({ movie }) {
           </div>
           <div className="back-card">
             <h3>{movie[0].type}</h3>
-            <h3>{movie[0].attributes[0].value}</h3>
-            <h3>{movie[0].attributes[1].value}</h3>
             <h3>{movie[0].attributes[2].value}</h3>
             <h3>{movie[0].attributes[3].value}</h3>
+            <h3>{movie[0].attributes[0].value}</h3>
+            <h3>{movie[0].attributes[1].value}</h3>
             <button>OpenSea</button>
           </div>
         </div>

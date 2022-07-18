@@ -2,9 +2,8 @@ import React from "react";
 import Movie from "../components/movie";
 import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
-import StartFirebase, { firebase } from "../functions/initFirebase";
+import StartFirebase from "../functions/initFirebase";
 import Select from "react-select";
-import { isDisabled } from "@testing-library/user-event/dist/utils";
 
 const db = StartFirebase();
 const facial_options = [
@@ -61,8 +60,6 @@ const mbti_type = {
   "F*": "T*",
   "J*": "P*",
   "P*":"J*"
-  
-    
 }
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
@@ -217,11 +214,12 @@ export class Features extends React.Component {
         value={{ label: this.state.facial_value }}
         onChange={(facial_options) => (
           (this.state.activeGenre[0] = facial_options.value),
-          this.handleChange(), this.setState({ facial_value: facial_options.label }),this.state.selected_item[0] = this.state.activeGenre[0].substring(0,2), this.state.selected_item[4] = mbti_type[this.state.activeGenre[0].substring(0,2)])
-          }
+          this.handleChange(), this.setState({ facial_value: facial_options.label }), this.state.selected_item[0] = this.state.activeGenre[0].substring(0, 2), this.state.selected_item[4] = mbti_type[this.state.activeGenre[0].substring(0, 2)])
+          
+        }
         
-        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
-
+        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "" ) { return this.state.selected_item.filter(x => x != this.state.activeGenre[0].substring(0,2) && x != mbti_type[this.state.activeGenre[0].substring(0, 2)] ).includes(option.value.substring(0, 2)) } }} // disable an option
+        // isOptionSelected={(option) => { if (this.state.changed_categories == "facial") { return this.state.selected_item[0] == option.value.substring(0,2) } }}
         
       />
     );
@@ -231,10 +229,10 @@ export class Features extends React.Component {
         value={{ label: this.state.access_value }}
         onChange={(accessories_options) => (
           (this.state.activeGenre[1] = accessories_options.value),
-          this.handleChange(), this.setState({ access_value: accessories_options.label }),this.state.selected_item[1] = this.state.activeGenre[1].substring(0,2),this.state.selected_item[5] = mbti_type[this.state.activeGenre[1].substring(0,2)])
+          this.handleChange(), this.setState({ access_value: accessories_options.label }),this.state.selected_item[1] = this.state.activeGenre[1].substring(0,2),this.state.selected_item[5] = mbti_type[this.state.activeGenre[1].substring(0,2)],this.state.changed_categories = "accessories")
         }
       
-      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
+        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "" ) { return this.state.selected_item.filter(x => x != this.state.activeGenre[1].substring(0,2) && x != mbti_type[this.state.activeGenre[1].substring(0, 2)] ).includes(option.value.substring(0, 2)) } }} // disable an option
 
 
       />
@@ -244,11 +242,11 @@ export class Features extends React.Component {
         options={item_options}
         value={{ label: this.state.item_value }}
         onChange={(item_options) => (
-          (this.state.activeGenre[2] = item_options.value), this.handleChange(), this.setState({ item_value: item_options.label }),this.state.selected_item[2] = this.state.activeGenre[6].substring(0,2), this.state.selected_item[5] = mbti_type[this.state.activeGenre[2].substring(0,2)])
+          (this.state.activeGenre[2] = item_options.value), this.handleChange(), this.setState({ item_value: item_options.label }),this.state.selected_item[2] = this.state.activeGenre[2].substring(0,2), this.state.selected_item[6] = mbti_type[this.state.activeGenre[2].substring(0,2)])
         }
       
-      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
-        
+        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "" ) { return this.state.selected_item.filter(x => x != this.state.activeGenre[2].substring(0,2) && x != mbti_type[this.state.activeGenre[2].substring(0, 2)] ).includes(option.value.substring(0, 2)) } }} // disable an option
+      
 
       />
     );
@@ -261,7 +259,7 @@ export class Features extends React.Component {
           this.handleChange(),this.setState({ clothing_value: clothing_options.label }),this.state.selected_item[3] = this.state.activeGenre[3].substring(0,2), this.state.selected_item[7] = mbti_type[this.state.activeGenre[3].substring(0,2)])
         }
       
-      isOptionDisabled={(option) => { if (option.value != undefined && option.value != "") { return this.state.selected_item.includes(option.value.substring(0,2)) } }} // disable an option
+        isOptionDisabled={(option) => { if (option.value != undefined && option.value != "" ) { return this.state.selected_item.filter(x => x != this.state.activeGenre[3].substring(0,2) && x != mbti_type[this.state.activeGenre[3].substring(0, 2)] ).includes(option.value.substring(0, 2)) } }} // disable an option
       />
     );
     return (

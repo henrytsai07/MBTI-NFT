@@ -2,7 +2,7 @@
 import "firebase/auth";
 import "firebase/database";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+// import { getAnalytics } from "firebase/analytics";
 import { getDatabase } from "firebase/database";
 function StartFirebase() {
     const firebaseConfig = {

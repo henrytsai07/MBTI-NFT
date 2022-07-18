@@ -3,8 +3,8 @@ import { utils, ethers } from "ethers";
 import Whitelist from "./Whitelist";
 import React from "react";
 import animate from "../assets/bunny_gif.gif";
-import Error from "./Error";
-import {useRef} from 'react'
+import Modal from "../sass/mint/Error";
+import { useRef } from 'react'
 
 
 
@@ -548,13 +548,8 @@ export class MintPage extends React.Component {
         return (
           <Button onClick={this.whiteListMint}>Mint(WhiteList Only)</Button>
         );
-      } else {
-        return (
-          <><Error header="Whitelist Only"error="You address is not in the whitelist, please wait for public sale" />
-          
-          </>
-        );
-      }
+      } 
+      
     }
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
@@ -564,14 +559,18 @@ export class MintPage extends React.Component {
         
 
       );
-    }
+    } 
   };
 
   increment = () => {
     // set less than our total avaliable NFT
-    this.setState({
-      count: this.state.count + 1,
-    });
+    if (this.state.isWhiteListSale && this.state.count <= 1) {
+      this.setState({
+        count: this.state.count + 1,
+      });
+    } else {
+      // <Error header="Mint Amount Exceed" error="WhiteList Member can only mint 1 NFT"/>
+    }
   };
 
   decrement = () => {
@@ -612,6 +611,8 @@ export class MintPage extends React.Component {
               <Button className="mint_counter" onClick={this.increment}>+</Button>
             </div>
             {this.mintButton()}
+            
+            
 
             
           </div>
@@ -627,7 +628,11 @@ export class MintPage extends React.Component {
             </div>
           </div>
         </div>
+        <Modal/>
+      
+
       </div>
+      
     );
   }
 }
