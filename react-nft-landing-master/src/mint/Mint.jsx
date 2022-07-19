@@ -453,7 +453,6 @@ export class MintPage extends React.Component {
       isOpenSale: false,
       nftCost: 0,
       count: 1,
-      modal_show: false,
       error: false,
     };
   }
@@ -551,6 +550,7 @@ export class MintPage extends React.Component {
       } 
       
     }
+    this.state.isOpen = true;
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
         <><Button className="mint_btn" onClick={this.mint}>
@@ -583,6 +583,7 @@ export class MintPage extends React.Component {
 
   // Please style this page here
   render() {
+    
     
     return (
       <div className="mint">
@@ -628,7 +629,7 @@ export class MintPage extends React.Component {
             </div>
           </div>
         </div>
-        <Modal/>
+        {<Modal setIsOpen={this.state.isOpen} />}
       
 
       </div>
