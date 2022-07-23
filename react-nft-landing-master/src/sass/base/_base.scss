@@ -29,35 +29,30 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 }
 
 .app-container {
   //background-color: var(--background);
   font-family: var(--font-family);
   overflow-x: hidden;
-  transition: 0.5s ease-in-out;
-  padding: 2rem 8rem;
-  @media screen and (min-width: 280px) and (max-width: 1080px) {
-    padding: 0;
-  }
+  // transition: 0.5s ease-in-out;
+  // padding: 2rem 8rem;
+  
   .road{
-    width:125%;
-    margin-left: -130px;
-    margin-top: 40px;
-    top: 5px
+    margin-top: 12rem;
+    width:100%;
   }
   .underground{
-    top:-5px;
-    height:300%;
-    width:125%;
+    top: -1rem;
+    width:100%;
     z-index: -1;
-    margin-left: -130px;
     position:fixed;
 
 
   }
 }
+
 
 .nav-container {
   font-family: 'Nunito', sans-serif;
