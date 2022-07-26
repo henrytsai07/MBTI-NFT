@@ -453,7 +453,7 @@ export class MintPage extends React.Component {
       isOpenSale: false,
       nftCost: 0,
       count: 1,
-      error: true,
+      error: false,
     };
   }
 
@@ -517,6 +517,7 @@ export class MintPage extends React.Component {
         
       } catch (err) {
         alert(err.message)
+        this.showModal()
         
         //pop up already  error
 
@@ -580,6 +581,11 @@ export class MintPage extends React.Component {
       });
     }
   };
+  showModal = e => {
+    this.setState({
+      error: !this.state.error
+    });
+  };
 
   // Please style this page here
   render() {
@@ -612,11 +618,13 @@ export class MintPage extends React.Component {
               <Button className="mint_counter" onClick={this.increment}>+</Button>
             </div>
             {this.mintButton()}
-            
+            <Button className="mint_counter" onClick={this.showModal}></Button>
+
             
 
             
           </div>
+
           <div className="image-container">
             <div className="image-container">
               <div className="image">
@@ -629,7 +637,12 @@ export class MintPage extends React.Component {
             </div>
           </div>
         </div>
-        {<Modal setIsOpen={true} />}
+        <Modal onClose={this.showModal} show={this.state.error} title="Login Error">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis
+          deserunt corrupti, ut fugit magni qui quasi nisi amet repellendus non
+          fuga omnis a sed impedit explicabo accusantium nihil doloremque
+          consequuntur.
+        </Modal>
       
 
       </div>

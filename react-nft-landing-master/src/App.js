@@ -17,6 +17,7 @@ import { Features } from "./components/features";
 import Creater from "./components/Creater";
 import roadmap from "./assets/Roadmap.png";
 import { MintPage } from "./mint/Mint";
+import Cursor from "./components/cursor"
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -86,6 +87,7 @@ function App() {
                 <div data-theme={theme} className="footer-container">
                   <Footer />
                 </div>
+                <Cursor/>
               </div>
             </>
           }

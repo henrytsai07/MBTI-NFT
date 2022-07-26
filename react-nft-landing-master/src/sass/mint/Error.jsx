@@ -1,35 +1,35 @@
 import React from "react";
 import { RiCloseLine } from "react-icons/ri";
+import PropTypes from "prop-types";
 
-const Modal = ({setIsOpen} ) => {
-  console.log(setIsOpen)
-
-  if(setIsOpen){
+export default class Error extends React.Component {
+  onClose = e => {
+    this.props.onClose && this.props.onClose(e);
+  };
+  render() {
+    if (!this.props.show) {
+      return null;
+    }
   return (
     
-      <div className="darkBG" onClick={() => setIsOpen(false)}>
+      <div className="darkBG" onClick={this.onClose}>
       <div className="centered">
         <div className="modal">
           <div className="modalHeader">
-            <h5 className="heading">Dialog</h5>
+            <h5 className="heading">{this.props.title}</h5>
           </div>
-          <button className="closeBtn" onClick={() => setIsOpen(false)}>
+          <button className="closeBtn" onClick={this.onClose}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className="modalContent">
-            Are you sure you want to delete the item?
+          {this.props.children}          
           </div>
           <div className="modalActions">
             <div className="actionsContainer">
-              <button className="deleteBtn" onClick={() => setIsOpen(false)}>
-                Delete
+              <button className="deleteBtn" onClick={this.onClose}>
+                close
               </button>
-              <button
-                className="cancelBtn"
-                onClick={() => setIsOpen(false)}
-              >
-                Cancel
-              </button>
+             
             </div>
           </div>
         </div>
@@ -38,9 +38,8 @@ const Modal = ({setIsOpen} ) => {
     
   );
 }
-else{
-  return(<div></div>);
 }
-}
-
-export default Modal;
+Error.propTypes = {
+  onClose: PropTypes.func.isRequired,
+  show: PropTypes.bool.isRequired
+};
