@@ -1,6 +1,10 @@
 .super-rare {
   display: flex;
   flex-direction: column;
+  transition: none !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1) !important;
   // top: 1em;
   // gap: 2rem;
   .title-container {

@@ -2,15 +2,18 @@ import React from "react";
 import { RiCloseLine } from "react-icons/ri";
 
 const Modal = ({setIsOpen} ) => {
+  console.log(setIsOpen)
+
+  if(setIsOpen){
   return (
-    <>
-      <div className="darkBG" onClick={() => setIsOpen(false)} />
+    
+      <div className="darkBG" onClick={() => setIsOpen(false)}>
       <div className="centered">
         <div className="modal">
           <div className="modalHeader">
             <h5 className="heading">Dialog</h5>
           </div>
-          <button className="closeBtn" onClick={() => setIsOpen = false}>
+          <button className="closeBtn" onClick={() => setIsOpen(false)}>
             <RiCloseLine style={{ marginBottom: "-3px" }} />
           </button>
           <div className="modalContent">
@@ -31,8 +34,13 @@ const Modal = ({setIsOpen} ) => {
           </div>
         </div>
       </div>
-    </>
+      </div>
+    
   );
-};
+}
+else{
+  return(<div></div>);
+}
+}
 
 export default Modal;

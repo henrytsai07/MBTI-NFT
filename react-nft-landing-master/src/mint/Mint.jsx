@@ -453,7 +453,7 @@ export class MintPage extends React.Component {
       isOpenSale: false,
       nftCost: 0,
       count: 1,
-      error: false,
+      error: true,
     };
   }
 
@@ -526,6 +526,7 @@ export class MintPage extends React.Component {
     }
     
   };
+ 
   
 
   collectionStatus = () => {
@@ -550,7 +551,6 @@ export class MintPage extends React.Component {
       } 
       
     }
-    this.state.isOpen = true;
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
         <><Button className="mint_btn" onClick={this.mint}>
@@ -629,7 +629,7 @@ export class MintPage extends React.Component {
             </div>
           </div>
         </div>
-        {<Modal setIsOpen={this.state.isOpen} />}
+        {<Modal setIsOpen={true} />}
       
 
       </div>
