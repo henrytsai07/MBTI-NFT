@@ -18,6 +18,8 @@ import Creater from "./components/Creater";
 import roadmap from "./assets/Roadmap.png";
 import { MintPage } from "./mint/Mint";
 import Cursor from "./components/cursor"
+import Landing from "./components/landing"
+import Loading from "./components/Loading"
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -58,9 +60,48 @@ function App() {
     const nav = document.getElementsByTagName("nav");
     nav[0].style.transform = "none";
   }, 1500);
+  async function getBunnyJson() {
+    const map1 = new Map();
+
+    for (var num = 1; num < 61; num++) {
+      try {
+        let name = await fetch(
+          "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
+            num +
+            ".json"
+        );
+        let image = await fetch(
+          "https://mbtibunny.mypinata.cloud/ipfs/QmZ2TdWZa9vhDLc8XV1TTo3sBUY8Y625ibnRozt1oiCW98/" +
+            num +
+            ".png"
+        );
+        map1.set(await name.json(), URL.createObjectURL(await image.blob()))
+        
+        //responseJson.push(await response.json());
+      } catch (error) {
+        console.error(error);
+      }
+    }
+
+
+    return map1;
+  }
+  getBunnyJson();
+
   return (
     <Router>
       <Routes>
+      <Route
+          exact
+          path="/landing"
+          element={
+            <>
+            <Loading/>
+            <Landing/>
+              
+            </>
+          }
+        />
         <Route
           exact
           path="/"

@@ -125,11 +125,11 @@ video {
   background-image: url(../../assets/bunny_background.png);
   background-position: center;
   background-repeat: no-repeat;
-  background-attachment: scroll;
+  // background-attachment: scroll;
 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
+  // -webkit-background-size: cover;
+  // -moz-background-size: cover;
+  // -o-background-size: cover;
   background-size: cover;
 }
 

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 // Import the functions you need from the SDKs you need
 import StartFirebase from "../functions/initFirebase";
 import Select from "react-select";
+import { Database } from "@firebase/database";
 
 const db = StartFirebase();
 const facial_options = [
@@ -160,7 +161,7 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
 
-      for (var num = 1; num < 31; num++) {
+      for (var num = 1; num < 61; num++) {
         try {
           let name = await fetch(
             "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
@@ -262,6 +263,7 @@ export class Features extends React.Component {
         isOptionDisabled={(option) => { if (option.value != undefined && option.value != "" ) { return this.state.selected_item.filter(x => x != this.state.activeGenre[3].substring(0,2) && x != mbti_type[this.state.activeGenre[3].substring(0, 2)] ).includes(option.value.substring(0, 2)) } }} // disable an option
       />
     );
+    
     return (
       <>
         <div className="features">
