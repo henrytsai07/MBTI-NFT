@@ -123,7 +123,7 @@ function App() {
                   <div
                     className={`l_block ${transition ? "l_shown" : ""}`}
                   ></div>
-                  {transition ? <div></div> : <Landing />}
+                  {transition ? <div></div> : <><Landing /><Cursor /></>}
                 </>
               )}
             </>
@@ -210,6 +210,7 @@ function App() {
                   <div data-theme={theme} className="filter-container">
                     <Features />
                   </div>
+                  <Cursor/>
                 </>
               )}
             </>
@@ -245,6 +246,7 @@ function App() {
                   <div data-theme={theme} className="mint-container">
                     <MintPage />
                   </div>
+                  <Cursor/>
                 </>
               )}
             </>
