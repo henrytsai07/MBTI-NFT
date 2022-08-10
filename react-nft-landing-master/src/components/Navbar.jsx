@@ -12,11 +12,15 @@ import { TbAxe } from 'react-icons/tb';
 
 export default function Navbar({ changeTheme, currentTheme }) {
   const [navState, setNavState] = useState(false);
+  const [transition, setTransition] = useState(false);
+
   return (
-    <nav>
+    <><nav>
       <div className="brand-container">
         <div className="brand">
-          <a href="/">
+          <a onClick={() => {setTransition(true);setTimeout(() =>{
+        window.location.href = "/";
+    }, 2000);}}>
             <img src={logo} alt="logo" />
           </a>
         </div>
@@ -40,13 +44,17 @@ export default function Navbar({ changeTheme, currentTheme }) {
       <div className={`links-container ${navState ? "nav-visible" : ""}`}>
         <ul className="links">
           <li>
-            <a href="/">About</a>
+            <a onClick={() => {setTransition(true);setTimeout(() =>{
+        window.location.href = "/";
+    }, 2000);}}>About</a>
 
           </li>
           <li>
-            <a href="/features">Features</a>
+          <a onClick={() => {setTransition(true);setTimeout(() =>{
+        window.location.href = "/features";
+    }, 2000);}}>Features</a>
           </li>
-          
+
           <li className="social">
             <a href="https://discord.gg/uMuaYzskaF" target="_blank">
               <FaDiscord size={28} />
@@ -58,19 +66,22 @@ export default function Navbar({ changeTheme, currentTheme }) {
               <FaInstagram size={28} />
             </a>
           </li>
-          
+
           <li>
-            <a href="/mint" className="mint">Mint <TbAxe size={15}/></a>
+            <a className="mint" onClick={() => {setTransition(true);setTimeout(() =>{
+        window.location.href = "/mint";
+    }, 2000);}}>Mint <TbAxe size={15} /></a>
           </li>
           {/* <li onClick={changeTheme}>
-            {currentTheme === "dark" ? (
-              <ImSun className="light" />
-            ) : (
-              <BsFillMoonFill className="dark" />
-            )}
-          </li> */}
+      {currentTheme === "dark" ? (
+        <ImSun className="light" />
+      ) : (
+        <BsFillMoonFill className="dark" />
+      )}
+    </li> */}
         </ul>
       </div>
     </nav>
+    <div className={`r_block ${transition ? "r_shown" : ""}`}></div><div className={`l_block ${transition ? "l_shown" : ""}`}></div></>
   );
 }

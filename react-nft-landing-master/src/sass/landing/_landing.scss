@@ -8,10 +8,13 @@
     background-image: url(../../assets/bunny_background.png);
     background-position: 0px -2600px;
     background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
     object-fit: contain;
+    // z-index: -1;
 
 }
-.content{
+.landing_content{
     text-align: center;
     position: absolute;
     margin: auto;
@@ -40,29 +43,29 @@
     margin-top: 150px;;
 }
 
-.l_block{
-    position: absolute;
-    width: 50vh;
-    height: 50vh;
-    left:100%;
-    background: black;
-    transition: 0.5s ease-in-out;
+// .l_block{
+//     position: absolute;
+//     width: 50vh;
+//     height: 50vh;
+//     left:100%;
+//     background: black;
+//     transition: 0.5s ease-in-out;
 
-}
-.r_block{
-    position: absolute;
-    width: 50vh;
-    height: 50vh;
-    right: 100%;
-    background: rgb(179, 113, 113);
-    transition: 0.5s ease-in-out;
+// }
+// .r_block{
+//     position: absolute;
+//     width: 50vh;
+//     height: 50vh;
+//     right: 100%;
+//     background: rgb(179, 113, 113);
+//     transition: 0.5s ease-in-out;
 
-}
+// }
 
-.l_shown{
-    left: 50%;
+// .l_shown{
+//     left: 50%;
 
-}
-.r_shown{
-    right: 50%;
-}
+// }
+// .r_shown{
+//     right: 50%;
+// }

@@ -1,0 +1,44 @@
+.l_block{
+    position: fixed;
+    width: 0vh;
+    height: 100vh;
+    left:100%;
+    background: black;
+    transition: 2s ease-in-out;
+    z-index:3;
+
+
+}
+.r_block{
+    position: fixed;
+    width: 0vh;
+    height: 100vh;
+    right: 100%;
+    background: rgb(179, 113, 113);
+    transition: 2s ease-in-out;
+    z-index:3;
+
+
+
+
+}
+
+.l_shown{
+    height: 100vh;
+
+    width: 100vh;
+    left:50%;
+    z-index:3;
+
+
+
+
+}
+.r_shown{
+    width: 100vh;
+    height: 100vh;
+    right: 50%;
+    z-index:3;
+
+
+}

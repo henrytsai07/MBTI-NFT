@@ -4,9 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Footer from "./components/Footer";
 import Free from "./components/Free";
 import Home from "./components/Home";
-import Like from "./components/Like";
 import Navbar from "./components/Navbar";
-import Release from "./components/Release";
 import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./components/Signup";
 import SuperRare from "./components/SuperRare";
@@ -17,16 +15,28 @@ import { Features } from "./components/features";
 import Creater from "./components/Creater";
 import roadmap from "./assets/Roadmap.png";
 import { MintPage } from "./mint/Mint";
-import Cursor from "./components/cursor"
-import Landing from "./components/landing"
-import Loading from "./components/Loading"
+import Cursor from "./components/cursor";
+import Landing from "./components/landing";
+import Loading from "./components/Loading";
 
 function App() {
   const [theme, setTheme] = useState("dark");
+  const [transition, setTransition] = useState(true);
+
   const changeTheme = () => {
     theme === "dark" ? setTheme("light") : setTheme("dark");
   };
+  const [loading, setLoading] = useState(false);
   useEffect(() => {
+    setTimeout(() => {
+      setLoading(true);
+    }, 2500);
+
+    setTimeout(() => {
+      setLoading(false);
+      setTransition(false);
+    }, 5000);
+
     const registerAnimations = () => {
       const sr = scrollreveal({
         origin: "bottom",
@@ -75,14 +85,13 @@ function App() {
             num +
             ".png"
         );
-        map1.set(await name.json(), URL.createObjectURL(await image.blob()))
-        
+        map1.set(await name.json(), URL.createObjectURL(await image.blob()));
+
         //responseJson.push(await response.json());
       } catch (error) {
         console.error(error);
       }
     }
-
 
     return map1;
   }
@@ -91,14 +100,32 @@ function App() {
   return (
     <Router>
       <Routes>
-      <Route
+        <Route
           exact
           path="/landing"
           element={
             <>
-            <Loading/>
-            <Landing/>
-              
+              {loading ? (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  <Loading />
+                </>
+              ) : (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  {transition ? <div></div> : <Landing />}
+                </>
+              )}
             </>
           }
         />
@@ -107,29 +134,48 @@ function App() {
           path="/"
           element={
             <>
-              {/* <video src={videoBG} autoPlay muted loop /> */}
-              {/* <img className="background" src={test_background} alt="logo" /> */}
-              <div className="background_image">
-                <div data-theme={theme} className="nav-container">
-                  <Navbar changeTheme={changeTheme} currentTheme={theme} />
-                </div>
-                <div data-theme={theme} className="app-container">
-                  <ScrollToTop />
-                  <Home />
-                  <Free />
-                  {/* <Like /> */}
-                  <SuperRare />
-                  {/* <Release /> */}
-                  <img className="road" src={roadmap} />
-                  <Creater />
-                  <Signup />
-                </div>
+              {loading ? (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  <Loading />
+                </>
+              ) : (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
 
-                <div data-theme={theme} className="footer-container">
-                  <Footer />
-                </div>
-                <Cursor/>
-              </div>
+                  <div className="background_image">
+                    <div data-theme={theme} className="nav-container">
+                      <Navbar changeTheme={changeTheme} currentTheme={theme} />
+                    </div>
+                    <div data-theme={theme} className="app-container">
+                      <ScrollToTop />
+                      <Home />
+                      <Free />
+                      {/* <Like /> */}
+                      <SuperRare />
+                      {/* <Release /> */}
+                      <img className="road" src={roadmap} />
+                      <Creater />
+                      <Signup />
+                    </div>
+
+                    <div data-theme={theme} className="footer-container">
+                      <Footer />
+                    </div>
+                    <Cursor />
+                  </div>
+                </>
+              )}
             </>
           }
         />
@@ -138,13 +184,34 @@ function App() {
           path="/features"
           element={
             <>
-              <video src={videoBG} autoPlay muted loop />
-              <div data-theme={theme} className="nav-container">
-                <Navbar changeTheme={changeTheme} currentTheme={theme} />
-              </div>
-              <div data-theme={theme} className="filter-container">
-                <Features />
-              </div>
+              {loading ? (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  <Loading />
+                </>
+              ) : (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+
+                  <video src={videoBG} autoPlay muted loop />
+                  <div data-theme={theme} className="nav-container">
+                    <Navbar changeTheme={changeTheme} currentTheme={theme} />
+                  </div>
+                  <div data-theme={theme} className="filter-container">
+                    <Features />
+                  </div>
+                </>
+              )}
             </>
           }
         />
@@ -153,13 +220,33 @@ function App() {
           path="/mint"
           element={
             <>
-              <video src={videoBG} autoPlay muted loop />
-              <div data-theme={theme} className="nav-container">
-                <Navbar changeTheme={changeTheme} currentTheme={theme} />
-              </div>
-              <div data-theme={theme} className="mint-container">
-                <MintPage />
-              </div>
+              {loading ? (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  <Loading />
+                </>
+              ) : (
+                <>
+                  <div
+                    className={`r_block ${transition ? "r_shown" : ""}`}
+                  ></div>
+                  <div
+                    className={`l_block ${transition ? "l_shown" : ""}`}
+                  ></div>
+                  <video src={videoBG} autoPlay muted loop />
+                  <div data-theme={theme} className="nav-container">
+                    <Navbar changeTheme={changeTheme} currentTheme={theme} />
+                  </div>
+                  <div data-theme={theme} className="mint-container">
+                    <MintPage />
+                  </div>
+                </>
+              )}
             </>
           }
         />
