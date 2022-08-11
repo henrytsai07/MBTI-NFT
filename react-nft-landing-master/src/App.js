@@ -102,7 +102,7 @@ function App() {
       <Routes>
         <Route
           exact
-          path="/landing"
+          path="/"
           element={
             <>
               {loading ? (
@@ -131,7 +131,7 @@ function App() {
         />
         <Route
           exact
-          path="/"
+          path="/home"
           element={
             <>
               {loading ? (

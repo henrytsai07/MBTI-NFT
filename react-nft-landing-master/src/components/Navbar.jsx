@@ -19,7 +19,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
       <div className="brand-container">
         <div className="brand">
           <a onClick={() => {setTransition(true);setTimeout(() =>{
-        window.location.href = "/";
+        window.location.href = "/home";
     }, 2000);}}>
             <img src={logo} alt="logo" />
           </a>
@@ -45,7 +45,7 @@ export default function Navbar({ changeTheme, currentTheme }) {
         <ul className="links">
           <li>
             <a onClick={() => {setTransition(true);setTimeout(() =>{
-        window.location.href = "/";
+        window.location.href = "/home";
     }, 2000);}}>About</a>
 
           </li>
