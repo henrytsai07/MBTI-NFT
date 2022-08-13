@@ -6,8 +6,10 @@ import animate from "../assets/bunny_gif.gif";
 import Modal from "../sass/mint/Error";
 import { useRef } from 'react'
 
-
-
+const errorMap = new Map([
+  ["Address already claimed", "Your have already claimed your 1 NFT as our whitelist member, please come back for public sale."],
+  ["Invalid proof", "Unfortunately, you are not in the white list. Please come back for public sale"],
+]);
 
 const ABI = [
   {
@@ -454,6 +456,7 @@ export class MintPage extends React.Component {
       nftCost: 0,
       count: 1,
       error: false,
+      errorMessage: "",
     };
   }
 
@@ -493,8 +496,10 @@ export class MintPage extends React.Component {
         this.setState({
           count: 0
         })
-
+        //alert(err.message)
         console.log("mint err:", err);
+        this.showModal(err.message)
+
       }
     }
   };
@@ -503,6 +508,10 @@ export class MintPage extends React.Component {
     if (window.ethereum && this.state.isConnected) {
       var _mintAmount = Number(this.state.count);
       console.log(_mintAmount);
+      if (!Whitelist.contains(this.state.user_address)) {
+        this.showModal("Invalid proof")
+        return
+      }
       try {
         // Will need to change this
         const cost = await this.state.contract.cost();
@@ -516,11 +525,9 @@ export class MintPage extends React.Component {
         console.log("success response:", response);
         
       } catch (err) {
-        alert(err.message)
-        this.showModal()
+        //alert(err.message)
+        this.showModal(err.message)
         
-        //pop up already  error
-
         // console.log("mint err:", err);
 
       }
@@ -545,22 +552,17 @@ export class MintPage extends React.Component {
 
   mintButton = () => {
     if (this.state.isWhiteListSale) {
-      if (Whitelist.contains(this.state.user_address)) {
-        return (
-          <Button onClick={this.whiteListMint}>Mint(WhiteList Only)</Button>
-        );
-      } 
-      
+      return (
+        <Button onClick={this.whiteListMint}>Mint(WhiteList Only)</Button>
+      );      
     }
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
-        <><Button className="mint_btn" onClick={this.mint}>
-          Mint
-        </Button></>
-        
-
+        <Button className="mint_btn" onClick={this.mint}>Mint</Button>
       );
-    } 
+    }
+    return "Mint has not started yet."
+    
   };
 
   increment = () => {
@@ -583,8 +585,18 @@ export class MintPage extends React.Component {
   };
   showModal = e => {
     this.setState({
-      error: !this.state.error
-    });
+      error: !this.state.error,
+      errorMessage: "unexpected error occurs",
+    })
+    errorMap.forEach((value, key) => {
+      if(e.includes(key)){
+        this.setState({
+          errorMessage: value,
+        });
+        return
+      }
+    })
+
   };
 
   // Please style this page here
@@ -638,7 +650,7 @@ export class MintPage extends React.Component {
           </div>
         </div>
         <Modal onClose={this.showModal} show={this.state.error} title="Login Error">
-          testing testing
+          {this.state.errorMessage}
         </Modal>
       
 
