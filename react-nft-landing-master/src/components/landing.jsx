@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import landing_b from "../assets/landing.mp4";
-
-
-
+import { motion } from "framer-motion"
 
 const Landing = () => {
   const [transition, setTransition] = useState(false);
@@ -10,11 +8,11 @@ const Landing = () => {
   return (
     <><div className="landing">
       <div className="landing_content">
-        <div className="big_title">MBTI BUNNY</div>
+        <motion.div className="big_title" animate={{x:0}} initial={{x:-100}}>MBTI BUNNY</motion.div>
         <button className="launch" onClick={() => {
           setTransition(true); setTimeout(() => {
             window.location.href = "/home";
-          }, 2000);
+          }, 1500);
         } }>Launch</button>
 
       </div>

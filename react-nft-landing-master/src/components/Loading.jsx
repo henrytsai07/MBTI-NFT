@@ -1,10 +1,13 @@
 import React from "react";
 import ReactLoading from "react-loading";
 import carrot from "../assets/carrot.png";
+import { motion } from "framer-motion"
+
+
 
 export default function Loading() {
   return (
-    <div className="loading">
+    <motion.div className="loading" initial={{opacity: 0}} animate={{opacity:1}}  >
       <ReactLoading
         className="circle"
         type="spin"
@@ -12,9 +15,8 @@ export default function Loading() {
         height={300}
         width={300}
       />
-      
-      <img className="carrot" src={carrot} alt="carrot" />
+        <motion.img className="carrot" src={carrot} alt="carrot" />
 
-    </div>
+    </motion.div>
   );
 }

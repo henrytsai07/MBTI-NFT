@@ -18,6 +18,10 @@ import { MintPage } from "./mint/Mint";
 import Cursor from "./components/cursor";
 import Landing from "./components/landing";
 import Loading from "./components/Loading";
+import Banner from "./components/Banner/Banner"
+import Loader from "./components/Banner/Loader"
+
+import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
 function App() {
   const [theme, setTheme] = useState("dark");
@@ -30,12 +34,12 @@ function App() {
   useEffect(() => {
     setTimeout(() => {
       setLoading(true);
-    }, 2500);
+    }, 3500);
 
     setTimeout(() => {
       setLoading(false);
       setTransition(false);
-    }, 5000);
+    }, 6000);
 
     const registerAnimations = () => {
       const sr = scrollreveal({
@@ -73,15 +77,15 @@ function App() {
   async function getBunnyJson() {
     const map1 = new Map();
 
-    for (var num = 1; num < 61; num++) {
+    for (var num = 1; num < 30; num++) {
       try {
         let name = await fetch(
-          "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
+          "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
             num +
             ".json"
         );
         let image = await fetch(
-          "https://mbtibunny.mypinata.cloud/ipfs/QmZ2TdWZa9vhDLc8XV1TTo3sBUY8Y625ibnRozt1oiCW98/" +
+          "https://mbtibunny.mypinata.cloud/ipfs/QmNqNYbuuGK2LLCPhEu1BtyfdCGwjpL8ocM2yMUtgFbeSw/" +
             num +
             ".png"
         );
@@ -105,6 +109,10 @@ function App() {
           path="/"
           element={
             <>
+                <AnimateSharedLayout type='crossfade'>
+                <AnimatePresence>
+
+
               {loading ? (
                 <>
                   <div
@@ -113,7 +121,8 @@ function App() {
                   <div
                     className={`l_block ${transition ? "l_shown" : ""}`}
                   ></div>
-                  <Loading />
+                    <Loading />
+
                 </>
               ) : (
                 <>
@@ -126,6 +135,10 @@ function App() {
                   {transition ? <div></div> : <><Landing /><Cursor /></>}
                 </>
               )}
+                    </AnimatePresence>
+                    </AnimateSharedLayout>
+
+
             </>
           }
         />
@@ -134,15 +147,14 @@ function App() {
           path="/home"
           element={
             <>
+            <AnimateSharedLayout type='crossfade'>
+                <AnimatePresence>
               {loading ? (
                 <>
-                  <div
-                    className={`r_block ${transition ? "r_shown" : ""}`}
-                  ></div>
-                  <div
-                    className={`l_block ${transition ? "l_shown" : ""}`}
-                  ></div>
+
+                  
                   <Loading />
+
                 </>
               ) : (
                 <>
@@ -158,7 +170,11 @@ function App() {
                       <Navbar changeTheme={changeTheme} currentTheme={theme} />
                     </div>
                     <div data-theme={theme} className="app-container">
+                      
                       <ScrollToTop />
+                      <Loader/>
+
+                      <Banner/>
                       <Home />
                       <Free />
                       {/* <Like /> */}
@@ -174,8 +190,11 @@ function App() {
                     </div>
                     <Cursor />
                   </div>
+                  
                 </>
               )}
+              </AnimatePresence>
+                    </AnimateSharedLayout>
             </>
           }
         />

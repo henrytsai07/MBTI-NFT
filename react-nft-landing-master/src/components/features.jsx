@@ -62,6 +62,14 @@ const mbti_type = {
   "J*": "P*",
   "P*":"J*"
 }
+const active = new Map();
+
+active.set('Facial', "");
+active.set('Accessories', "");
+active.set('item', "");
+active.set('Cloth', "");
+
+
 export class Features extends React.Component {
   //   const [popular, setPopular] = useState([]);
   //   const [filtered, setFiltered] = useState([]);
@@ -79,6 +87,7 @@ export class Features extends React.Component {
       item_value: "All",
       clothing_value: "All",
       selected_item: ["", "", "", "", "", "", "", ""],
+      
     };
   }
 
@@ -89,6 +98,7 @@ export class Features extends React.Component {
     
 
     console.log(this.state.filter)
+    console.log(this.state.activeGenre)
 
 
     //initialization
@@ -106,7 +116,7 @@ export class Features extends React.Component {
     //Facials
     if (this.state.activeGenre[0] !== "") {
       const filtered = this.state.popular.filter(
-        (movie) => (movie[0].attributes[1].value === this.state.activeGenre[0])
+        (movie) => (movie[0].attributes[0].value === this.state.activeGenre[0])
       );
       this.state.filter = filtered
       this.setState({ filter: filtered });
@@ -117,7 +127,7 @@ export class Features extends React.Component {
     //Accessories
     if (this.state.activeGenre[1] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[3].value === this.state.activeGenre[1]
+        (movie) => movie[0].attributes[2].value === this.state.activeGenre[1]
       );
 
       this.state.filter = filtered
@@ -139,7 +149,7 @@ export class Features extends React.Component {
     //Clothings
     if (this.state.activeGenre[3] !== "") {
       const filtered = this.state.filter.filter(
-        (movie) => movie[0].attributes[0].value === this.state.activeGenre[3]
+        (movie) => movie[0].attributes[3].value === this.state.activeGenre[3]
       );
 
       this.state.filter = filtered
@@ -160,31 +170,29 @@ export class Features extends React.Component {
   componentDidMount() {
     async function getBunnyJson() {
       const map1 = new Map();
+  
+      for (var num = 1; num < 30; num++) {
+      try {
+        let name = await fetch(
+          "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
+            num +
+            ".json"
+        );
+        let image = await fetch(
+          "https://mbtibunny.mypinata.cloud/ipfs/QmNqNYbuuGK2LLCPhEu1BtyfdCGwjpL8ocM2yMUtgFbeSw/" +
+            num +
+            ".png"
+        );
+        map1.set(await name.json(), URL.createObjectURL(await image.blob()));
 
-      for (var num = 1; num < 61; num++) {
-        try {
-          let name = await fetch(
-            "https://mbtibunny.mypinata.cloud/ipfs/QmWFXAtS4Cm5M3f7wJXwXgmjL6z3dpDyDmxWQZ4414vb9C/" +
-              num +
-              ".json"
-          );
-          let image = await fetch(
-            "https://mbtibunny.mypinata.cloud/ipfs/QmZ2TdWZa9vhDLc8XV1TTo3sBUY8Y625ibnRozt1oiCW98/" +
-              num +
-              ".png"
-          );
-          map1.set(await name.json(), URL.createObjectURL(await image.blob()))
-          
-          //responseJson.push(await response.json());
-        } catch (error) {
-          console.error(error);
-        }
+        //responseJson.push(await response.json());
+      } catch (error) {
+        console.error(error);
       }
-
-
-      return map1;
     }
-    
+
+    return map1;
+  }
 
     var responseJson = getBunnyJson();
 
@@ -205,6 +213,20 @@ export class Features extends React.Component {
       }
     });
   }
+
+  active_filter(value){
+    console.log(value)
+    if (value.substring(0,2) === "I*" || value.substring(0,2) === "E*"){
+      this.state.activeGenre[0] = value
+    } else if (value.substring(0,2) === "S*" || value.substring(0,2) === "N*"){
+      this.state.activeGenre[1] = value
+    }else if (value.substring(0,2) === "F*" || value.substring(0,2) === "T*"){
+      this.state.activeGenre[2] = value
+    }else if (value.substring(0,2) === "P*" || value.substring(0,2) === "J*"){
+      this.state.activeGenre[3] = value
+    }
+  
+  }
   
 
   render() {
@@ -214,7 +236,7 @@ export class Features extends React.Component {
         options={facial_options}
         value={{ label: this.state.facial_value }}
         onChange={(facial_options) => (
-          (this.state.activeGenre[0] = facial_options.value),
+          (this.active_filter(facial_options.value)), 
           this.handleChange(), this.setState({ facial_value: facial_options.label }), this.state.selected_item[0] = this.state.activeGenre[0].substring(0, 2), this.state.selected_item[4] = mbti_type[this.state.activeGenre[0].substring(0, 2)])
           
         }
@@ -229,7 +251,7 @@ export class Features extends React.Component {
         options={accessories_options}
         value={{ label: this.state.access_value }}
         onChange={(accessories_options) => (
-          (this.state.activeGenre[1] = accessories_options.value),
+          (this.active_filter(accessories_options.value)),
           this.handleChange(), this.setState({ access_value: accessories_options.label }),this.state.selected_item[1] = this.state.activeGenre[1].substring(0,2),this.state.selected_item[5] = mbti_type[this.state.activeGenre[1].substring(0,2)],this.state.changed_categories = "accessories")
         }
       
