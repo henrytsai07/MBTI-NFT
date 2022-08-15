@@ -6,9 +6,17 @@ import animate from "../assets/bunny_gif.gif";
 import Modal from "../sass/mint/Error";
 import { useRef } from 'react'
 
+<<<<<<< HEAD
 const errorMap = new Map([
   ["Address already claimed", "Your have already claimed your 1 NFT as our whitelist member, please come back for public sale."],
   ["Invalid proof", "Unfortunately, you are not in the white list. Please come back for public sale"],
+=======
+//Please map error message from back-end to the message we want to display the user here
+const errorMap = new Map([
+  ["Address already claimed", "Your have already claimed your 1 NFT as our whitelist member, please come back for public sale."],
+  ["Invalid proof", "Unfortunately, you are not in the white list. Please come back for public sale"],
+  // add more errors
+>>>>>>> 0d0adba419bfbdd381d57afa72f50066facd7581
 ]);
 
 const ABI = [
