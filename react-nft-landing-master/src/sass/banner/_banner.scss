@@ -1,11 +1,13 @@
 .banner {
   position: relative;
-  margin-top: 120px;
+  // margin-top: 120px;
+
   .banner-row {
     overflow: hidden;
     display: flex;
     align-items: center;
-    color: white;
+    color: rgb(0, 174, 255);
+    z-index:50;
 
     @media (max-width:  1440px) {
       &:first-child {
@@ -16,7 +18,7 @@
     &.center {
       justify-content: center;
       text-align: center;
-      color: white;
+      color: rgb(0, 174, 255);
 
       .row-letter {
         left: 0;
@@ -63,7 +65,7 @@
         font-size: 1.8rem;
         line-height: 2.6rem;
         width: 320px;
-        color: white;
+        color: rgb(0, 174, 255);
         font-family: 'Nunito', sans-serif;
 
       }
@@ -72,7 +74,6 @@
       height: 160px;
       width: 160px;
       border-radius: 100%;
-      background: white;
       position: absolute;
       display: flex;
       align-items: center;
@@ -85,16 +86,32 @@
       @media (max-width: 1240px) {
         display: none;
       }
-      span {
-        font-size: 18px;
-        font-weight: 600;
-        margin: 4px 0;
-        color: black;
+      button {
+        margin-top: 10%;
+    display: inline-block;
+    padding: 65px 45px;
+    font-size: 35px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background: rgb(0, 174, 255);
+
+    border: none;
+    border-radius: 50%;
         @media (max-width: 480px) {
           font-size: 10px;
           margin: 2px 0;
         }
       }
+      button:hover {background-color: rgb(11, 155, 221)}
+  
+  button:active {
+    background-color: rgb(0, 174, 255);
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
     }
   }
 }

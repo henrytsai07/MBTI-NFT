@@ -18,8 +18,8 @@ import { MintPage } from "./mint/Mint";
 import Cursor from "./components/cursor";
 import Landing from "./components/landing";
 import Loading from "./components/Loading";
-import Banner from "./components/Banner/Banner"
-import Loader from "./components/Banner/Loader"
+import Banner from "./components/Banner/Banner";
+import Loader from "./components/Banner/Loader";
 
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
@@ -109,36 +109,40 @@ function App() {
           path="/"
           element={
             <>
-                <AnimateSharedLayout type='crossfade'>
+              <AnimateSharedLayout type="crossfade">
                 <AnimatePresence>
-
-
-              {loading ? (
-                <>
-                  <div
-                    className={`r_block ${transition ? "r_shown" : ""}`}
-                  ></div>
-                  <div
-                    className={`l_block ${transition ? "l_shown" : ""}`}
-                  ></div>
-                    <Loading />
-
-                </>
-              ) : (
-                <>
-                  <div
-                    className={`r_block ${transition ? "r_shown" : ""}`}
-                  ></div>
-                  <div
-                    className={`l_block ${transition ? "l_shown" : ""}`}
-                  ></div>
-                  {transition ? <div></div> : <><Landing /><Cursor /></>}
-                </>
-              )}
-                    </AnimatePresence>
-                    </AnimateSharedLayout>
-
-
+                  {loading ? (
+                    <>
+                      <div
+                        className={`r_block ${transition ? "r_shown" : ""}`}
+                      ></div>
+                      <div
+                        className={`l_block ${transition ? "l_shown" : ""}`}
+                      ></div>
+                      <Loading />
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className={`r_block ${transition ? "r_shown" : ""}`}
+                      ></div>
+                      <div
+                        className={`l_block ${transition ? "l_shown" : ""}`}
+                      ></div>
+                      {transition ? (
+                        <div></div>
+                      ) : (
+                        <>
+                          <Loader />
+                          <Banner />
+                          <Cursor />
+                          <div className="black_back"/>
+                        </>
+                      )}
+                    </>
+                  )}
+                </AnimatePresence>
+              </AnimateSharedLayout>
             </>
           }
         />
@@ -147,54 +151,56 @@ function App() {
           path="/home"
           element={
             <>
-            <AnimateSharedLayout type='crossfade'>
+              <AnimateSharedLayout type="crossfade">
                 <AnimatePresence>
-              {loading ? (
-                <>
+                  {loading ? (
+                    <>
+                    <div
+                        className={`r_block ${transition ? "r_shown" : ""}`}
+                      ></div>
+                      <div
+                        className={`l_block ${transition ? "l_shown" : ""}`}
+                      ></div>
+                      <Loading />
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className={`r_block ${transition ? "r_shown" : ""}`}
+                      ></div>
+                      <div
+                        className={`l_block ${transition ? "l_shown" : ""}`}
+                      ></div>
 
-                  
-                  <Loading />
+                      <div className="background_image">
+                        <div data-theme={theme} className="nav-container">
+                          <Navbar
+                            changeTheme={changeTheme}
+                            currentTheme={theme}
+                          />
+                        </div>
+                        <div data-theme={theme} className="app-container">
+                          <ScrollToTop />
 
-                </>
-              ) : (
-                <>
-                  <div
-                    className={`r_block ${transition ? "r_shown" : ""}`}
-                  ></div>
-                  <div
-                    className={`l_block ${transition ? "l_shown" : ""}`}
-                  ></div>
+                          <Home />
+                          <Free />
+                          {/* <Like /> */}
+                          <SuperRare />
+                          {/* <Release /> */}
+                          <img className="road" src={roadmap} />
+                          <Creater />
+                          <Signup />
+                        </div>
 
-                  <div className="background_image">
-                    <div data-theme={theme} className="nav-container">
-                      <Navbar changeTheme={changeTheme} currentTheme={theme} />
-                    </div>
-                    <div data-theme={theme} className="app-container">
-                      
-                      <ScrollToTop />
-                      <Loader/>
-
-                      <Banner/>
-                      <Home />
-                      <Free />
-                      {/* <Like /> */}
-                      <SuperRare />
-                      {/* <Release /> */}
-                      <img className="road" src={roadmap} />
-                      <Creater />
-                      <Signup />
-                    </div>
-
-                    <div data-theme={theme} className="footer-container">
-                      <Footer />
-                    </div>
-                    <Cursor />
-                  </div>
-                  
-                </>
-              )}
-              </AnimatePresence>
-                    </AnimateSharedLayout>
+                        <div data-theme={theme} className="footer-container">
+                          <Footer />
+                        </div>
+                        <Cursor />
+                      </div>
+                    </>
+                  )}
+                </AnimatePresence>
+              </AnimateSharedLayout>
             </>
           }
         />
@@ -229,7 +235,7 @@ function App() {
                   <div data-theme={theme} className="filter-container">
                     <Features />
                   </div>
-                  <Cursor/>
+                  <Cursor />
                 </>
               )}
             </>
@@ -265,7 +271,7 @@ function App() {
                   <div data-theme={theme} className="mint-container">
                     <MintPage />
                   </div>
-                  <Cursor/>
+                  <Cursor />
                 </>
               )}
             </>
