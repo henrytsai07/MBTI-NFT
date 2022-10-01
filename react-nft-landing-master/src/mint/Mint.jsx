@@ -4,12 +4,17 @@ import Whitelist from "./Whitelist";
 import React from "react";
 import animate from "../assets/bunny_gif.gif";
 import Modal from "../sass/mint/Error";
-import { useRef } from 'react'
-
+import { useRef } from "react";
 
 const errorMap = new Map([
-  ["Address already claimed", "Your have already claimed your 1 NFT as our whitelist member, please come back for public sale."],
-  ["Invalid proof", "Unfortunately, you are not in the white list. Please come back for public sale"],
+  [
+    "Address already claimed",
+    "Your have already claimed your 1 NFT as our whitelist member, please come back for public sale.",
+  ],
+  [
+    "Invalid proof",
+    "Unfortunately, you are not in the white list. Please come back for public sale",
+  ],
   // add more errors
 ]);
 
@@ -496,12 +501,11 @@ export class MintPage extends React.Component {
         console.log("success response:", response);
       } catch (err) {
         this.setState({
-          count: 0
-        })
+          count: 0,
+        });
         //alert(err.message)
         console.log("mint err:", err);
-        this.showModal(err.message)
-
+        this.showModal(err.message);
       }
     }
   };
@@ -511,8 +515,8 @@ export class MintPage extends React.Component {
       var _mintAmount = Number(this.state.count);
       console.log(_mintAmount);
       if (!Whitelist.contains(this.state.user_address)) {
-        this.showModal("Invalid proof")
-        return
+        this.showModal("Invalid proof");
+        return;
       }
       try {
         // Will need to change this
@@ -525,19 +529,14 @@ export class MintPage extends React.Component {
         );
 
         console.log("success response:", response);
-        
       } catch (err) {
         //alert(err.message)
-        this.showModal(err.message)
-        
-        // console.log("mint err:", err);
+        this.showModal(err.message);
 
+        // console.log("mint err:", err);
       }
     }
-    
   };
- 
-  
 
   collectionStatus = () => {
     if (!this.state.isConnected) {
@@ -554,17 +553,16 @@ export class MintPage extends React.Component {
 
   mintButton = () => {
     if (this.state.isWhiteListSale) {
-      return (
-        <Button onClick={this.whiteListMint}>Mint(WhiteList Only)</Button>
-      );      
+      return <Button onClick={this.whiteListMint}>Mint(WhiteList Only)</Button>;
     }
     if (this.state.isConnected && this.state.isOpenSale) {
       return (
-        <Button className="mint_btn" onClick={this.mint}>Mint</Button>
+        <Button className="mint_btn" onClick={this.mint}>
+          Mint
+        </Button>
       );
     }
-    return "Mint has not started yet."
-    
+    return "Mint has not started yet.";
   };
 
   increment = () => {
@@ -573,7 +571,10 @@ export class MintPage extends React.Component {
       this.setState({
         count: this.state.count + 1,
       });
+      console.log(this.state.count);
     } else {
+      this.showModal(this.state.count);
+
       // <Error header="Mint Amount Exceed" error="WhiteList Member can only mint 1 NFT"/>
     }
   };
@@ -583,60 +584,78 @@ export class MintPage extends React.Component {
       this.setState({
         count: this.state.count - 1,
       });
+      console.log(this.state.count);
     }
   };
-  showModal = e => {
+  showModal = (e) => {
     this.setState({
       error: !this.state.error,
       errorMessage: "unexpected error occurs",
-    })
+    });
     errorMap.forEach((value, key) => {
-      if(e.includes(key)){
+      if (e.includes(key)) {
         this.setState({
           errorMessage: value,
         });
-        return
+        return;
       }
-    })
-
+    });
   };
 
   // Please style this page here
   render() {
-    
-    
     return (
       <div className="mint">
         <div className="container">
           <div className="content">
             <h4 className="title">Mint Portal</h4>
-            <div className="box"><div className="right-content">Total number of  NFT's</div><div className="left-content">384</div></div>
-            <div className = "box"><div className="right-content">Total minted NFT's</div><div className="left-content">0</div></div>
-            <div className = "box"><div className="right-content">Price per NFT</div><div className="left-content">{utils.formatEther(this.state.nftCost)} ETH</div></div>
-            <div className = "box"><div className="right-content"></div><div className="left-content">{this.state.user_address}</div></div>
+            <div className="box">
+              <div className="right-content">Total number of NFT's</div>
+              <div className="left-content">384</div>
+            </div>
+            <div className="box">
+              <div className="right-content">Total minted NFT's</div>
+              <div className="left-content">0</div>
+            </div>
+            <div className="box">
+              <div className="right-content">Price per NFT</div>
+              <div className="left-content">
+                {utils.formatEther(this.state.nftCost)} ETH
+              </div>
+            </div>
+            <div className="box">
+              <div className="right-content">Amount</div>
+              <div className="left-content"></div>{" "}
+              <div className="counter">
+                <Button className="mint_counter" onClick={this.decrement}>
+                  -
+                </Button>
+                <span>{this.state.count}</span>
+                <Button className="mint_counter" onClick={this.increment}>
+                  +
+                </Button>
+              </div>
+            </div>
 
             <h5>{this.collectionStatus()}</h5>
             <div className="wallet">
               <div id="wallet-address">
-                
                 <Button onClick={this.connectwallet}>Connect Wallet</Button>
               </div>
             </div>
-            <div id="error">
-            </div>
-            
+            <div id="error"></div>
 
             <div className="counter">
-              <Button className="mint_counter" onClick={this.decrement}>-</Button>
+              <Button className="mint_counter" onClick={this.decrement}>
+                -
+              </Button>
               <span>{this.state.count}</span>
-              <Button className="mint_counter" onClick={this.increment}>+</Button>
+              <Button className="mint_counter" onClick={this.increment}>
+                +
+              </Button>
             </div>
             {this.mintButton()}
             <Button className="mint_counter" onClick={this.showModal}></Button>
-
-            
-
-            
           </div>
 
           <div className="image-container">
@@ -651,13 +670,14 @@ export class MintPage extends React.Component {
             </div>
           </div>
         </div>
-        <Modal onClose={this.showModal} show={this.state.error} title="Login Error">
+        <Modal
+          onClose={this.showModal}
+          show={this.state.error}
+          title="Login Error"
+        >
           {this.state.errorMessage}
         </Modal>
-      
-
       </div>
-      
     );
   }
 }
