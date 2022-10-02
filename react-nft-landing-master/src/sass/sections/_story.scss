@@ -14,7 +14,6 @@
     position: relative;
     margin: 8rem 2rem;
     top: 0;
-    display: inline;
     grid-template-columns: 1fr ;
     font-size: 32px;
     .content {
@@ -22,7 +21,6 @@
       flex-direction: column;
       gap: 2rem;
       align-items: center;
-      padding: 2rem 0 0 0rem;
       .sub-title {
         color: var(--pink);
         font-family: 'Nunito', sans-serif;
@@ -105,7 +103,7 @@
     overflow: hidden;
     float: left;
     margin-left: -10%;
-    margin-right:10%;
+    margin-right:5%;
   }
     .right_pic{
       width:40%;
@@ -113,7 +111,7 @@
       border: 1px solid #ECEDE8;
       overflow: hidden;
       float:right;
-      margin-left: 10%;
+      margin-left: 5%;
       margin-right: -10%;
 
 }

@@ -21,6 +21,7 @@ import Loading from "./components/Loading";
 import Banner from "./components/Banner/Banner";
 import Loader from "./components/Banner/Loader";
 import Story from "./components/Story";
+import Roadmap from "./components/Roadmap"
 
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
@@ -59,6 +60,7 @@ function App() {
         .super-rare,
         .releases,
         .like,
+        .roadmap,
         .creater,
         .signup,
         footer
@@ -79,7 +81,7 @@ function App() {
   async function getBunnyJson() {
     const map1 = new Map();
 
-    for (var num = 1; num < 30; num++) {
+    for (var num = 1; num < 1; num++) {
       try {
         let name = await fetch(
           "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
@@ -190,6 +192,7 @@ function App() {
                           {/* <Like /> */}
                           <SuperRare />
                           {/* <Release /> */}
+                          <Roadmap/>
                           <img className="road" src={roadmap} />
                           <Creater />
                           <Signup />

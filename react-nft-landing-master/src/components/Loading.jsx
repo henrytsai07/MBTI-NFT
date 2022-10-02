@@ -12,8 +12,8 @@ export default function Loading() {
         className="circle"
         type="spin"
         color="orange"
-        height={300}
-        width={300}
+        height="10%"
+        width="10%"
       />
         <motion.img className="carrot" src={carrot} alt="carrot" />
 

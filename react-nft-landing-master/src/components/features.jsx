@@ -171,7 +171,7 @@ export class Features extends React.Component {
     async function getBunnyJson() {
       const map1 = new Map();
   
-      for (var num = 1; num < 30; num++) {
+      for (var num = 1; num < 1; num++) {
       try {
         let name = await fetch(
           "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +

@@ -1,0 +1,95 @@
+.roadmap{
+    margin-top: 5rem;
+  margin-left: 0rem;
+  width: 100%;
+}
+.planet_container {
+    position: relative;
+    width: 100%;
+  }
+  
+  /* Make the image to responsive */
+  .main_planet {
+    width: 30%;
+    margin-left: -10%;
+    height: auto;
+  }
+  .second_planet {
+    width: 10%;
+    margin-left: 10%;
+    margin-bottom: 2%;
+
+    height: auto;
+  }
+  .third_planet {
+    width: 10%;
+    margin-bottom: 20%;
+    margin-left: 5%;
+    height: auto;
+  }
+  .four_planet {
+    width: 10%;
+    margin-bottom: -3%;
+    margin-left: 5%;
+    height: auto;
+  }
+  .fifth_planet {
+    width: 10%;
+    margin-left: 5%;
+    margin-bottom: 10%;
+    height: auto;
+  }
+  
+  /* The overlay effect (full height and width) - lays on top of the container and over the image */
+  .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #008CBA;
+    border-radius: 50%;
+    overflow: hidden;
+    width: 30%;
+    height: 100%;
+    // transform: scale(0);
+    transition: .3s ease;
+    margin-left: -10%;
+    opacity: 0;
+    transition: .5s ease;
+    .plt1{
+
+    }
+    .plt2{
+
+    }
+    .plt3{
+
+    }
+    .plt4{
+
+    }
+  }
+  
+  
+  /* When you mouse over the container, the overlay text will "zoom" in display */
+  .second_planet:hover ~ .overlay.plt1 {
+    opacity: 1;    
+  }
+  .third_planet:hover ~ .overlay.plt2 {
+    opacity: 1;    
+  }
+  .four_planet:hover ~ .overlay.plt3 {
+    opacity: 1;    
+  }
+ 
+  
+  /* Some text inside the overlay, which is positioned in the middle vertically and horizontally */
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
