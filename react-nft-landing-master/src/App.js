@@ -20,6 +20,7 @@ import Landing from "./components/landing";
 import Loading from "./components/Loading";
 import Banner from "./components/Banner/Banner";
 import Loader from "./components/Banner/Loader";
+import Story from "./components/Story";
 
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
@@ -52,6 +53,7 @@ function App() {
         `
         nav,
         .home,
+        .story,
         .free,
         .clients,
         .super-rare,
@@ -183,6 +185,7 @@ function App() {
                           <ScrollToTop />
 
                           <Home />
+                          <Story/>
                           <Free />
                           {/* <Like /> */}
                           <SuperRare />
