@@ -63,7 +63,7 @@ function App() {
         .roadmap,
         .creater,
         .signup,
-        footer
+        .footer
     `,
         {
           interval: 500,
@@ -190,10 +190,10 @@ function App() {
                           <Story/>
                           <Free />
                           {/* <Like /> */}
+                          <Roadmap/>
                           <SuperRare />
                           {/* <Release /> */}
-                          <Roadmap/>
-                          <img className="road" src={roadmap} />
+                          {/* <img className="road" src={roadmap} /> */}
                           <Creater />
                           <Signup />
                         </div>

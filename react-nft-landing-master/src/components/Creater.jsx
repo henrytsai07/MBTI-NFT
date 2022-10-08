@@ -53,7 +53,7 @@ export default function SuperRare() {
   ];
   return (
     <div className="super-rare">
-      <img className="underground" src={underground} />
+      {/* <img className="underground" src={underground} /> */}
 
       <div className="title-container">
         <h2 className="title">MBTI BUNNY CREATORS</h2>

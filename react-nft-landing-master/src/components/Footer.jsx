@@ -58,7 +58,7 @@ export default function Footer() {
       </div>
       <div className="lower">
         <span>&copy; Copyright 2022 NFT</span>
-        <span>Launching August 2022</span>
+        <span>Launching March 2023</span>
       </div>
 
     </footer>

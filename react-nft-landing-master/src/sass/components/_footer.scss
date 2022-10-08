@@ -1,21 +1,23 @@
 footer {
-  display: none;
+  display: block;
   flex-direction: column;
   gap: 5rem;
+  background-color: rgb(48, 9, 192);
+  margin-top: 5rem;
 
   .upper {
     padding: 2rem 4rem;
 
     display: flex;
     justify-content: space-between;
-    color: var(--accent-color3);
+    color: white;
     .brand-container {
       display: flex;
       flex-direction: column;
       gap: 1.5rem;
       .brand {
         img {
-          width: 200px;
+          width: 20%;
 
         }
       }
@@ -37,7 +39,7 @@ footer {
         flex-direction: column;
         gap: 2rem;
         h4 {
-          color: var(--accent-color1);
+          color: white;
           text-transform: uppercase;
         }
         ul {
@@ -58,7 +60,7 @@ footer {
     display: flex;
     justify-content: space-between;
     span {
-      color: var(--accent-color3);
+      color: white;
     }
   }
   .island {

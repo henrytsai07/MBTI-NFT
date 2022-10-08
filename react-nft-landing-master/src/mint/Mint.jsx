@@ -626,15 +626,7 @@ export class MintPage extends React.Component {
             <div className="box">
               <div className="right-content">Amount</div>
               <div className="left-content"></div>{" "}
-              <div className="counter">
-                <Button className="mint_counter" onClick={this.decrement}>
-                  -
-                </Button>
-                <span>{this.state.count}</span>
-                <Button className="mint_counter" onClick={this.increment}>
-                  +
-                </Button>
-              </div>
+              
             </div>
 
             <h5>{this.collectionStatus()}</h5>
@@ -646,11 +638,11 @@ export class MintPage extends React.Component {
             <div id="error"></div>
 
             <div className="counter">
-              <Button className="mint_counter" onClick={this.decrement}>
+              <Button className="mint_counter L" onClick={this.decrement}>
                 -
               </Button>
-              <span>{this.state.count}</span>
-              <Button className="mint_counter" onClick={this.increment}>
+              <span className="count">{this.state.count}</span>
+              <Button className="mint_counter R" onClick={this.increment}>
                 +
               </Button>
             </div>
@@ -658,7 +650,7 @@ export class MintPage extends React.Component {
             <Button className="mint_counter" onClick={this.showModal}></Button>
           </div>
 
-          <div className="image-container">
+          {/* <div className="image-container">
             <div className="image-container">
               <div className="image">
                 <img src={animate} alt="home image" />
@@ -668,7 +660,7 @@ export class MintPage extends React.Component {
                 <div className="ellipse orange"></div>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
         <Modal
           onClose={this.showModal}
