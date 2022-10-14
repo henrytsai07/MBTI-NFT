@@ -1,13 +1,15 @@
 import React from "react";
 import home from "../assets/question_rabbit.png";
 // import animate from "../assets/bunny_gif.gif"
-import home_pic from "../assets/bunny_in_cloud.png"
+import story1 from "../assets/New Space Themed/story1.png"
+import story2 from "../assets/New Space Themed/story2.png"
+
 export default function Home() {
   return (
     <div className="story">
       <div className="container">
-      <img className="left_pic" src={home_pic}/>
-      <img className="right_pic" src={home_pic}/>
+      <img className="left_pic" src={story1}/>
+      <img className="right_pic" src={story2}/>
 
 
         <div className="content">

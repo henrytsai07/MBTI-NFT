@@ -61,6 +61,7 @@
     margin-left: -10%;
     opacity: 0;
     transition: .5s ease;
+    background: none;
     .plt1{
 
 
@@ -79,16 +80,32 @@
   
   /* When you mouse over the container, the overlay text will "zoom" in display */
   .second_planet:hover ~ .overlay.plt1 {
-    opacity: 1;    
+    opacity: 1; 
+    background: url("/assets/New Space Themed/roadmap_planet1.png")no-repeat ;
+    background-size: 90%;
+    background-position-x: 90%;
+   
   }
   .third_planet:hover ~ .overlay.plt2 {
     opacity: 1;    
+    background: url("/assets/New Space Themed/roadmap_planet2.png")no-repeat ;
+    background-size: 90%;
+    background-position-x: 90%;
+
   }
   .four_planet:hover ~ .overlay.plt3 {
     opacity: 1;    
+    background: url("/assets/New Space Themed/roadmap_planet3.png")no-repeat ;
+    background-size: 90%;
+    background-position-x: 90%;
+
   }
   .fifth_planet:hover ~ .overlay.plt4 {
     opacity: 1;    
+    background: url("/assets/New Space Themed/roadmap_planet4.png")no-repeat ;
+    background-size: 90%;
+    background-position-x: 90%;
+
   }
 
   .second_planet:hover {

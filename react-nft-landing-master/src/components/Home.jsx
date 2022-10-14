@@ -2,6 +2,7 @@ import React from "react";
 import home from "../assets/question_rabbit.png";
 // import animate from "../assets/bunny_gif.gif"
 import home_pic from "../assets/bunny_in_cloud.png"
+import rocket from "../assets/New Space Themed/landing_rocket.png"
 export default function Home() {
   return (
     <div className="home">
@@ -23,7 +24,7 @@ export default function Home() {
             <div className="ellipse orange"></div>
           </div>
         </div> */}
-              <img className="home_pic" src={home_pic}/>
+              <img className="home_pic" src={rocket}/>
 
       </div>
       
