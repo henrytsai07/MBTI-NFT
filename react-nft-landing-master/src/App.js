@@ -22,6 +22,8 @@ import Banner from "./components/Banner/Banner";
 import Loader from "./components/Banner/Loader";
 import Story from "./components/Story";
 import Roadmap from "./components/Roadmap"
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 import { motion, AnimateSharedLayout, AnimatePresence } from "framer-motion";
 
@@ -85,13 +87,13 @@ function App() {
       try {
         let name = await fetch(
           "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
-            num +
-            ".json"
+          num +
+          ".json"
         );
         let image = await fetch(
           "https://mbtibunny.mypinata.cloud/ipfs/QmNqNYbuuGK2LLCPhEu1BtyfdCGwjpL8ocM2yMUtgFbeSw/" +
-            num +
-            ".png"
+          num +
+          ".png"
         );
         map1.set(await name.json(), URL.createObjectURL(await image.blob()));
 
@@ -104,6 +106,15 @@ function App() {
     return map1;
   }
   getBunnyJson();
+  const particlesInit = async (main) => {
+    console.log(main);
+
+    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(main);
+  };
+
 
   return (
     <Router>
@@ -140,7 +151,7 @@ function App() {
                           <Loader />
                           <Banner />
                           <Cursor />
-                          <div className="black_back"/>
+                          <div className="black_back" />
                         </>
                       )}
                     </>
@@ -159,7 +170,7 @@ function App() {
                 <AnimatePresence>
                   {loading ? (
                     <>
-                    <div
+                      <div
                         className={`r_block ${transition ? "r_shown" : ""}`}
                       ></div>
                       <div
@@ -187,10 +198,10 @@ function App() {
                           <ScrollToTop />
 
                           <Home />
-                          <Story/>
+                          <Story />
                           <Free />
                           {/* <Like /> */}
-                          <Roadmap/>
+                          <Roadmap />
                           <SuperRare />
                           {/* <Release /> */}
                           {/* <img className="road" src={roadmap} /> */}
@@ -227,6 +238,130 @@ function App() {
                 </>
               ) : (
                 <>
+                <Particles
+                    id="tsparticles"
+                    init={particlesInit}
+
+                    options={{
+                      "fullScreen": {
+                        "enable": true,
+                        "zIndex": 1
+                      },
+                      "particles": {
+                        "number": {
+                          "value": 30,
+                          "density": {
+                            "enable": false,
+                            "value_area": 800
+                          }
+                        },
+                        "color": {
+                          "value": "#fea"
+                        },
+                        "shape": {
+                          "type": "star",
+                          "options": {
+                            "sides": 5
+                          }
+                        },
+                        "opacity": {
+                          "value": 0.8,
+                          "random": false,
+                          "anim": {
+                            "enable": true,
+                            "speed": 1,
+                            "opacity_min": 0.1,
+                            "sync": false
+                          }
+                        },
+                        "size": {
+                          "value": 5,
+                          "random": false,
+                          "anim": {
+                            "enable": false,
+                            "speed": 40,
+                            "size_min": 0.1,
+                            "sync": false
+                          }
+                        },
+                        "rotate": {
+                          "value": 0,
+                          "random": true,
+                          "direction": "clockwise",
+                          "animation": {
+                            "enable": true,
+                            "speed": 5,
+                            "sync": false
+                          }
+                        },
+                        "line_linked": {
+                          "enable": true,
+                          "distance": 600,
+                          "color": "#ffffff",
+                          "opacity": 0.4,
+                          "width": 2
+                        },
+                        "move": {
+                          "enable": true,
+                          "speed": 2,
+                          "direction": "none",
+                          "random": false,
+                          "straight": false,
+                          "out_mode": "out",
+                          "attract": {
+                            "enable": false,
+                            "rotateX": 600,
+                            "rotateY": 1200
+                          }
+                        }
+                      },
+                      "interactivity": {
+                        "events": {
+                          "onhover": {
+                            "enable": true,
+                            "mode": ["grab"]
+                          },
+                          "onclick": {
+                            "enable": false,
+                            "mode": "bubble"
+                          },
+                          "resize": true
+                        },
+                        "modes": {
+                          "grab": {
+                            "distance": 400,
+                            "line_linked": {
+                              "opacity": 1
+                            }
+                          },
+                          "bubble": {
+                            "distance": 400,
+                            "size": 40,
+                            "duration": 2,
+                            "opacity": 8,
+                            "speed": 3
+                          },
+                          "repulse": {
+                            "distance": 200
+                          },
+                          "push": {
+                            "particles_nb": 4
+                          },
+                          "remove": {
+                            "particles_nb": 2
+                          }
+                        }
+                      },
+                      "retina_detect": true,
+                      "background": {
+                        "color": "#111",
+                        "image": "",
+                        "position": "50% 50%",
+                        "repeat": "no-repeat",
+                        "size": "cover"
+                      }
+                    }}
+                  />
                   <div
                     className={`r_block ${transition ? "r_shown" : ""}`}
                   ></div>
@@ -234,7 +369,8 @@ function App() {
                     className={`l_block ${transition ? "l_shown" : ""}`}
                   ></div>
 
-                  <video src={videoBG} autoPlay muted loop />
+                  {/* <video src={videoBG} autoPlay muted loop /> */}
+                  
                   <div data-theme={theme} className="nav-container">
                     <Navbar changeTheme={changeTheme} currentTheme={theme} />
                   </div>
@@ -242,6 +378,7 @@ function App() {
                     <Features />
                   </div>
                   <Cursor />
+                  
                 </>
               )}
             </>

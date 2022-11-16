@@ -64,7 +64,7 @@ html {
   //padding: 2rem 4rem;
   position: relative;
   transition: 0.5s ease-in-out;
-  z-index:1
+  z-index:2;
 }
 
 .footer-container{
@@ -81,11 +81,13 @@ html {
 .filter-container {
   // transition: 0.5s ease-in-out;
   font-family: var(--font-family);
-
+  position: relative;
   padding: 4rem 4rem;
+  z-index:1;
   @media screen and (min-width: 280px) and (max-width: 1080px) {
     padding: 0;
   }
+  
 }
 
 .mint-container {
