@@ -32,7 +32,7 @@
       .title {
         font-family: 'Nunito', sans-serif;
         font-weight: 800;
-        font-size: 80px;
+        font-size: 5rem;
         line-height: 1;
         color: var(--accent-color1);
       }
@@ -72,31 +72,31 @@
     }
       
     }
-    .image-container {
-      text-align: center;
-      position: relative;
-      //z-index: 10;
+    // .image-container {
+    //   text-align: center;
+    //   position: relative;
+    //   //z-index: 10;
       
-      .ellipse-container {
-        .ellipse {
-          z-index: -1;
-          position: absolute;
-          height: 15rem;
-          width: 15rem;
-          filter: blur(100px);
-        }
-        .pink {
-          top: 40%;
-          right: 40%;
-          background-color: var(--pink);
-        }
-        .orange {
-          bottom: 40%;
-          left: 40%;
-          background-color: var(--orange);
-        }
-      }
-    }
+    //   .ellipse-container {
+    //     .ellipse {
+    //       z-index: -1;
+    //       position: absolute;
+    //       height: 15rem;
+    //       width: 15rem;
+    //       filter: blur(100px);
+    //     }
+    //     .pink {
+    //       top: 40%;
+    //       right: 40%;
+    //       background-color: var(--pink);
+    //     }
+    //     .orange {
+    //       bottom: 40%;
+    //       left: 40%;
+    //       background-color: var(--orange);
+    //     }
+    //   }
+    // }
     
   }
   .home_pic{

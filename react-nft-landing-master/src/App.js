@@ -128,13 +128,16 @@ function App() {
                 <AnimatePresence>
                   {loading ? (
                     <>
+                    <Loading />
+
                       <div
                         className={`r_block ${transition ? "r_shown" : ""}`}
                       ></div>
                       <div
                         className={`l_block ${transition ? "l_shown" : ""}`}
                       ></div>
-                      <Loading />
+                      
+
                     </>
                   ) : (
                     <>
@@ -170,13 +173,16 @@ function App() {
                 <AnimatePresence>
                   {loading ? (
                     <>
+                      <Loading />
+
                       <div
                         className={`r_block ${transition ? "r_shown" : ""}`}
                       ></div>
                       <div
                         className={`l_block ${transition ? "l_shown" : ""}`}
                       ></div>
-                      <Loading />
+
+
                     </>
                   ) : (
                     <>
@@ -228,17 +234,19 @@ function App() {
             <>
               {loading ? (
                 <>
+                  
+                  <Loading />
                   <div
                     className={`r_block ${transition ? "r_shown" : ""}`}
                   ></div>
                   <div
                     className={`l_block ${transition ? "l_shown" : ""}`}
                   ></div>
-                  <Loading />
+                  
                 </>
               ) : (
                 <>
-                <Particles
+                  <Particles
                     id="tsparticles"
                     init={particlesInit}
 
@@ -370,7 +378,7 @@ function App() {
                   ></div>
 
                   {/* <video src={videoBG} autoPlay muted loop /> */}
-                  
+
                   <div data-theme={theme} className="nav-container">
                     <Navbar changeTheme={changeTheme} currentTheme={theme} />
                   </div>
@@ -378,7 +386,7 @@ function App() {
                     <Features />
                   </div>
                   <Cursor />
-                  
+
                 </>
               )}
             </>
@@ -391,13 +399,14 @@ function App() {
             <>
               {loading ? (
                 <>
+                  <Loading />
+
                   <div
                     className={`r_block ${transition ? "r_shown" : ""}`}
                   ></div>
                   <div
                     className={`l_block ${transition ? "l_shown" : ""}`}
                   ></div>
-                  <Loading />
                 </>
               ) : (
                 <>

@@ -96,18 +96,17 @@ nav {
 
 @media (max-width: 768px){
     nav {
-    // position: relative;
-    // padding: 1rem 2rem;
+    padding: 1rem 2rem;
     .brand-container {
-      // display: flex;
-      // justify-content: space-between;
-      // align-items: center;
-      // width: 100%;
-      // .brand {
-      //   img {
-      //     height: 1.5rem;
-      //   }
-      // }
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      width: 100%;
+      .brand {
+        img {
+          padding-left: 1rem;
+        }
+      }
       .toggle-container {
         display: block;
         color: var(--accent-color1);
@@ -131,6 +130,7 @@ nav {
       position: absolute;
       top: 0;
       right: 0;
+      left: 0;
       opacity: 0;
       width: 0;
       visibility: hidden;
@@ -156,6 +156,7 @@ nav {
       width: 60vw;
       visibility: visible;
       opacity: 1;
+      margin-left: -2rem;
     }
   }
 }
