@@ -4,15 +4,16 @@
   box-sizing: border-box;
 }
 
+
 .story {
-  margin-top: 5rem;
   margin-left: 0rem;
   width: 100%;
+  padding-top: 10rem; 
 }
 
 .container {
   position: relative;
-  margin: 8rem 2rem;
+  margin: 0rem 2rem; /* Adjust the top margin as needed */
   top: 0;
   font-size: 32px;
 }
@@ -75,9 +76,7 @@ button {
 .right_pic {
   width: 100%;
   max-width: 40rem;
-  border: 1px solid #ecede8;
   overflow: hidden;
-  margin: 0 auto 2rem;
 }
 
 

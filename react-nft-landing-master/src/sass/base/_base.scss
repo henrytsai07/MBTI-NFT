@@ -34,7 +34,7 @@ html {
 }
 
 .app-container {
-  //background-color: var(--background);
+
   font-family: var(--font-family);
   overflow-x: hidden;
 
@@ -125,7 +125,6 @@ video {
 }
 .background_image{
   background-image: url(../../assets/bunny_background.png);
-  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 }

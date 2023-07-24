@@ -63,10 +63,13 @@ export default function Navbar({ changeTheme, currentTheme }) {
               </a>
               <ul className="dropdown-content">
                 <li>
-                  <a href="/feature1">Feature 1</a>
+                  <a href="/AboutOurCollection">About Our Collection</a>
                 </li>
                 <li>
-                  <a href="/feature2">Feature 2</a>
+                  <a href="/feature2">Roadmap</a>
+                </li>
+                <li>
+                  <a href="/feature2">About the Team</a>
                 </li>
                 {/* Add more feature links as needed */}
               </ul>
@@ -115,15 +118,6 @@ export default function Navbar({ changeTheme, currentTheme }) {
               >
                 Mint <TbAxe size={15} />
               </a>
-              <ul className="dropdown-content">
-                <li>
-                  <a href="/mint1">Mint 1</a>
-                </li>
-                <li>
-                  <a href="/mint2">Mint 2</a>
-                </li>
-                {/* Add more mint links as needed */}
-              </ul>
             </li>
           </ul>
         </div>

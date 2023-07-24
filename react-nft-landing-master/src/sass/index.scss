@@ -6,7 +6,7 @@
 @import "components/card";
 
 @import "sections/home";
-@import "sections/free";
+@import "sections/intro";
 @import "sections/clients";
 @import "sections/superRare";
 @import "sections/release";
@@ -24,4 +24,5 @@
 @import "banner/loader";
 @import "sections/story";
 @import "sections/roadmap";
+@import "loading/preloader.scss";
 
