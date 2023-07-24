@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import landing_b from "../assets/landing.mp4";
+import landing_b from "../../assets/landing.mp4";
 import { motion } from "framer-motion"
 
 const Landing = () => {

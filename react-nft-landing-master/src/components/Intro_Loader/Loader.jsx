@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-import Image from "../Banner/Image"
+import Image from "./Image"
 import tia from "../../assets/Tia.jpg";
 import kevin from "../../assets/Kevin.jpg";
 import katie from "../../assets/Katie.jpg";

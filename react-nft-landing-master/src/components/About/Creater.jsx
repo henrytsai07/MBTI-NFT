@@ -1,12 +1,12 @@
 import React from "react";
 import Card from "./Creator_Card";
-import tia from "../assets/Tia.jpg";
-import kevin from "../assets/Kevin.jpg";
-import katie from "../assets/Katie.jpg";
-import henry from "../assets/Henry.jpg";
-import michelle from "../assets/Michelle.jpg";
+import tia from "../../assets/Tia.jpg";
+import kevin from "../../assets/Kevin.jpg";
+import katie from "../../assets/Katie.jpg";
+import henry from "../../assets/Henry.jpg";
+import michelle from "../../assets/Michelle.jpg";
 
-import underground from "../assets/Underground.png";
+import underground from "../../assets/Underground.png";
 
 
 export default function SuperRare() {

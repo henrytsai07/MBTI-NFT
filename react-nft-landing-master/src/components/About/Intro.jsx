@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "./Card";
-import ex from "../assets/question_rabbit.png";
-import bunny_wiz from "../assets/cloud wiz rabbit.png"
+import ex from "../../assets/question_rabbit.png";
+import bunny_wiz from "../../assets/cloud wiz rabbit.png"
 
 export default function Free() {
   return (

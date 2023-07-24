@@ -2,8 +2,8 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //import Clients from "./components/Clients";
 import Footer from "./components/Footer";
-import Free from "./components/Free";
-import Home from "./components/Home";
+import Intro from "./components/About/Intro";
+import Home from "./components/Home/Home";
 import Navbar from "./components/Navbar";
 import ScrollToTop from "./components/ScrollToTop";
 import Signup from "./components/Signup";
@@ -12,16 +12,16 @@ import scrollreveal from "scrollreveal";
 import "./sass/index.scss";
 import videoBG from "./assets/new_b.mp4";
 import { Features } from "./components/features";
-import Creater from "./components/Creater";
+import Creater from "./components/About/Creater";
 import roadmap from "./assets/Roadmap.png";
 import { MintPage } from "./mint/Mint";
 import Cursor from "./components/cursor";
-import Landing from "./components/landing";
+import Landing from "./components/Intro_Loader/landing";
 import Loading from "./components/Loading";
-import Banner from "./components/Banner/Banner";
-import Loader from "./components/Banner/Loader";
-import Story from "./components/Story";
-import Roadmap from "./components/Roadmap"
+import Banner from "./components/Intro_Loader/Banner";
+import Loader from "./components/Intro_Loader/Loader";
+import Story from "./components/About/Story";
+import Roadmap from "./components/About/Roadmap"
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
@@ -57,7 +57,7 @@ function App() {
         nav,
         .home,
         .story,
-        .free,
+        .Intro,
         .clients,
         .super-rare,
         .releases,
@@ -205,12 +205,9 @@ function App() {
 
                           <Home />
                           <Story />
-                          <Free />
-                          {/* <Like /> */}
+                          <Intro />
                           <Roadmap />
                           <SuperRare />
-                          {/* <Release /> */}
-                          {/* <img className="road" src={roadmap} /> */}
                           <Creater />
                           <Signup />
                         </div>

@@ -2,15 +2,15 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.425);  
+  background-color: rgba(255, 255, 255, 0.425);
   backdrop-filter: blur(100px);
   background-attachment: fixed;
   border-radius: 80px;
   margin: 20px 0% 20px 2%;
-
   width: 96%;
   height: 100px;
   position: fixed;
+
   
   
   .brand-container {
@@ -30,7 +30,8 @@ nav {
   }
   .links-container {
     margin: 2.5rem 4rem 2rem 0;
-    // margin-top: 1rem;
+    position: relative;
+
     .links {
       list-style-type: none;
       display: flex;
@@ -76,6 +77,36 @@ nav {
       }
     }
   }
+  
+.links-container ul.dropdown-content {
+  list-style-type: none;
+  display: none;
+  position: absolute;
+  top: 100%; /* Position the dropdown below the parent link */
+  left: 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  z-index: 1; /* Ensure the dropdown appears on top of neighboring content */
+  width: max-content; /* Set the width of the dropdown content to fit its content */
+}
+
+/* Adjust the text color to black for the dropdown content */
+.links-container ul.dropdown-content a {
+  color: black;
+}
+
+/* Adjust the positioning and alignment of the dropdown content */
+.links-container li {
+  position: relative;
+}
+
+.links-container li:hover ul.dropdown-content {
+  display: block;
+  top: 100%; /* Position the dropdown below the parent link */
+  left: 0;
+}
   
 }
 .SocialIcon {

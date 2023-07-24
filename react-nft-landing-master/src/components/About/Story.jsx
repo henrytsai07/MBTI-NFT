@@ -1,8 +1,8 @@
 import React from "react";
-import home from "../assets/question_rabbit.png";
+import home from "../../assets/question_rabbit.png";
 // import animate from "../assets/bunny_gif.gif"
-import story1 from "../assets/New Space Themed/story1.png"
-import story2 from "../assets/New Space Themed/story2.png"
+import story1 from "../../assets/New Space Themed/story1.png"
+import story2 from "../../assets/New Space Themed/story2.png"
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
