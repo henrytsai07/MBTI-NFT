@@ -63,13 +63,40 @@ export default function Navbar({ changeTheme, currentTheme }) {
               </a>
               <ul className="dropdown-content">
                 <li>
-                  <a href="/AboutOurCollection">About Our Collection</a>
+                  <a
+                    onClick={() => {
+                      setTransition(true);
+                      setTimeout(() => {
+                        window.location.href = "/AboutOurCollection";
+                      }, 2000);
+                    }}
+                  >
+                    About Our Collection
+                  </a>
                 </li>
                 <li>
-                  <a href="/feature2">Roadmap</a>
+                <a
+                    onClick={() => {
+                      setTransition(true);
+                      setTimeout(() => {
+                        window.location.href = "/Roadmap";
+                      }, 2000);
+                    }}
+                  >
+                    Roadmap
+                  </a>
                 </li>
                 <li>
-                  <a href="/feature2">About the Team</a>
+                <a
+                    onClick={() => {
+                      setTransition(true);
+                      setTimeout(() => {
+                        window.location.href = "/MeetTheTeam";
+                      }, 2000);
+                    }}
+                  >
+                    Meet The Team
+                  </a>
                 </li>
                 {/* Add more feature links as needed */}
               </ul>
@@ -83,17 +110,9 @@ export default function Navbar({ changeTheme, currentTheme }) {
                   }, 2000);
                 }}
               >
-                Features
+                Gallery
               </a>
-              <ul className="dropdown-content">
-                <li>
-                  <a href="/feature1">Feature 1</a>
-                </li>
-                <li>
-                  <a href="/feature2">Feature 2</a>
-                </li>
-                {/* Add more feature links as needed */}
-              </ul>
+
             </li>
             <li className="social">
               <a href="https://discord.gg/uMuaYzskaF" target="_blank">

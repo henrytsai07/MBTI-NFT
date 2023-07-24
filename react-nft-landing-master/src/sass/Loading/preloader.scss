@@ -1,6 +1,5 @@
 .preloader {
     height: 100vh;
-    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
     background: $white;
     position: fixed;
@@ -13,23 +12,58 @@
     justify-content: center;
     color: $white;
     overflow: hidden !important;
-
+  
     .texts-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        height: 10vh;
-        width: 20vw;
-        font-family: "Nunito", sans-serif;
-        font-size: 50px;
-        overflow: hidden;
-        font-weight: 800;
-        opacity: 0;
-        color: $black;
-        img{
-            width: 2vw;
-        }
-
-    
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 25vh;
+      width: 55vw;
+      font-family: "Nunito", sans-serif;
+      font-size: 6vw; /* Use vw for font size */
+      overflow: hidden;
+      font-weight: 800;
+      opacity: 0;
+      color: $black;
+      img {
+        width: 5vw;
+      }
     }
-}
+  }
+  
+  /* Media queries for responsiveness on different devices */
+  @media screen and (max-width: 320px) {
+    .preloader {
+      .texts-container {
+        width: 25vw;
+        height: 18vh;
+
+
+        font-size: 5vw;
+      }
+      img {
+        width: 3vw;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 321px) and (max-width: 768px) {
+    .preloader {
+      .texts-container {
+        width: 30vw;
+
+        font-size: 4vw;
+      }
+    }
+  }
+  
+  @media screen and (min-width: 769px) and (max-width: 1024px) {
+    .preloader {
+      .texts-container {
+        font-size: 3vw;
+      }
+    }
+  }
+  
+  /* Add more media queries as needed for other device sizes */
+  

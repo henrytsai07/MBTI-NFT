@@ -12,7 +12,7 @@
     
 
     position: relative;
-    margin: 8rem 2rem;
+    margin: 8rem 2rem 0rem 2rem;
     top: 0;
     display: grid;
     grid-template-columns: 1fr ;
@@ -72,31 +72,7 @@
     }
       
     }
-    // .image-container {
-    //   text-align: center;
-    //   position: relative;
-    //   //z-index: 10;
-      
-    //   .ellipse-container {
-    //     .ellipse {
-    //       z-index: -1;
-    //       position: absolute;
-    //       height: 15rem;
-    //       width: 15rem;
-    //       filter: blur(100px);
-    //     }
-    //     .pink {
-    //       top: 40%;
-    //       right: 40%;
-    //       background-color: var(--pink);
-    //     }
-    //     .orange {
-    //       bottom: 40%;
-    //       left: 40%;
-    //       background-color: var(--orange);
-    //     }
-    //   }
-    // }
+    
     
   }
   .home_pic{

@@ -37,7 +37,7 @@
 
       .title {
 
-        font-size: 1.5rem;
+        font-size: 4vw;
         color: white;
       }
 
@@ -57,7 +57,7 @@
       overflow: hidden;
       display: flex;
       align-items: center; /* Center the content vertically */
-      margin: 0rem 10rem 0rem 10rem;
+      margin: 0vw 10vw 0vw 10vw;
 
       
     }
@@ -75,6 +75,7 @@
     display: flex;
     position: absolute;
     width: 50%;
+    
 
     .card1 {
       top: 0;
@@ -83,6 +84,8 @@
       z-index: 3;
       font-size: 0.6rem;
       height: 10rem;
+      zoom: 120%;
+
       .card-image {
         img {
           height: 10rem;
@@ -98,6 +101,7 @@
       left: 10rem;
       transform: rotate(5deg);
       font-size: 0.6rem;
+      zoom: 1.5vh;
 
       .card-image {
         img {
@@ -118,8 +122,7 @@
     margin: 0;
 
     .container {
-      padding: 1rem 2rem;
-      height: 40vh;
+      
       border-radius: 0;
 
       .background {
@@ -147,7 +150,7 @@
 
       .card1,
       .card2 {
-        zoom: 0.3;
+        zoom: 0.8;
       }
     }
   }

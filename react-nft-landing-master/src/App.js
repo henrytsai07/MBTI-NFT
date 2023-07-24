@@ -156,9 +156,6 @@ function App() {
                       </div>
                       <div data-theme={theme} className="app-container">
                         <Home />
-                        <Roadmap />
-                        <SuperRare />
-                        <Creater />
                         <Signup />
                       </div>
 
@@ -170,6 +167,32 @@ function App() {
                   </>
                 </AnimatePresence>
               </AnimateSharedLayout>
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/Roadmap"
+          element={
+            <>
+              <>
+                <PreLoader></PreLoader>
+              </>
+              <div className="background_image">
+                <div data-theme={theme} className="nav-container">
+                  <Navbar
+                    changeTheme={changeTheme}
+                    currentTheme={theme}
+                  />
+                </div>
+
+                <ScrollToTop />
+                <Roadmap />
+              </div>
+              <div data-theme={theme} className="footer-container">
+                <Footer />
+              </div>
+              <Cursor />
             </>
           }
         />
@@ -192,6 +215,35 @@ function App() {
                 <ScrollToTop />
                 <Story />
                 <Intro />
+                <SuperRare />
+
+              </div>
+              <div data-theme={theme} className="footer-container">
+                <Footer />
+              </div>
+              <Cursor />
+            </>
+          }
+        />
+        <Route
+          exact
+          path="/MeetTheTeam"
+          element={
+            <>
+              <>
+                <PreLoader></PreLoader>
+              </>
+              <div className="background_image">
+                <div data-theme={theme} className="nav-container">
+                  <Navbar
+                    changeTheme={changeTheme}
+                    currentTheme={theme}
+                  />
+                </div>
+
+                <ScrollToTop />
+                <Creater />
+
               </div>
               <div data-theme={theme} className="footer-container">
                 <Footer />
