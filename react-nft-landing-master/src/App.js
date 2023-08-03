@@ -83,33 +83,33 @@ function App() {
 
 
 
-    async function getBunnyJson() {
-      const map1 = new Map();
+    // async function getBunnyJson() {
+    //   const map1 = new Map();
 
-      for (var num = 1; num <= 1; num++) {
-        try {
-          let name = await fetch(
-            "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
-            num +
-            ".json"
-          );
-          let image = await fetch(
-            "https://mbtibunny.mypinata.cloud/ipfs/QmNqNYbuuGK2LLCPhEu1BtyfdCGwjpL8ocM2yMUtgFbeSw/" +
-            num +
-            ".png"
-          );
-          map1.set(await name.json(), URL.createObjectURL(await image.blob()));
-        } catch (error) {
-          console.error(error);
-        }
-      }
+    //   for (var num = 1; num <= 1; num++) {
+    //     try {
+    //       let name = await fetch(
+    //         "https://mbtibunny.mypinata.cloud/ipfs/QmZCUkZY1sHjmRBCrYywWnLPf7CzgWgEkKbxtpGLXvqVAP/" +
+    //         num +
+    //         ".json"
+    //       );
+    //       let image = await fetch(
+    //         "https://mbtibunny.mypinata.cloud/ipfs/QmNqNYbuuGK2LLCPhEu1BtyfdCGwjpL8ocM2yMUtgFbeSw/" +
+    //         num +
+    //         ".png"
+    //       );
+    //       map1.set(await name.json(), URL.createObjectURL(await image.blob()));
+    //     } catch (error) {
+    //       console.error(error);
+    //     }
+    //   }
 
-      return map1;
-    }
+    //   return map1;
+    // }
 
 
 
-    getBunnyJson();
+    // getBunnyJson();
 
 
   }, []);
